@@ -1,0 +1,16 @@
+{% macro render_fund(fund) %}
+    <div class="col-md-2 col-xs-4">
+        <div style="height: 9em"
+             class="bs-callout {% if fund.amount < 0 %}bs-callout-danger{% else %}bs-callout-info{% endif %}">
+            <h4 class="fittext">{{ fund.date.strftime("%d. %m. %Y.  %H:%M")|replace(' ', '&nbsp;')|safe }}</h4>
+
+            <p class="fittext fund-amount">{{ '{0:n}'.format(fund.amount) }}</p>
+        </div>
+        {% for tag in fund.incomeTagGroup.tags %}
+            <span class="label {% if fund.amount < 0 %}label-danger{% else %}label-success{% endif %}">{{ tag.name }}</span>
+        {% endfor %}
+        {% for tag in fund.expenseTagGroup.tags %}
+            <span class="label label-info">{{ tag.name }}</span>
+        {% endfor %}
+    </div>
+{% endmacro %}
