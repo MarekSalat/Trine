@@ -1,4 +1,0 @@
-recursive-include trine/public *
-include trine/public/favicon.ico
-recursive-include trine/i18n *
-recursive-include trine/templates *
