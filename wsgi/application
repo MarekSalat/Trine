@@ -9,7 +9,7 @@ with open(virtualenv) as f:
     exec(code, dict(__file__=virtualenv))
  
 from paste.deploy import loadapp
-tgapp = os.path.join(here, '..', 'data', 'myproject')
+tgapp = os.path.join(here, '..', 'libs', 'myproject')
 application = loadapp('config:development.ini', relative_to=tgapp)
  
 if __name__ == '__main__':
