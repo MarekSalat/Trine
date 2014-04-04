@@ -4,7 +4,9 @@ os.environ['PYTHON_EGG_CACHE'] = os.path.join(here, '..', 'data', 'python-eggs')
  
 virtualenv = os.path.join(here, '..', 'data/env/Scripts/activate_this.py')
 #execfile(virtualenv, dict(__file__=virtualenv))
-exec(open(virtualenv).read())
+with open(virtualenv) as f:
+    code = compile(f.read(), virtualenv, 'exec')
+    exec(code, dict(__file__=virtualenv))
  
 from paste.deploy import loadapp
 tgapp = os.path.join(here, '..', 'data', 'myproject')
