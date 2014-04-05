@@ -8,7 +8,7 @@ export PYTHON_EGG_CACHE=~/$PYTHON/virtenv/venv/lib/python3.3/site-packages
 
 source ~/$PYTHON/virtenv/venv/bin/activate
 
-if [ -z $OPENSHIFT_DB_HOST ]
+if [ -z $OPENSHIFT_MYSQL_DB_HOST ]
 then
     echo 1>&2
     echo 1>&2
