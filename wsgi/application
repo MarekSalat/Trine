@@ -2,9 +2,9 @@ import os, sys
 
 here = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(here, 'tg2app'))
-config = os.path.join(here, 'myproject', 'development.ini')
+config = os.path.join(here, 'tg2app/myproject', 'development.ini')
 
-virtenv = os.environ.get('APPDIR', '') + '/virtenv/'
+virtenv = os.environ.get('APPDIR', '') + '/virtenv/venv'
 os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python3.3/site-packages')
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
 try:
