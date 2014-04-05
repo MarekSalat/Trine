@@ -9,8 +9,8 @@ source ~/$PYTHON/virtenv/venv/bin/activate
 
 
 # Have apache serve up all of our static resources
-echo "Symlinking static resources from myproject/public"
-ln -s $OPENSHIFT_REPO_DIR/wsgi/tg2app/myproject/public/* $OPENSHIFT_REPO_DIR/wsgi/static/
+echo "Symlinking static resources from trine/public"
+ln -s $OPENSHIFT_REPO_DIR/wsgi/tg2app/trine/public/* $OPENSHIFT_REPO_DIR/wsgi/static/
 
 cd $OPENSHIFT_REPO_DIR/wsgi/tg2app
 

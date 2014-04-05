@@ -1,12 +1,12 @@
-This file is for you to describe the myproject application. Typically
+This file is for you to describe the trine application. Typically
 you would include information such as the information below:
 
 Installation and Setup
 ======================
 
-Install ``myproject`` using the setup.py script::
+Install ``trine`` using the setup.py script::
 
-    $ cd myproject
+    $ cd trine
     $ python setup.py develop
 
 Create the project database for any model classes defined::
