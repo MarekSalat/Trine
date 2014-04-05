@@ -41,7 +41,6 @@ install_requires = [
     "alembic",
     "repoze.who",
     "tw2.forms",
-    "tgext.admin >= 0.5.1", 'routes',
 ]
 if py_version == (3, 3):
     #jinja2 2.7 is incompatible with Python 3.2
