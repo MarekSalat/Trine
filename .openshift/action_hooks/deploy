@@ -32,6 +32,6 @@ cd $OPENSHIFT_REPO_DIR/wsgi/tg2app
 
 # Run the test suite automatically
 # At the moment failure does not prevent the code from getting deployed
-echo "Running the test suite"
-unset OPENSHIFT_APP_NAME
-nosetests -q
+# echo "Running the test suite"
+# unset OPENSHIFT_APP_NAME
+# nosetests -q
