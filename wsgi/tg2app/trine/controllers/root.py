@@ -5,7 +5,7 @@
 
 from tg import expose, flash, request, tmpl_context
 from tg.i18n import ugettext as _
-from trine.controllers.tgroot import TGRootController
+from trine.controllers.TGroot import TGRootController
 
 from trine.lib.base import BaseController
 from trine.controllers.error import ErrorController
@@ -27,7 +27,7 @@ class RootController(BaseController):
         another_app = AnotherWSGIApplication()
 
     Keep in mind that WSGI applications shouldn't be mounted directly: They
-    must be wrapped around with :class:`tgroot.controllers.WSGIAppController`.
+    must be wrapped around with :class:`TGroot.controllers.WSGIAppController`.
 
     """
 

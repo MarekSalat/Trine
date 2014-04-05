@@ -73,7 +73,7 @@ setup(
             'main = trine.config.middleware:make_app'
         ],
         'gearbox.plugins': [
-            'turbogears-devtools = tgroot.devtools'
+            'turbogears-devtools = tg.devtools'
         ]
     },
     zip_safe=False

@@ -30,14 +30,14 @@ def setup_app():
 
 def setup_db():
     """Create the database schema (not needed when you run setup_app)."""
-    engine = config['tgroot.app_globals'].sa_engine
+    engine = config['TGroot.app_globals'].sa_engine
     model.init_model(engine)
     model.metadata.create_all(engine)
 
 
 def teardown_db():
     """Destroy the database schema."""
-    engine = config['tgroot.app_globals'].sa_engine
+    engine = config['TGroot.app_globals'].sa_engine
     model.metadata.drop_all(engine)
 
 

@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
       <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\migration\versions\1772a956001_initial_schema.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/__init__.py" afterPath="$PROJECT_DIR$/trine/tests/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/master.jinja" afterPath="$PROJECT_DIR$/trine/templates/master.jinja" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/schema.py" afterPath="$PROJECT_DIR$/trine/websetup/schema.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/utils.py" afterPath="$PROJECT_DIR$/trine/lib/utils.py" />
     </list>
     <ignored path="tg2app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -13,6 +17,9 @@
     <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705302188" ignored="false" />
     <file path="/development.ini" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705371344" ignored="false" />
     <file path="/schema.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396714362885" ignored="false" />
+    <file path="/utils.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396721587528" ignored="false" />
+    <file path="/setup.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396717375080" ignored="false" />
+    <file path="/master.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396717410092" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,24 +39,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="root.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
+      <file leaf-file-name="schema.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
+            <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#102#153#0" expanded="true" />
+                <element signature="e#58#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
+      <file leaf-file-name="env.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/migration/env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.7882562">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#58#95#0" expanded="true" />
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FundController.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="14" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="56" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TGroot.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trine/controllers/TGroot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,13 +106,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/trine/lib/_app_globals.py" />
         <option value="$PROJECT_DIR$/trine/config/app_cfg.py" />
         <option value="$PROJECT_DIR$/development.ini" />
         <option value="$PROJECT_DIR$/trine/lib/app_globals.py" />
         <option value="$PROJECT_DIR$/trine/controllers/root.py" />
         <option value="$PROJECT_DIR$/trine/websetup/schema.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/trine/templates/master.jinja" />
+        <option value="$PROJECT_DIR$/trine/lib/utils.py" />
       </list>
     </option>
   </component>
@@ -178,7 +214,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fund" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TGRoot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -215,6 +313,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -308,9 +420,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -318,7 +431,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -386,107 +498,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trine/websetup/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.21174377">
-          <folding>
-            <element signature="e#59#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/lib/app_globals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="12" selection-start="446" selection-end="446" vertical-scroll-proportion="0.54448396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/master.jinja">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/tgroot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/model/fund.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="4" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.46580407">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/websetup/bootstrap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="9" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="60" selection-end="60" vertical-scroll-proportion="0.15124555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/config/TrineAppConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="16" selection-start="800" selection-end="800" vertical-scroll-proportion="-0.24021353">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MANIFEST.in">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -508,21 +519,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/migration/script.py.mako">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="262" selection-end="262" vertical-scroll-proportion="0.4185606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/utils/AutoRepr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.45373666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/templates/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migration/env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="14" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/templates/TGRoot/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.03024911">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/templates/Fund/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="56" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
+        <state line="35" column="23" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.3985765">
           <folding>
             <element signature="e#102#153#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trine/templates/master.jinja">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="74" selection-start="574" selection-end="574" vertical-scroll-proportion="0.18843284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.7882562">
+        <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#58#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/TGroot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
