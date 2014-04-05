@@ -12,6 +12,7 @@ convert them into boolean, for example, you should use the
     setting = asbool(global_conf.get('the_setting'))
  
 """
+from tg import AppConfig
 
 from trine.config.TrineAppConfig import TrineAppConfig
 
@@ -19,8 +20,16 @@ import trine
 from trine import model
 from trine.lib import helpers
 
-base_config = TrineAppConfig()
+base_config = AppConfig()
 base_config.renderers = []
+
+# True to prevent dispatcher from striping extensions
+# For example /socket.io would be served by "socket_io" method instead of "socket"
+base_config.disable_request_extensions = False
+
+# Set None to disable escaping punctuation characters to "_" when dispatching methods.
+# Set to a function to provide custom escaping.
+base_config.dispatch_path_translator = True
 base_config.prefer_toscawidgets2 = True
 
 base_config.package = trine
@@ -41,8 +50,8 @@ base_config.model = trine.model
 base_config.DBSession = trine.model.DBSession
 # Configure the authentication backend
 
-# YOU MUST CHANGE THIS VALUE IN PRODUCTION TO SECURE YOUR APP 
-base_config.sa_auth.cookie_secret = "98bc8a89-0b98-476a-bac1-9c4573b1349b"
+# YOU MUST CHANGE THIS VALUE IN PRODUCTION TO SECURE YOUR APP
+base_config.sa_auth.cookie_secret = "c70561d4-5099-4e75-a140-18ed32907db3"
 
 base_config.auth_backend = 'sqlalchemy'
 
@@ -55,21 +64,16 @@ from tg.configuration.auth import TGAuthMetadata
 class ApplicationAuthMetadata(TGAuthMetadata):
     def __init__(self, sa_auth):
         self.sa_auth = sa_auth
-
     def authenticate(self, environ, identity):
-        user = self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(name=identity['login']).first()
+        user = self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(user_name=identity['login']).first()
         if user and user.validate_password(identity['password']):
             return identity['login']
-
     def get_user(self, identity, userid):
-        return self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(name=userid).first()
-
+        return self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(user_name=userid).first()
     def get_groups(self, identity, userid):
-        return [g.name for g in identity['user'].groups]
-
+        return [g.group_name for g in identity['user'].groups]
     def get_permissions(self, identity, userid):
-        return [p.name for p in identity['user'].permissions]
-
+        return [p.permission_name for p in identity['user'].permissions]
 
 base_config.sa_auth.dbsession = model.DBSession
 
@@ -96,5 +100,9 @@ base_config.sa_auth.post_login_url = '/post_login'
 # You may optionally define a page where you want users to be redirected to
 # on logout:
 base_config.sa_auth.post_logout_url = '/post_logout'
-
-# base_config.enable_routes = True
+try:
+    # Enable DebugBar if available, install tgext.debugbar to turn it on
+    from tgext.debugbar import enable_debugbar
+    enable_debugbar(base_config)
+except ImportError:
+    pass
