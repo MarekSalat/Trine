@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
-from routes import Mapper
+#from routes import Mapper
 
 from tg import expose, flash, request, tmpl_context
 from tg.i18n import ugettext as _
@@ -31,17 +31,17 @@ class RootController(BaseController):
     error = ErrorController()
 
     def __init__(self):
-        # self._fund = FundController(DBSession)
+        self._fund = FundController(DBSession)
         self._root = TGRootController()
-
-        map = Mapper()
-        map.connect(None, "/error/{action}/{id}", controller="error")
-        map.connect("home", "/", controller="main", action="index")
-        # ADD CUSTOM ROUTES HERE
-        map.connect(None, "/{controller}/{action}")
-        map.connect(None, "/{controller}/{action}/{id}")
-
-        self.map = map
+        # 
+        # map = Mapper()
+        # map.connect(None, "/error/{action}/{id}", controller="error")
+        # map.connect("home", "/", controller="main", action="index")
+        # # ADD CUSTOM ROUTES HERE
+        # map.connect(None, "/{controller}/{action}")
+        # map.connect(None, "/{controller}/{action}/{id}")
+        # 
+        # self.map = map
 
 
     @expose()
