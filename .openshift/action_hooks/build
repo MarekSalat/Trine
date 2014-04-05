@@ -1,0 +1,18 @@
+#!/bin/bash
+# TurboGears OpenShift post-stop build configuration
+
+set -e
+export PYTHON=python
+export PATH=$PATH:~/$PYTHON/virtenv/venv/bin/
+
+source ~/$PYTHON/virtenv/venv/bin/activate
+
+
+# Have apache serve up all of our static resources
+echo "Symlinking static resources from myproject/public"
+ln -s $OPENSHIFT_REPO_DIR/wsgi/tg2app/myproject/public/* $OPENSHIFT_REPO_DIR/wsgi/static/
+
+cd $OPENSHIFT_REPO_DIR/wsgi/tg2app
+
+# We're not doing 'install' to save space.
+python setup.py develop
