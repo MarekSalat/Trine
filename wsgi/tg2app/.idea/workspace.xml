@@ -109,7 +109,7 @@
       <file leaf-file-name="fundByTag.jinja" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trine/templates/Fund/fundByTag.jinja">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="12" selection-start="41" selection-end="41" vertical-scroll-proportion="0.033009708">
+            <state line="15" column="7" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49514562">
               <folding />
             </state>
           </provider>
@@ -627,7 +627,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/trine/templates/Fund/fundByTag.jinja">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="41" selection-end="41" vertical-scroll-proportion="0.033009708">
+        <state line="15" column="7" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49514562">
           <folding />
         </state>
       </provider>

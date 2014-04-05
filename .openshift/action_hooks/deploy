@@ -28,9 +28,9 @@ if [ ! -e $OPENSHIFT_DATA_DIR/DB_INITIALIZED ]; then
     echo "Initializing database"
     gearbox setup-app -c development.ini
     touch $OPENSHIFT_DATA_DIR/DB_INITIALIZED
-# else
-#     echo "Upgrading database"
-#     gearbox migrate upgrade
+else
+     echo "Upgrading database"
+     gearbox migrate upgrade
 fi
 
 # Run the test suite automatically
