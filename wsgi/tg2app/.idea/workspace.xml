@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\migration\versions\1772a956001_initial_schema.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/schema.py" afterPath="$PROJECT_DIR$/trine/websetup/schema.py" />
     </list>
@@ -11,6 +12,7 @@
     <file path="/_app_globals.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396703995600" ignored="false" />
     <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705302188" ignored="false" />
     <file path="/development.ini" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705371344" ignored="false" />
+    <file path="/schema.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396714362885" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,76 +43,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FundController.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="14" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="4" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tgroot.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/tgroot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="schema.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.75622773">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/websetup/bootstrap.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="9" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.jinja" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/templates/master.jinja">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrineAppConfig.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/config/TrineAppConfig.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="24" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="16" selection-start="800" selection-end="800" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.7882562">
+              <folding>
+                <element signature="e#58#95#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -447,52 +386,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trine/controllers/home.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/secure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/development.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="26" selection-start="1374" selection-end="1379" vertical-scroll-proportion="0.574026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="43" selection-start="3362" selection-end="3367" vertical-scroll-proportion="0.455516">
-          <folding>
-            <element signature="e#442#466#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trine/websetup/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.21174377">
@@ -512,7 +405,27 @@
     <entry file="file://$PROJECT_DIR$/trine/templates/master.jinja">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1394288038198" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -523,28 +436,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#102#153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="14" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -562,10 +459,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="4" selection-start="60" selection-end="60" vertical-scroll-proportion="0.15124555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/config/TrineAppConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="16" selection-start="800" selection-end="800" vertical-scroll-proportion="-0.24021353">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MANIFEST.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.6502732">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#102#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.75622773">
-          <folding />
+        <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.7882562">
+          <folding>
+            <element signature="e#58#95#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
