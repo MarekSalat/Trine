@@ -50,7 +50,7 @@ class RootController(BaseController):
     @expose()
     def _lookup(self, *args):
         path = request.environ['PATH_INFO']
-        # flash(_(r'%s - %s  - %r') % (args, path, self.map.routematch(path)))
+        flash(_(r'%s - %s') % (args, path))
         return self._root, args
 
     def _before(self, *args, **kw):
