@@ -1,17 +1,28 @@
-import os
+import os, sys
+
 here = os.path.dirname(os.path.abspath(__file__))
-os.environ['PYTHON_EGG_CACHE'] = os.path.join(here, '..', 'data', 'python-eggs')
- 
-virtualenv = os.path.join(here, '..', 'data/env/Scripts/activate_this.py')
-#execfile(virtualenv, dict(__file__=virtualenv))
-with open(virtualenv) as f:
-    code = compile(f.read(), virtualenv, 'exec')
-    exec(code, dict(__file__=virtualenv))
- 
+sys.path.insert(0, os.path.join(here, 'tg2app'))
+config = os.path.join(here, 'myproject', 'development.ini')
+
+virtenv = os.environ.get('APPDIR', '') + '/virtenv/'
+os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python3.3/site-packages')
+virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+try:
+    with open(virtualenv) as f:
+	    code = compile(f.read(), virtualenv, 'exec')
+	    exec(code, dict(__file__=virtualenv))
+except IOError:
+    pass
+
+import logging.config
+logging.config.fileConfig(config)
+
 from paste.deploy import loadapp
-tgapp = os.path.join(here, '..', 'libs', 'myproject')
-application = loadapp('config:development.ini', relative_to=tgapp)
- 
+application = loadapp('config:' + config)
+
+#
+# Below for testing only
+#
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
     httpd = make_server('localhost', 8051, application)
