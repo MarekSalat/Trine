@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
 #from routes import Mapper
-from routes import Mapper
+# from routes import Mapper
 
 from tg import expose, flash, request, tmpl_context
 from tg.i18n import ugettext as _
