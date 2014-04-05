@@ -8,6 +8,7 @@ from trine.controllers.tgroot import TGRootController
 
 from trine.lib.base import BaseController
 from trine.controllers.error import ErrorController
+from trine.controllers.FundController import FundController
 
 __all__ = ['RootController']
 
