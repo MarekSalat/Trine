@@ -14,8 +14,8 @@ try:
 except IOError:
     pass
 
-import logging.config
-logging.config.fileConfig(config)
+#import logging.config
+#logging.config.fileConfig(config)
 
 from paste.deploy import loadapp
 application = loadapp('config:' + config)
