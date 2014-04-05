@@ -31,7 +31,7 @@ if [ ! -e $OPENSHIFT_DATA_DIR/DB_INITIALIZED ]; then
 # else
 #     echo "Upgrading database"
 #     gearbox migrate upgrade
-# fi
+fi
 
 # Run the test suite automatically
 # At the moment failure does not prevent the code from getting deployed
