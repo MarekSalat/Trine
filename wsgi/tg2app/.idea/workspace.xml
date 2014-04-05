@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
       <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\migration\versions\1772a956001_initial_schema.py" afterPath="" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\tgroot.py" afterPath="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/__init__.py" afterPath="$PROJECT_DIR$/trine/tests/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/master.jinja" afterPath="$PROJECT_DIR$/trine/templates/master.jinja" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
@@ -79,8 +80,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TGRoot.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/TGRoot.py">
+      <file leaf-file-name="TGRootController.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/controllers/TGRootController.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
@@ -90,19 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
+            <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="root.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="root.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+            <state line="7" column="37" selection-start="225" selection-end="225" vertical-scroll-proportion="0.21174377">
               <folding />
             </state>
           </provider>
@@ -130,11 +131,11 @@
         <option value="$PROJECT_DIR$/trine/config/app_cfg.py" />
         <option value="$PROJECT_DIR$/development.ini" />
         <option value="$PROJECT_DIR$/trine/lib/app_globals.py" />
-        <option value="$PROJECT_DIR$/trine/controllers/root.py" />
         <option value="$PROJECT_DIR$/trine/websetup/schema.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/trine/templates/master.jinja" />
         <option value="$PROJECT_DIR$/trine/lib/utils.py" />
+        <option value="$PROJECT_DIR$/trine/controllers/root.py" />
       </list>
     </option>
   </component>
@@ -328,24 +329,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="migration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -436,14 +419,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="736" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -518,13 +501,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MANIFEST.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trine/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -613,14 +589,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
+    <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+        <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/TGRoot.py">
+    <entry file="file://$PROJECT_DIR$/trine/controllers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/TGRootController.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
@@ -629,9 +612,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
+    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
+        <state line="7" column="37" selection-start="225" selection-end="225" vertical-scroll-proportion="0.21174377">
           <folding />
         </state>
       </provider>
