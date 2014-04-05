@@ -79,13 +79,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TGRoot.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TGRoot.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trine/controllers/TGRoot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -567,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trine/templates/TGRoot/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.03024911">
@@ -624,6 +626,13 @@
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="48" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.57651246">
+          <folding />
         </state>
       </provider>
     </entry>
