@@ -5,7 +5,7 @@
 
 from tg import expose, flash, request, tmpl_context
 from tg.i18n import ugettext as _
-from trine.controllers.TGroot import TGRootController
+from trine.controllers.TGRoot import TGRootController
 
 from trine.lib.base import BaseController
 from trine.controllers.error import ErrorController
