@@ -2,24 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\migration\versions\1772a956001_initial_schema.py" afterPath="" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\tgroot.py" afterPath="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/trine.egg-info/SOURCES.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/__init__.py" afterPath="$PROJECT_DIR$/trine/tests/__init__.py" />
-      <change type="MODIFICATION" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\templates\TGRoot\data.jinja" afterPath="$PROJECT_DIR$/trine/templates/TGRoot/data.jinja" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine.egg-info/entry_points.txt" afterPath="$PROJECT_DIR$/trine.egg-info/entry_points.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/master.jinja" afterPath="$PROJECT_DIR$/trine/templates/master.jinja" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Marek.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/controllers/Api/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\other.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\testrunner.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\tg2app.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\dictionaries\Marek.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\config\deployment.ini_tmpl" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\home.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\secure.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\template.py" afterPath="" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\encodings.xml" afterPath="$PROJECT_DIR$/../../.idea/encodings.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\misc.xml" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\modules.xml" afterPath="$PROJECT_DIR$/../../.idea/modules.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\other.xml" afterPath="$PROJECT_DIR$/../../.idea/other.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\scopes\scope_settings.xml" afterPath="$PROJECT_DIR$/../../.idea/scopes/scope_settings.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\testrunner.xml" afterPath="$PROJECT_DIR$/../../.idea/testrunner.xml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\trine.iml" afterPath="$PROJECT_DIR$/../../.idea/tg2app.iml" />
+      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\vcs.xml" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/FundController.py" afterPath="$PROJECT_DIR$/trine/controllers/FundController.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/TGRootController.py" afterPath="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/config/app_cfg.py" afterPath="$PROJECT_DIR$/trine/config/app_cfg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/auth.py" afterPath="$PROJECT_DIR$/trine/model/auth.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/bootstrap.py" afterPath="$PROJECT_DIR$/trine/websetup/bootstrap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" afterPath="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/development.ini" afterPath="$PROJECT_DIR$/development.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/error.py" afterPath="$PROJECT_DIR$/trine/controllers/error.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/fund.py" afterPath="$PROJECT_DIR$/trine/model/fund.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/schema.py" afterPath="$PROJECT_DIR$/trine/websetup/schema.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/utils.py" afterPath="$PROJECT_DIR$/trine/lib/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/sandbox.py" afterPath="$PROJECT_DIR$/trine/tests/sandbox.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/test_tag.py" afterPath="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/utils/uuidType.py" afterPath="$PROJECT_DIR$/trine/utils/uuidType.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tg2app.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396702593871" ignored="false" />
     <file path="/_app_globals.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396703995600" ignored="false" />
-    <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705302188" ignored="false" />
+    <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396895071148" ignored="false" />
     <file path="/development.ini" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705371344" ignored="false" />
     <file path="/schema.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396714362885" ignored="false" />
     <file path="/utils.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396721587528" ignored="false" />
@@ -27,6 +60,21 @@
     <file path="/master.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396717410092" ignored="false" />
     <file path="/fundByTag.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396723729588" ignored="false" />
     <file path="/index.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396723737663" ignored="false" />
+    <file path="/ApiController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396941947119" ignored="false" />
+    <file path="/root.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396769752395" ignored="false" />
+    <file path="/Python Console" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396944517674" ignored="false" />
+    <file path="/uuidType.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396772499739" ignored="false" />
+    <file path="/a.dummy" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396780546922" ignored="false" />
+    <file path="/deploy" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396796801852" ignored="false" />
+    <file path="/error.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396798201762" ignored="false" />
+    <file path="/test_tag.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396946184719" ignored="false" />
+    <file path="/sandbox.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396941023882" ignored="false" />
+    <file path="/auth.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396866652516" ignored="false" />
+    <file path="/fund.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396942944093" ignored="false" />
+    <file path="/bootstrap.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396868881843" ignored="false" />
+    <file path="/secure.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396870215233" ignored="false" />
+    <file path="/TGRootController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396893822737" ignored="false" />
+    <file path="/FundController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396871944680" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,88 +94,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
+      <file leaf-file-name="app_cfg.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+            <state line="112" column="20" selection-start="4030" selection-end="4030" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#58#95#0" expanded="true" />
+                <element signature="e#442#503#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="env.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/migration/env.py">
+      <file leaf-file-name="ApiController.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="81" column="42" selection-start="2467" selection-end="2467" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FundController.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
+      <file leaf-file-name="test_tag.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="14" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="56" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TGRootController.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/TGRootController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="39" column="36" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#62#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/templates/Fund/__init__.py">
+      <file leaf-file-name="fund.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/model/fund.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="21" column="14" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fundByTag.jinja" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/trine/templates/Fund/fundByTag.jinja">
+      <file leaf-file-name="sandbox.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trine/tests/sandbox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49514562">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jinja" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/templates/Fund/index.jinja">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="12" selection-start="41" selection-end="41" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="macros.jinja" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/templates/Fund/macros.jinja">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="46" column="14" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.75714284">
               <folding />
             </state>
           </provider>
@@ -141,7 +155,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -151,18 +165,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/trine/lib/_app_globals.py" />
-        <option value="$PROJECT_DIR$/trine/config/app_cfg.py" />
+        <option value="$PROJECT_DIR$/../.htaccess" />
+        <option value="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" />
+        <option value="$PROJECT_DIR$/trine/controllers/error.py" />
+        <option value="C:/Python33/Lib/urllib/__init__.py" />
+        <option value="$PROJECT_DIR$/trine/model/auth.py" />
+        <option value="$PROJECT_DIR$/trine/controllers/secure.py" />
+        <option value="$PROJECT_DIR$/trine/websetup/bootstrap.py" />
+        <option value="$PROJECT_DIR$/trine.egg-info/SOURCES.txt" />
+        <option value="$PROJECT_DIR$/trine/controllers/FundController.py" />
         <option value="$PROJECT_DIR$/development.ini" />
-        <option value="$PROJECT_DIR$/trine/lib/app_globals.py" />
-        <option value="$PROJECT_DIR$/trine/websetup/schema.py" />
-        <option value="$PROJECT_DIR$/trine/templates/master.jinja" />
-        <option value="$PROJECT_DIR$/trine/lib/utils.py" />
-        <option value="$PROJECT_DIR$/trine/controllers/root.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/trine/templates/TGRoot/data.jinja" />
-        <option value="$PROJECT_DIR$/trine/templates/Fund/fundByTag.jinja" />
-        <option value="$PROJECT_DIR$/trine/templates/Fund/index.jinja" />
+        <option value="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
+        <option value="$PROJECT_DIR$/trine/config/app_cfg.py" />
+        <option value="$PROJECT_DIR$/trine/tests/sandbox.py" />
+        <option value="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
+        <option value="$PROJECT_DIR$/trine/model/fund.py" />
+        <option value="$PROJECT_DIR$/trine/tests/test_tag.py" />
       </list>
     </option>
   </component>
@@ -172,7 +190,7 @@
     <option name="width" value="1374" />
     <option name="height" value="736" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -212,6 +230,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -220,6 +270,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -234,6 +292,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -254,22 +320,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="trine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="wsgi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -280,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,6 +344,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -298,11 +362,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TGRoot" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,6 +370,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -320,11 +388,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fund" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -332,6 +396,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
@@ -352,28 +424,318 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="tg2app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="migration" />
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".openshift" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action_hooks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controllers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controllers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="Errors" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="RunManager">
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings />
+    </option>
+    <option name="myDjangoConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\tg2env\openshift\trine" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.sdf">
+    <configuration default="false" name="sandbox" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trine/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trine/tests/sandbox.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetest TestTag.test_some" type="tests" factoryName="Nosetests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trine/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <option name="CLASS_NAME" value="TestTag" />
+      <option name="METHOD_NAME" value="test_some" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetests in TestTag" type="tests" factoryName="Nosetests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trine/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <option name="CLASS_NAME" value="TestTag" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -413,6 +775,29 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../../../Scripts/python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -433,9 +818,63 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="false" name="sdf" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../../../Scripts/python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Python tests.sdf" />
+      <item index="1" class="java.lang.String" itemvalue="Python.sandbox" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetest TestTag.test_some" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in TestTag" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetest TestTag.test_some" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in TestTag" />
+        <item index="2" class="java.lang.String" itemvalue="Python.sandbox" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="" />
@@ -450,14 +889,14 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.61604095" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.61604095" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38395905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="23" y="220" width="1320" height="287" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -499,7 +938,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
     <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
     <option name="LIMIT_HISTORY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
@@ -525,113 +964,154 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trine/templates/__init__.py">
+    <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migration/env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="112" column="20" selection-start="4030" selection-end="4030" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#442#503#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/FundController.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/pip/_vendor/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="14" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+        <state line="65" column="18" selection-start="2517" selection-end="2524" vertical-scroll-proportion="0.65589356">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/lib/utils.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tgext/crud/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="56" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+        <state line="34" column="6" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/master.jinja">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/pip/_vendor/requests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="74" selection-start="574" selection-end="574" vertical-scroll-proportion="0.18843284">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/websetup/schema.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sprox/fillerbase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="65" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+        <state line="62" column="6" selection-start="1484" selection-end="1484" vertical-scroll-proportion="1.3674588">
           <folding>
-            <element signature="e#58#95#0" expanded="true" />
+            <element signature="e#183#234#0" expanded="true" />
+            <marker date="1394026249000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394026249000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/__init__.py">
+    <entry file="file://$PROJECT_DIR$/trine/tests/route.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="51" selection-start="346" selection-end="346" vertical-scroll-proportion="0.3024911">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="54" selection-start="1347" selection-end="1347" vertical-scroll-proportion="0.27402136">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/TGRootController.py">
+    <entry file="file://$PROJECT_DIR$/trine/tests/routeTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#0#62#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/Fund/__init__.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="254" column="10" selection-start="7197" selection-end="7197" vertical-scroll-proportion="0.33214286">
+          <folding>
+            <element signature="e#299#345#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="17" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/Fund/index.jinja">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/util/langhelpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="41" selection-end="41" vertical-scroll-proportion="-0.65384614">
+        <state line="117" column="4" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/Fund/macros.jinja">
+    <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="81" column="42" selection-start="2467" selection-end="2467" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/relationships.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="6" selection-start="1982" selection-end="1982" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trine/templates/Fund/fundByTag.jinja">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/sql/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49514562">
+        <state line="767" column="8" selection-start="30302" selection-end="30302" vertical-scroll-proportion="0.3320965">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trine/model/fund.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="14" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="36" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/tests/sandbox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="14" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.75714284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 

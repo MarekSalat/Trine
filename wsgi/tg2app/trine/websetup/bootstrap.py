@@ -5,9 +5,10 @@ from __future__ import print_function
 import transaction
 
 from trine import model
-from trine.model import seedSchema
+from trine.model import Tag, TagGroup, Fund
 
 
+# noinspection PyArgumentList
 def bootstrap(command, conf, vars):
     """Place any commands to setup trine here"""
 
@@ -15,37 +16,120 @@ def bootstrap(command, conf, vars):
     from sqlalchemy.exc import IntegrityError
 
     try:
-        u = model.User()
-        u.name = 'manager'
-        u.display_name = 'Example manager'
-        u.email = 'manager@somedomain.com'
-        u.password = 'managepass'
+        adminUser = model.User()
+        adminUser.name = 'mareks'
+        adminUser.display_name = 'Marek Salát'
+        adminUser.email = 'mareks@trine.com'
+        adminUser.password = 'mareks'
+        adminUser.defaultCurrency = "CZK"
 
-        model.DBSession.add(u)
+        model.DBSession.add(adminUser)
 
-        g = model.UserGroup()
-        g.name = 'managers'
-        g.display_name = 'Managers Group'
+        adminsGroup = model.UserGroup()
+        adminsGroup.name = 'admins'
+        adminsGroup.display_name = 'Admins group'
 
-        g.users.append(u)
+        adminsGroup.users.append(adminUser)
 
-        model.DBSession.add(g)
+        model.DBSession.add(adminsGroup)
 
-        p = model.Permission()
-        p.name = 'manage'
-        p.description = 'This permission give an administrative right to the bearer'
-        p.groups.append(g)
+        adminPermission = model.Permission()
+        adminPermission.name = 'all'
+        adminPermission.description = 'This permission give an all possible permission'
+        adminPermission.groups.append(adminsGroup)
 
-        model.DBSession.add(p)
+        model.DBSession.add(adminPermission)
 
-        u1 = model.User()
-        u1.name = 'editor'
-        u1.display_name = 'Example editor'
-        u1.email = 'editor@somedomain.com'
-        u1.password = 'editpass'
+        basicUser = model.User()
+        basicUser.name = 'mareks2'
+        basicUser.display_name = 'Example basic user'
+        basicUser.email = 'mareks2@trine.com'
+        basicUser.password = 'mareks2'
+        basicUser.defaultCurrency = "EUR"
 
-        model.DBSession.add(u1)
+        model.DBSession.add(basicUser)
+
+        basicUsersGroup = model.UserGroup()
+        basicUsersGroup.name = 'basicUsers'
+        basicUsersGroup.display_name = 'Basic users group'
+
+        model.DBSession.add(basicUsersGroup)
+
+        basicUserPermission = model.Permission()
+        basicUserPermission.name = 'trine'
+        basicUserPermission.description = 'This permission give a basic user right to add, edit, delete funds,tag groups, tags and own credentials'
+        basicUserPermission.groups.append(basicUsersGroup)
+
+        model.DBSession.add(basicUserPermission)
+
         model.DBSession.flush()
+
+        for user in [adminUser, basicUser]:
+            grocery = Tag(name="grocery", _user=user)
+            beers = Tag(name="beers", _user=user)
+            home = Tag(name="home", _user=user)
+            traveling = Tag(name="traveling", _user=user)
+            bus = Tag(name="bus", _user=user)
+            train = Tag(name="train", _user=user)
+
+            cash = Tag(name="cash", type=Tag.TYPE_INCOME, _user=user)
+            account = Tag(name="account", type=Tag.TYPE_INCOME, _user=user)
+            salary = Tag(name="salary", type=Tag.TYPE_INCOME, _user=user)
+
+            funds = []
+
+            group_cash = TagGroup(tags=[cash], _user=user)
+            group_account = TagGroup(tags=[account], _user=user)
+            group_account_salary = TagGroup(tags=[account, salary], _user=user)
+
+            funds.append(Fund(
+                amount=5000,
+                foreignCurrency=5000 / 28,
+                currency="EUR",
+                incomeTagGroup=group_account_salary,
+                _user=user
+            ))
+
+            funds.append(Fund(
+                amount=-50,
+                incomeTagGroup=group_cash,
+                expenseTagGroup=TagGroup(tags=[grocery, beers], _user=user),
+                _user=user
+            ))
+
+            funds.append(Fund(
+                amount=-150,
+                incomeTagGroup=group_account,
+                expenseTagGroup=TagGroup(tags=[traveling, bus], _user=user),
+                _user=user
+            ))
+
+            group_traveling_train = TagGroup(tags=[traveling, train], _user=user)
+            funds.append(Fund(
+                amount=-200,
+                incomeTagGroup=group_cash,
+                expenseTagGroup=group_traveling_train,
+                _user=user
+            ))
+
+            funds.append(Fund(
+                amount=-128,
+                incomeTagGroup=group_account,
+                expenseTagGroup=group_traveling_train,
+                _user=user
+            ))
+
+            funds.append(Fund(
+                amount=-42,
+                incomeTagGroup=group_account,
+                expenseTagGroup=TagGroup(tags=[grocery, home, beers], _user=user),
+                _user=user
+            ))
+
+            for fund in funds:
+                model.DBSession.add(fund)
+
+            model.DBSession.flush()
 
         transaction.commit()
     except IntegrityError:
@@ -56,7 +140,4 @@ def bootstrap(command, conf, vars):
         transaction.abort()
         print('Continuing with bootstrapping...')
 
-    seedSchema(model.DBSession)
-    model.DBSession.flush()
-    transaction.commit()
     # <websetup.bootstrap.after.auth>

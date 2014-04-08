@@ -5,6 +5,7 @@
 
 from tg import expose, flash, request, tmpl_context
 from tg.i18n import ugettext as _
+from trine.controllers.Api.ApiController import ApiController
 from trine.controllers.TGRootController import TGRootController
 
 from trine.lib.base import BaseController
@@ -32,6 +33,7 @@ class RootController(BaseController):
     """
 
     error = ErrorController()
+    api = ApiController()
 
     def __init__(self):
         self._fund = FundController(DBSession)

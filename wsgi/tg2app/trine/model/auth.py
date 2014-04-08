@@ -11,14 +11,14 @@ though.
 import os
 from datetime import datetime
 from hashlib import sha256
-from trine.utils.uuidType import UUID
+from trine.utils.uuidType import UuidColumn
 from trine.utils.AutoRepr import AutoRepr
 from trine.utils.uuidType import id_column
 
 __all__ = ['User', 'UserGroup', 'Permission']
 
-from sqlalchemy import Table, ForeignKey, Column, String
-from sqlalchemy.types import Unicode, DateTime
+from sqlalchemy import Table, ForeignKey, Column, String, TIMESTAMP
+from sqlalchemy.types import Unicode
 from sqlalchemy.orm import relation, synonym
 
 from trine.model import DeclarativeBase, metadata, DBSession
@@ -26,23 +26,15 @@ from trine.model import DeclarativeBase, metadata, DBSession
 # This is the association table for the many-to-many relationship between
 # groups and permissions.
 group_permission_table = Table('groups_permissions', metadata,
-                               Column('group_id', UUID(), ForeignKey('UserGroup.id',
-                                                                     onupdate="CASCADE", ondelete="CASCADE"),
-                                      primary_key=True),
-                               Column('permission_id', UUID(), ForeignKey('Permission.id',
-                                                                          onupdate="CASCADE", ondelete="CASCADE"),
-                                      primary_key=True)
+    Column('group_id',      UuidColumn(), ForeignKey('UserGroup.id',  onupdate="CASCADE", ondelete="CASCADE"), primary_key=True),
+    Column('permission_id', UuidColumn(), ForeignKey('Permission.id', onupdate="CASCADE", ondelete="CASCADE"), primary_key=True)
 )
 
 # This is the association table for the many-to-many relationship between
 # groups and members - this is, the memberships.
 user_group_table = Table('users_groups', metadata,
-                         Column('user_id', UUID(), ForeignKey('User.id',
-                                                              onupdate="CASCADE", ondelete="CASCADE"),
-                                primary_key=True),
-                         Column('group_id', UUID(), ForeignKey('UserGroup.id',
-                                                               onupdate="CASCADE", ondelete="CASCADE"),
-                                primary_key=True)
+    Column('user_id',  UuidColumn(), ForeignKey('User.id', onupdate="CASCADE", ondelete="CASCADE"), primary_key=True),
+    Column('group_id', UuidColumn(), ForeignKey('UserGroup.id', onupdate="CASCADE", ondelete="CASCADE"), primary_key=True)
 )
 
 
@@ -59,7 +51,7 @@ class UserGroup(DeclarativeBase, AutoRepr):
     id = id_column()
     name = Column(Unicode(16), unique=True, nullable=False)
     display_name = Column(Unicode(255))
-    created = Column(DateTime, default=datetime.now)
+    created = Column(TIMESTAMP, default=datetime.now)
     users = relation('User', secondary=user_group_table, backref='groups')
 
     def __unicode__(self):
@@ -81,7 +73,7 @@ class User(DeclarativeBase, AutoRepr):
     email = Column(Unicode(255), unique=True, nullable=False)
     display_name = Column(Unicode(255))
     _password = Column('password', Unicode(128))
-    created = Column(DateTime, default=datetime.now)
+    created = Column(TIMESTAMP, default=datetime.now)
 
     defaultCurrency = Column(String(3))
 

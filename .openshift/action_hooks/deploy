@@ -27,7 +27,7 @@ cd $OPENSHIFT_REPO_DIR/wsgi/tg2app
 if [ ! -e $OPENSHIFT_DATA_DIR/DB_INITIALIZED ]; then
     echo "Initializing database"
     gearbox setup-app -c development.ini
-    touch $OPENSHIFT_DATA_DIR/DB_INITIALIZED
+    # touch $OPENSHIFT_DATA_DIR/DB_INITIALIZED
 else
      echo "Upgrading database"
      gearbox migrate upgrade

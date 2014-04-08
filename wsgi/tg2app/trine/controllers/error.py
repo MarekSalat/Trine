@@ -19,6 +19,7 @@ class ErrorController(object):
     """
 
     @expose('trine.templates.error')
+    @expose("json")
     def document(self, *args, **kwargs):
         """Render the error document"""
         resp = request.environ.get('pylons.original_response')

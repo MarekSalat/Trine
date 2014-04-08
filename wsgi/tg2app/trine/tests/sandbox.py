@@ -1,50 +1,48 @@
-import re
-from tg import expose
+import os
+import urllib.request
+from http import cookiejar
+from urllib.parse import urlencode
+from pip._vendor import requests
 
-__author__ = 'Marek'
+jar = cookiejar.MozillaCookieJar()
+opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+opener.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0')]
 
+# req = opener.open('http://localhost:8080/login?came_from=%2F')
 
-def get_class_that_defined_method(method):
-    method_name = method.__name__
-    # if method.__self__:
-    #     classes = [method.__self__.__class__]
-    # else:
-    #unbound method
-    classes = [method.im_class]
-    while classes:
-        c = classes.pop()
-        if method_name in c.__dict__:
-            return c
-        else:
-            classes = list(c.__bases__) + classes
-    return None
+credentials = {'login': 'mareks', 'password': 'mareks', "remember": 1}
+# credenc = urlencode(credentials)
+# binary_data = credenc.encode('utf-8')
+#
+# request = urllib.request.Request(
+#     "http://localhost/api/v1/quick-key/fund.json", binary_data, auth=("mareks", "mareks"))
+# request.get_method = lambda: 'POST'
+# req = opener.open(request)
+#
+# print(req.headers)
+#
+# print(req.read())
+# for cookie in jar:
+#     print('%s : %s'%(cookie.name,cookie.value))
+#     if cookie.name == "webflash":
+#         val = urllib.parse.unquote(cookie.value)
+#         val = urllib.parse.unquote(val)
+#         print(val)
 
+# opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+# urllib.request.install_opener(opener)
+# req = opener.open('http://localhost:8080/api/v1/quick-key/fund.json')
+# print(req.read())
 
-class classdec:
-    def __init__(self):
-        print('classdec created')
+cookies = dict(authtkt="c98434e3bf2311012d1e481d12ac6f4a53439e68mareks!")
+# r = requests.post("http://localhost/login_handler", data=credentials, cookies=cookies, allow_redirects=True)
+# print(r.cookies)
+# print(r.status_code)
+# print(r.history)
 
-    def __call__(self, func):
-        print('classdec decorating')
-        return func
+r = requests.get("http://localhost/api/v1/quick-key/fund.json", cookies=cookies, allow_redirects=True)
+print(r.cookies)
+print(r.status_code)
+print(r.history)
+print(r.json())
 
-
-def something(func, *args, **kwargs):
-    tmp = repr(func)
-    res = re.findall(r'<function ([a0-z9_.]+) .+>', tmp)[0]
-    print(tmp, res)
-    path = "%s.%s.%s" % (func.__module__, func.__class__.__name__, func.__name__)
-    print(path)
-    return expose(path)(func)
-
-
-class Sandbox:
-    @something
-    def do(self):
-        print("I am doing")
-
-
-sandbox = Sandbox()
-sandbox.do()
-print('\n')
-sandbox.do()

@@ -1,6 +1,7 @@
 from tg import expose, flash, require, lurl, request, redirect
 from tg.i18n import ugettext as _, lazy_ugettext as l_
 from tg import predicates
+from tg.predicates import has_permission
 from tgext.admin.tgadminconfig import TGAdminConfig
 from tgext.admin.controller import AdminController
 
@@ -9,15 +10,16 @@ from trine.model import DBSession
 from trine.controllers.FundController import FundController
 from trine.lib.utils import exposeForThisName
 from trine.lib.base import BaseController
-from trine.controllers.secure import SecureController
 
 
 __author__ = 'Marek'
 
 
+class MyAdminController(AdminController):
+    allow_only = has_permission('all')
+
 class TGRootController(BaseController):
-    secc = SecureController()
-    admin = AdminController(model, DBSession, config_type=TGAdminConfig)
+    admin = MyAdminController(model, DBSession, config_type=TGAdminConfig)
 
     fund = FundController(DBSession)
 
@@ -71,8 +73,8 @@ class TGRootController(BaseController):
         """
         if not request.identity:
             login_counter = request.environ.get('repoze.who.logins', 0) + 1
-            redirect('/login',
-                     params=dict(came_from=came_from, __logins=login_counter))
+            redirect('/login', params=dict(came_from=came_from, __logins=login_counter))
+            return
         userid = request.identity['repoze.who.userid']
         flash(_('Welcome back, %s!') % userid)
         redirect(came_from)

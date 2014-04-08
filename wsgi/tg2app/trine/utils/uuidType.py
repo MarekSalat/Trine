@@ -5,7 +5,7 @@ from sqlalchemy.dialects.mssql.base import MSBinary
 from sqlalchemy.schema import Column
 
 
-class UUID(types.TypeDecorator):
+class UuidColumn(types.TypeDecorator):
     impl = MSBinary
 
     def __init__(self):
@@ -25,13 +25,17 @@ class UUID(types.TypeDecorator):
 
     def process_result_value(self, value, dialect=None):
         if value:
-            return uuid.UUID(bytes=value)
+            return JsonableUUID(bytes=value)
         else:
             return None
 
     def is_mutable(self):
         return False
 
+class JsonableUUID(uuid.UUID):
+
+    def __json__(self):
+        return str(self)
 
 id_column_name = "id"
 
@@ -39,4 +43,4 @@ id_column_name = "id"
 def id_column():
     import uuid
 
-    return Column(UUID(), primary_key=True, default=uuid.uuid4)
+    return Column(UuidColumn(), primary_key=True, default=lambda : JsonableUUID(uuid.uuid4().hex))

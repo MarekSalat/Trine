@@ -12,6 +12,10 @@ convert them into boolean, for example, you should use the
     setting = asbool(global_conf.get('the_setting'))
  
 """
+from repoze.who.classifiers import default_request_classifier
+from repoze.who.interfaces import IIdentifier, IChallenger
+from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
+from repoze.who.plugins.basicauth import BasicAuthPlugin
 from tg import AppConfig
 
 from trine.config.TrineAppConfig import TrineAppConfig
@@ -64,24 +68,88 @@ from tg.configuration.auth import TGAuthMetadata
 class ApplicationAuthMetadata(TGAuthMetadata):
     def __init__(self, sa_auth):
         self.sa_auth = sa_auth
+
     def authenticate(self, environ, identity):
-        user = self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(user_name=identity['login']).first()
+        user = self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(name=identity['login']).first()
+
         if user and user.validate_password(identity['password']):
             return identity['login']
+
     def get_user(self, identity, userid):
-        return self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(user_name=userid).first()
+        return self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(name=userid).first()
+
     def get_groups(self, identity, userid):
-        return [g.group_name for g in identity['user'].groups]
+        return [g.name for g in identity['user'].groups]
+
     def get_permissions(self, identity, userid):
-        return [p.permission_name for p in identity['user'].permissions]
+        return [p.name for p in identity['user'].permissions]
 
 base_config.sa_auth.dbsession = model.DBSession
 
 base_config.sa_auth.authmetadata = ApplicationAuthMetadata(base_config.sa_auth)
 
+authtkt = AuthTktCookiePlugin(base_config.sa_auth.cookie_secret, 'authtkt')
+basicauth = BasicAuthPlugin("Secure Area")
+classifications = {
+    IIdentifier: ["basicauth"],
+    IChallenger: ["basicauth"],
+}
+
+def my_custom_classifier(environ):
+    if environ.get('HTTP_AUTHORIZATION', ''):
+        return "basicauth"
+    return default_request_classifier(environ)
+
+def setup_auth(
+              form_plugin=None, form_identifies=True,
+              cookie_secret='secret', cookie_name='authtkt',
+              login_url='/login', login_handler='/login_handler',
+              post_login_url=None, logout_handler='/logout_handler',
+              post_logout_url=None, login_counter_name=None,
+              cookie_timeout=None, cookie_reissue_time=None,
+              **who_args):
+
+    from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
+    cookie = AuthTktCookiePlugin(cookie_secret, cookie_name,
+                                 timeout=cookie_timeout,
+                                 reissue_time=cookie_reissue_time)
+    who_args['identifiers'] = [('cookie', cookie)]
+    if not 'authenticators' in who_args.keys():
+        who_args['authenticators'] = []
+    who_args['authenticators'].insert(0, ('cookie', cookie))
+
+    # If no form plugin is provided then create a default
+    # one using the provided options.
+    if form_plugin is None:
+        from tg.configuration.auth.fastform import FastFormPlugin
+        form = FastFormPlugin(login_url, login_handler, post_login_url,
+                              logout_handler, post_logout_url,
+                              rememberer_name='cookie',
+                              login_counter_name=login_counter_name)
+    else:
+        form = form_plugin
+
+    if form_identifies:
+        who_args['identifiers'].insert(0, ('main_identifier', form))
+
+    if not 'challengers' in who_args.keys():
+        who_args['challengers'] = []
+
+    who_args['challengers'].insert(0, ('form', form))
+    who_args['challengers'].insert(0, ('basicauth', basicauth))
+    who_args['identifiers'].insert(0, ('basicauth', basicauth ))
+    who_args["request_classifier"] = my_custom_classifier
+
+
+
+# setup_auth(base_config.sa_auth)
+# base_config.sa_auth.form_identifies = False
+
 # You can use a different repoze.who Authenticator if you want to
 # change the way users can login
-#base_config.sa_auth.authenticators = [('myauth', SomeAuthenticator()]
+# base_config.sa_auth.authenticators = [('cookie', authtkt)]
+
+# base_config.sa_auth.identifiers = [ ('repoze.whoplugins.auth_tkt', authtkt) ]#, ('repoze.whoplugins.basicauth', basicauth )]
 
 # You can add more repoze.who metadata providers to fetch
 # user metadata.
@@ -91,7 +159,7 @@ base_config.sa_auth.authmetadata = ApplicationAuthMetadata(base_config.sa_auth)
 
 # override this if you would like to provide a different who plugin for
 # managing login and logout of your application
-base_config.sa_auth.form_plugin = None
+# base_config.sa_auth.form_plugin = None
 
 # You may optionally define a page where you want users to be redirected to
 # on login:
@@ -106,3 +174,6 @@ try:
     enable_debugbar(base_config)
 except ImportError:
     pass
+
+
+
