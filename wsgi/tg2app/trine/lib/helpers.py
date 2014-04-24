@@ -24,7 +24,9 @@ def icon(icon_name, white=False):
 def formatDatetime(value, format='medium'):
     return value.strftime("%d. %m. %Y.  %H:%M")
 
-
 def formatNumber(value):
     value = str(value)
     return re.sub(r'.0+', '', value)
+
+def current_datetime():
+    return formatDatetime(datetime.now())

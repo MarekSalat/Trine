@@ -80,6 +80,9 @@ class User(DeclarativeBase, AutoRepr):
     def __unicode__(self):
         return self.display_name or self.name
 
+    class __sprox__(object):
+        hide_fields = ['tags', 'funds', 'tagGroups']
+
     @property
     def permissions(self):
         """Return a set with all permissions granted to the user."""

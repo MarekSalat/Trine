@@ -16,14 +16,19 @@ class UuidColumn(types.TypeDecorator):
         if value and isinstance(value, uuid.UUID):
             return value.bytes
         if value and isinstance(value, str):
-            value = value.replace("-", "")
-            return value.encode("UTF-8")
+            return uuid.UUID(value).bytes
+        if value and isinstance(value, int):
+            return uuid.UUID(int=value).bytes
+        if value and isinstance(value, bytes):
+            return uuid.UUID(bytes=value).bytes
         elif value and not isinstance(value, uuid.UUID):
             raise ValueError('value %s %s is not a valid uuid.UUID' % value, type(value))
         else:
             return None
 
     def process_result_value(self, value, dialect=None):
+        if value and isinstance(value, str):
+            return JsonableUUID(value)
         if value:
             return JsonableUUID(bytes=value)
         else:
@@ -36,6 +41,7 @@ class JsonableUUID(uuid.UUID):
 
     def __json__(self):
         return str(self)
+
 
 id_column_name = "id"
 

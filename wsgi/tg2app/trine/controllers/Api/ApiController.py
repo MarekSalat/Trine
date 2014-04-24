@@ -1,7 +1,9 @@
 from json import JSONEncoder
 import json
 from os import environ
-from sprox.fillerbase import TableFiller
+from sprox.fillerbase import TableFiller, EditFormFiller
+from sprox.formbase import AddRecordForm, EditableForm
+from sprox.tablebase import TableBase
 from sqlalchemy.orm import subqueryload
 from tg import RestController, abort, request, expose, response, predicates
 from tgext.crud import CrudRestController
@@ -19,7 +21,7 @@ class ApiController(BaseController):
         super().__init__()
         self.apiControllers = dict(
             fund=FundApiRestController(DBSession),
-            tag=TagRestController(session=DBSession)
+            tag=TagRestController(DBSession)
         )
 
     @expose()
@@ -55,25 +57,13 @@ class ApiErrorController(BaseController):
         return dict(error=status, message="Api version is not supported")
 
 
-class ApiRestController(RestController):
+class ApiCrudRestController(CrudRestController):
+    pagination = {'items_per_page': 100}
     allow_only = predicates.not_anonymous()
-
-    def __init__(self, db):
-        super().__init__()
-        self.db = db
 
     def _before(self, *args, **kw):
         if request.response_type != 'application/json':
             abort(406, 'Only JSON requests are supported')
-
-
-class ApiCrudRestController(CrudRestController, ApiRestController):
-    def __init__(self, session, menu_items=None):
-        CrudRestController.__init__(self, session, menu_items)
-        ApiRestController.__init__(self, session)
-
-    def _before(self, *args, **kw):
-        ApiRestController._before(self, *args, **kw)
 
 # ------------------
 
@@ -81,10 +71,20 @@ class FundApiRestController(ApiCrudRestController):
     model = Fund
     substring_filters = [Fund.description]
 
+    # class new_form_type(AddRecordForm):
+    #     __model__ = Fund
+    #
+    # class edit_form_type(EditableForm):
+    #     __model__ = Fund
+    #
+    # class edit_filler_type(EditFormFiller):
+    #     __model__ = Fund
+    #
+    # class table_type(TableBase):
+    #     __model__ = Fund
+
     class table_filler_type(TableFiller):
         __model__ = Fund
-        __omit_fields__ = [Fund._user, Fund._user_id, Fund.incomeTagGroup_id, Fund.expenseTagGroup_id]
-        __hide_fields__ = __omit_fields__
 
         # def _do_get_provider_count_and_objs(self, **kw):
         #     since = kw.pop('since', 0)
@@ -109,10 +109,10 @@ class FundApiRestController(ApiCrudRestController):
         #
         #     return count, objs
 
+
 class TagRestController(ApiCrudRestController):
     model = Tag
     substring_filters = ['name']
-    pagination = {'items_per_page': 100}
 
     class table_filler_type(TableFiller):
         __model__ = Tag

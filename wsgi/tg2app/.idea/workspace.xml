@@ -2,79 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Marek.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/controllers/Api/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\other.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\testrunner.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\tg2app.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\dictionaries\Marek.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\config\deployment.ini_tmpl" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\home.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\secure.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\template.py" afterPath="" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\encodings.xml" afterPath="$PROJECT_DIR$/../../.idea/encodings.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\misc.xml" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\modules.xml" afterPath="$PROJECT_DIR$/../../.idea/modules.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\other.xml" afterPath="$PROJECT_DIR$/../../.idea/other.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\scopes\scope_settings.xml" afterPath="$PROJECT_DIR$/../../.idea/scopes/scope_settings.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\testrunner.xml" afterPath="$PROJECT_DIR$/../../.idea/testrunner.xml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\trine.iml" afterPath="$PROJECT_DIR$/../../.idea/tg2app.iml" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\.idea\vcs.xml" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.idea/tg2app.iml" afterPath="$PROJECT_DIR$/../../.idea/tg2app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" afterPath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/FundController.py" afterPath="$PROJECT_DIR$/trine/controllers/FundController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/TGRootController.py" afterPath="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/config/app_cfg.py" afterPath="$PROJECT_DIR$/trine/config/app_cfg.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/auth.py" afterPath="$PROJECT_DIR$/trine/model/auth.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/bootstrap.py" afterPath="$PROJECT_DIR$/trine/websetup/bootstrap.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" afterPath="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/development.ini" afterPath="$PROJECT_DIR$/development.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/error.py" afterPath="$PROJECT_DIR$/trine/controllers/error.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/fund.py" afterPath="$PROJECT_DIR$/trine/model/fund.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/helpers.py" afterPath="$PROJECT_DIR$/trine/lib/helpers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/Fund/index.jinja" afterPath="$PROJECT_DIR$/trine/templates/Fund/index.jinja" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/Fund/macros.jinja" afterPath="$PROJECT_DIR$/trine/templates/Fund/macros.jinja" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/master.jinja" afterPath="$PROJECT_DIR$/trine/templates/master.jinja" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/sandbox.py" afterPath="$PROJECT_DIR$/trine/tests/sandbox.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/test_tag.py" afterPath="$PROJECT_DIR$/trine/tests/test_tag.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/utils.py" afterPath="$PROJECT_DIR$/trine/lib/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/utils/uuidType.py" afterPath="$PROJECT_DIR$/trine/utils/uuidType.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tg2app.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396702593871" ignored="false" />
+    <file path="/Dummy.txt" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1398333083696" ignored="false" />
     <file path="/_app_globals.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396703995600" ignored="false" />
-    <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396895071148" ignored="false" />
+    <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396978078986" ignored="false" />
     <file path="/development.ini" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705371344" ignored="false" />
     <file path="/schema.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396714362885" ignored="false" />
-    <file path="/utils.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396721587528" ignored="false" />
+    <file path="/utils.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397136585698" ignored="false" />
     <file path="/setup.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396717375080" ignored="false" />
-    <file path="/master.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396717410092" ignored="false" />
+    <file path="/master.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397072941867" ignored="false" />
     <file path="/fundByTag.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396723729588" ignored="false" />
-    <file path="/index.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396723737663" ignored="false" />
-    <file path="/ApiController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396941947119" ignored="false" />
+    <file path="/index.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397150976632" ignored="false" />
+    <file path="/ApiController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397036903497" ignored="false" />
     <file path="/root.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396769752395" ignored="false" />
-    <file path="/Python Console" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396944517674" ignored="false" />
-    <file path="/uuidType.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396772499739" ignored="false" />
+    <file path="/Python Console" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397197116584" ignored="false" />
+    <file path="/uuidType.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397197197471" ignored="false" />
     <file path="/a.dummy" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396780546922" ignored="false" />
     <file path="/deploy" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396796801852" ignored="false" />
     <file path="/error.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396798201762" ignored="false" />
-    <file path="/test_tag.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396946184719" ignored="false" />
-    <file path="/sandbox.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396941023882" ignored="false" />
-    <file path="/auth.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396866652516" ignored="false" />
-    <file path="/fund.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396942944093" ignored="false" />
-    <file path="/bootstrap.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396868881843" ignored="false" />
+    <file path="/test_tag.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397214401319" ignored="false" />
+    <file path="/sandbox.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397201222692" ignored="false" />
+    <file path="/auth.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397195934443" ignored="false" />
+    <file path="/fund.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397151165520" ignored="false" />
+    <file path="/bootstrap.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397038244213" ignored="false" />
     <file path="/secure.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396870215233" ignored="false" />
     <file path="/TGRootController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396893822737" ignored="false" />
-    <file path="/FundController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396871944680" ignored="false" />
+    <file path="/FundController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397150803202" ignored="false" />
+    <file path="/macros.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397148620502" ignored="false" />
+    <file path="/helpers.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397067520526" ignored="false" />
+    <file path="/trine.less" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397158402513" ignored="false" />
+    <file path="/a.less" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1397156747922" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,54 +70,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="app_config.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/configuration/app_config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1231" column="32" selection-start="50739" selection-end="50739" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="root.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="23" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trine/lib/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="23" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decoratedcontroller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/decoratedcontroller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="284" column="24" selection-start="12259" selection-end="12259" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="render.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/render.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="4" selection-start="3611" selection-end="3611" vertical-scroll-proportion="0.03024911">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app_cfg.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="20" selection-start="4030" selection-end="4030" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#442#503#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiController.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="42" selection-start="2467" selection-end="2467" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_tag.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="36" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fund.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trine/model/fund.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="14" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sandbox.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/trine/tests/sandbox.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="14" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.75714284">
+            <state line="47" column="36" selection-start="1609" selection-end="1613" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -165,21 +142,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../.htaccess" />
-        <option value="$PROJECT_DIR$/../../.openshift/action_hooks/deploy" />
-        <option value="$PROJECT_DIR$/trine/controllers/error.py" />
-        <option value="C:/Python33/Lib/urllib/__init__.py" />
-        <option value="$PROJECT_DIR$/trine/model/auth.py" />
-        <option value="$PROJECT_DIR$/trine/controllers/secure.py" />
         <option value="$PROJECT_DIR$/trine/websetup/bootstrap.py" />
-        <option value="$PROJECT_DIR$/trine.egg-info/SOURCES.txt" />
+        <option value="$PROJECT_DIR$/trine/lib/helpers.py" />
+        <option value="$PROJECT_DIR$/trine/controllers/root.py" />
+        <option value="$PROJECT_DIR$/trine/templates/master.jinja" />
+        <option value="$PROJECT_DIR$/trine/templates/Fund/macros.jinja" />
         <option value="$PROJECT_DIR$/trine/controllers/FundController.py" />
-        <option value="$PROJECT_DIR$/development.ini" />
-        <option value="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
-        <option value="$PROJECT_DIR$/trine/config/app_cfg.py" />
-        <option value="$PROJECT_DIR$/trine/tests/sandbox.py" />
-        <option value="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
+        <option value="$PROJECT_DIR$/trine/templates/Fund/index.jinja" />
         <option value="$PROJECT_DIR$/trine/model/fund.py" />
+        <option value="$PROJECT_DIR$/trine/lib/utils.py" />
+        <option value="$PROJECT_DIR$/trine/public/css/trine.less" />
+        <option value="$PROJECT_DIR$/trine/public/bootstrap/less/bootstrap.less" />
+        <option value="$PROJECT_DIR$/trine/model/auth.py" />
+        <option value="$PROJECT_DIR$/trine/utils/uuidType.py" />
+        <option value="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
+        <option value="$PROJECT_DIR$/trine/tests/sandbox.py" />
         <option value="$PROJECT_DIR$/trine/tests/test_tag.py" />
       </list>
     </option>
@@ -189,6 +166,43 @@
     <option name="y" value="-4" />
     <option name="width" value="1374" />
     <option name="height" value="736" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Bitwise operation issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>LESS</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+          <State>
+            <id>SASS/SCSS</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -216,284 +230,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websetup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tg2app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".openshift" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action_hooks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -618,15 +354,281 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tg2app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/trine/tests/test_tag.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="FullScreen" value="false" />
+    <property name="last.edited.regexp" value="seconds" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -650,9 +652,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../../../Scripts/python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trine/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="tg2app" />
@@ -839,7 +841,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -851,9 +855,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetest TestTag.test_some" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in TestTag" />
-        <item index="2" class="java.lang.String" itemvalue="Python.sandbox" />
+        <item index="0" class="java.lang.String" itemvalue="Python.sandbox" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetest TestTag.test_some" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in TestTag" />
       </list>
     </recent_temporary>
   </component>
@@ -883,27 +887,47 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="736" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.61604095" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.61604095" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38395905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="23" y="220" width="1320" height="287" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2159091" sideWeight="0.6717687" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965987" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38395905" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51877135" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="23" y="220" width="1320" height="287" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -969,130 +993,94 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/trine/model/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="14" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.03024911" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/utils/uuidType.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="29" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/configuration/auth/fastform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="6" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/config/middleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="38" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/public/css/trine.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="41" selection-start="37" selection-end="41" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="4" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/support/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="8" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/configuration/app_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1231" column="32" selection-start="50739" selection-end="50739" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/root.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="23" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="2" selection-start="4226" selection-end="4227" vertical-scroll-proportion="-6.88" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/crank/objectdispatcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.8280962" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="20" selection-start="4030" selection-end="4030" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#442#503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/pip/_vendor/requests/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="18" selection-start="2517" selection-end="2524" vertical-scroll-proportion="0.65589356">
+        <state line="47" column="36" selection-start="1609" selection-end="1613" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tgext/crud/controller.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/tgcontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="6" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.0">
+        <state line="8" column="29" selection-start="279" selection-end="279" vertical-scroll-proportion="0.15124555" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/lib/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="23" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/pip/_vendor/requests/__init__.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/decoratedcontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="284" column="24" selection-start="12259" selection-end="12259" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sprox/fillerbase.py">
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/render.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="6" selection-start="1484" selection-end="1484" vertical-scroll-proportion="1.3674588">
-          <folding>
-            <element signature="e#183#234#0" expanded="true" />
-            <marker date="1394026249000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1394026249000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/tests/route.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/tests/routeTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="10" selection-start="7197" selection-end="7197" vertical-scroll-proportion="0.33214286">
-          <folding>
-            <element signature="e#299#345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="17" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/util/langhelpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="4" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="42" selection-start="2467" selection-end="2467" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/orm/relationships.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="6" selection-start="1982" selection-end="1982" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sqlalchemy/sql/schema.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="767" column="8" selection-start="30302" selection-end="30302" vertical-scroll-proportion="0.3320965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/model/fund.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="14" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="36" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/tests/sandbox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="14" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.75714284">
+        <state line="121" column="4" selection-start="3611" selection-end="3611" vertical-scroll-proportion="0.03024911">
           <folding />
         </state>
       </provider>

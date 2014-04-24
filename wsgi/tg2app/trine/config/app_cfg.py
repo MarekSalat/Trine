@@ -109,6 +109,9 @@ def setup_auth(
               cookie_timeout=None, cookie_reissue_time=None,
               **who_args):
 
+    cookie_timeout = 60*60*24*30
+    cookie_reissue_time = cookie_timeout//2
+
     from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
     cookie = AuthTktCookiePlugin(cookie_secret, cookie_name,
                                  timeout=cookie_timeout,

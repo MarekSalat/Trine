@@ -84,8 +84,8 @@ def bootstrap(command, conf, vars):
 
             funds.append(Fund(
                 amount=5000,
-                foreignCurrency=5000 / 28,
-                currency="EUR",
+                foreignCurrencyAmount=5000 / 28,
+                foreignCurrency="EUR",
                 incomeTagGroup=group_account_salary,
                 _user=user
             ))

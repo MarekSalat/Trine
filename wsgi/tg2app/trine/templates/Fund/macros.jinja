@@ -1,6 +1,6 @@
 {% macro render_fund(fund) %}
     <div class="col-md-2 col-xs-4">
-        <div style="height: 9em"
+        <div style=""
              class="bs-callout {% if fund.amount < 0 %}bs-callout-danger{% else %}bs-callout-info{% endif %}">
             <h4 class="fittext">{{ fund.date.strftime("%d. %m. %Y.  %H:%M")|replace(' ', '&nbsp;')|safe }}</h4>
 
@@ -13,4 +13,113 @@
             <span class="label label-info">{{ tag.name }}</span>
         {% endfor %}
     </div>
+{% endmacro %}
+
+{% macro render_fund_form(actionLink, method="post", tags=[], groups=[]) %}
+
+    <form id="" class="form-horizontal" method="{{ method }}" action="{{ actionLink }}" novalidate="">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Add transaction</legend>
+
+            <div class="row form-group">
+                <div class="col-xs-8">
+                    <div id="form-type-radio-date-sel" class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" name="date-sel" id="date-sel-option1" value="-1 day"/> yesterday
+                        </label>
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="date-sel" id="date-sel-option2" value="now"/> now
+                        </label>
+                        <label class="btn btn-primary disabled">
+                            <input type="radio" name="date-sel" id="date-sel-option3" value="+1 day"/> tomorrow
+                        </label>
+                        <label class="btn btn-primary own">
+                            <input type="radio" name="date-sel" id="date-sel-option4" value="own"/> own
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-group ">
+                        <input type="datetime-local" name="datetime" id="frm-datetime" class="form-control hidden"
+                               placeholder="{{ h.current_datetime() }}"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <!-- Appended Input-->
+                <div class=" col-sm-6">
+                    <div class="">
+                        <div class="input-group">
+                            <input id="frm-amount" name="amount" class="form-control" placeholder="Amount" type="text" required="required">
+                            <span class="input-group-addon">Kč</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button Drop Down -->
+                <div class="col-sm-6">
+                    <div class="">
+                        <div class="input-group">
+                            <input id="frm-foreign-currency-amount" name="foreign-currency-amount" class="form-control"
+                                   placeholder="Amount in foreign currency" type="text">
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    €
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">€</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group col-md-12">
+                <div class="">
+                    <input id="frm-income-tags" name="income-tags" placeholder="Income tags"
+                           class="form-control input-md" type="text">
+                    <span class="help-block tags">
+                        {% for tag in tags if tag.type == "INCOME" %}
+                            <a class="tag label label-success" relatedto="frm-income-tags">{{ tag.name }}</a>
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group col-md-12">
+                <div class="">
+                    <input id="frm-expense-tags" name="expense-tags" placeholder="Expense tags"
+                           class="form-control input-md" type="text">
+                    <span class="help-block tags">
+                        {% for tag in tags  if tag.type == "EXPENSE" %}
+                            <a class="tag label label-danger" relatedto="frm-expense-tags">{{ tag.name }}</a>
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group col-md-12">
+                <div class="">
+                    <textarea class="form-control" id="frm-description" name="description"
+                              placeholder="Description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <div class="input-group pull-right">
+                    <a class="btn btn-default from-control" name="btn-send" href="">Cancel</a>
+                    <input class="btn btn-primary btn-type-color" type="submit" value="Save">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
 {% endmacro %}

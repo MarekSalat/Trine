@@ -1,8 +1,10 @@
+from datetime import datetime
 import json
 import os
 import pprint
 from unittest import TestCase
-from sqlalchemy import func, Column
+import uuid
+from sqlalchemy import func, Column, and_, select, or_
 from tg import jsonify
 from trine.model import Tag, Fund, TagGroup, User
 
@@ -34,8 +36,24 @@ def exclude_fields(entity, cols):
     return [getattr(entity, key) for key in fields]
 
 class TestTag(TestCase):
+    def test_concat(self):
+        user = DBSession.query(User).filter(User.id == "d09b9111-70a0-43c0-9373-aba10f2af592").all()[0]
 
-    def test_some(self):
+        # balanceQuery = DBSession.query(func.sum(Fund.amount).label("balance")).with_parent(user).\
+        #                         filter(Fund.date > datetime.utcnow())
+
+        tags = DBSession.query(Tag).with_parent(user).filter(Tag.type == Tag.TYPE_INCOME)
+        balances = []
+        # for tag in tags:
+        balance = DBSession.query(Fund.id, func.sum(Fund.amount).label("balance")).with_parent(user)
+        balances = DBSession.query(Tag.name, balance.c.balance).\
+            filter(Fund.incomeTagGroup.has(TagGroup.tags.any(Tag.id == balance)))
+        balances.append(balances)
+
+        print(balances)
+
+
+    def xxtest_some(self):
         # fields = exclude_fields(Fund, [Fund._user, Fund._user_id, Fund.expenseTagGroup_id, Fund.incomeTagGroup_id, Fund.expenseTagGroup, Fund.incomeTagGroup])
         funds = DBSession.query(Fund).options(
             subqueryload(Fund.incomeTagGroup).subqueryload(TagGroup.tags),

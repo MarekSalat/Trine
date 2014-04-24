@@ -17,11 +17,11 @@ class Tag(Base, AutoRepr):
     TYPE_EXPENSE = "EXPENSE"
 
     id = id_column()
-    created = synonym("date")
 
     name = Column(String(length=128))
     type = Column(String(length=16), default=TYPE_EXPENSE)
-    created = Column(TIMESTAMP, default=datetime.now, nullable=False)
+
+    created = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
     ishidden = Column(Boolean, default=False, nullable=False)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
@@ -44,7 +44,7 @@ class TagGroup(Base, AutoRepr):
     __tablename__ = "TagGroup"
 
     id = id_column()
-    created = Column(TIMESTAMP, default=datetime.now, nullable=False)
+    created = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
     _user = relationship(User, foreign_keys=_user_id, backref=backref('tagGroups', order_by=created))
@@ -62,11 +62,10 @@ class Fund(Base, AutoRepr):
     id = id_column()
     amount = Column(Float, nullable=False)
 
-    foreignCurrency = Column(Float, nullable=True)
-    currency = Column(
-        String(3)) # according to http://www.xe.com/iso4217.php and symbol can be found http://www.xe.com/symbols.php
+    foreignCurrencyAmount = Column(Float, nullable=True)
+    foreignCurrency = Column( String(3)) # according to http://www.xe.com/iso4217.php and symbol can be found http://www.xe.com/symbols.php
 
-    date = Column(TIMESTAMP, default=datetime.now, nullable=False)
+    date = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
     description = Column(Text)
 
     incomeTagGroup_id = Column(UuidColumn, ForeignKey(TagGroup.id))
@@ -74,6 +73,8 @@ class Fund(Base, AutoRepr):
 
     incomeTagGroup = relationship(TagGroup, foreign_keys=incomeTagGroup_id, backref=backref('incomes', order_by=id))
     expenseTagGroup = relationship(TagGroup, foreign_keys=expenseTagGroup_id, backref=backref('expenses', order_by=id))
+
+    created = synonym(date)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
     _user = relationship(User, foreign_keys=_user_id, backref=backref('funds', order_by=date))
