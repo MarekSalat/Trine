@@ -17,11 +17,13 @@ from repoze.who.interfaces import IIdentifier, IChallenger
 from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
 from repoze.who.plugins.basicauth import BasicAuthPlugin
 from tg import AppConfig
+import tg
 
 from trine.config.TrineAppConfig import TrineAppConfig
 
 import trine
 from trine import model
+from trine.controllers.Api.ApiController import ApiErrorController, ApiCrudRestController, TagRestController
 from trine.lib import helpers
 
 base_config = AppConfig()
@@ -88,61 +90,61 @@ base_config.sa_auth.dbsession = model.DBSession
 
 base_config.sa_auth.authmetadata = ApplicationAuthMetadata(base_config.sa_auth)
 
-authtkt = AuthTktCookiePlugin(base_config.sa_auth.cookie_secret, 'authtkt')
-basicauth = BasicAuthPlugin("Secure Area")
-classifications = {
-    IIdentifier: ["basicauth"],
-    IChallenger: ["basicauth"],
-}
-
-def my_custom_classifier(environ):
-    if environ.get('HTTP_AUTHORIZATION', ''):
-        return "basicauth"
-    return default_request_classifier(environ)
-
-def setup_auth(
-              form_plugin=None, form_identifies=True,
-              cookie_secret='secret', cookie_name='authtkt',
-              login_url='/login', login_handler='/login_handler',
-              post_login_url=None, logout_handler='/logout_handler',
-              post_logout_url=None, login_counter_name=None,
-              cookie_timeout=None, cookie_reissue_time=None,
-              **who_args):
-
-    cookie_timeout = 60*60*24*30
-    cookie_reissue_time = cookie_timeout//2
-
-    from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
-    cookie = AuthTktCookiePlugin(cookie_secret, cookie_name,
-                                 timeout=cookie_timeout,
-                                 reissue_time=cookie_reissue_time)
-    who_args['identifiers'] = [('cookie', cookie)]
-    if not 'authenticators' in who_args.keys():
-        who_args['authenticators'] = []
-    who_args['authenticators'].insert(0, ('cookie', cookie))
-
-    # If no form plugin is provided then create a default
-    # one using the provided options.
-    if form_plugin is None:
-        from tg.configuration.auth.fastform import FastFormPlugin
-        form = FastFormPlugin(login_url, login_handler, post_login_url,
-                              logout_handler, post_logout_url,
-                              rememberer_name='cookie',
-                              login_counter_name=login_counter_name)
-    else:
-        form = form_plugin
-
-    if form_identifies:
-        who_args['identifiers'].insert(0, ('main_identifier', form))
-
-    if not 'challengers' in who_args.keys():
-        who_args['challengers'] = []
-
-    who_args['challengers'].insert(0, ('form', form))
-    who_args['challengers'].insert(0, ('basicauth', basicauth))
-    who_args['identifiers'].insert(0, ('basicauth', basicauth ))
-    who_args["request_classifier"] = my_custom_classifier
-
+# authtkt = AuthTktCookiePlugin(base_config.sa_auth.cookie_secret, 'authtkt')
+# basicauth = BasicAuthPlugin("Secure Area")
+# classifications = {
+#     IIdentifier: ["basicauth"],
+#     IChallenger: ["basicauth"],
+# }
+#
+# def my_custom_classifier(environ):
+#     if environ.get('HTTP_AUTHORIZATION', ''):
+#         return "basicauth"
+#     return default_request_classifier(environ)
+#
+# def setup_auth(
+#               form_plugin=None, form_identifies=True,
+#               cookie_secret='secret', cookie_name='authtkt',
+#               login_url='/login', login_handler='/login_handler',
+#               post_login_url=None, logout_handler='/logout_handler',
+#               post_logout_url=None, login_counter_name=None,
+#               cookie_timeout=None, cookie_reissue_time=None,
+#               **who_args):
+#
+#     cookie_timeout = 60*60*24*30
+#     cookie_reissue_time = cookie_timeout//2
+#
+#     from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
+#     cookie = AuthTktCookiePlugin(cookie_secret, cookie_name,
+#                                  timeout=cookie_timeout,
+#                                  reissue_time=cookie_reissue_time)
+#     who_args['identifiers'] = [('cookie', cookie)]
+#     if not 'authenticators' in who_args.keys():
+#         who_args['authenticators'] = []
+#     who_args['authenticators'].insert(0, ('cookie', cookie))
+#
+#     # If no form plugin is provided then create a default
+#     # one using the provided options.
+#     if form_plugin is None:
+#         from tg.configuration.auth.fastform import FastFormPlugin
+#         form = FastFormPlugin(login_url, login_handler, post_login_url,
+#                               logout_handler, post_logout_url,
+#                               rememberer_name='cookie',
+#                               login_counter_name=login_counter_name)
+#     else:
+#         form = form_plugin
+#
+#     if form_identifies:
+#         who_args['identifiers'].insert(0, ('main_identifier', form))
+#
+#     if not 'challengers' in who_args.keys():
+#         who_args['challengers'] = []
+#
+#     who_args['challengers'].insert(0, ('form', form))
+#     who_args['challengers'].insert(0, ('basicauth', basicauth))
+#     who_args['identifiers'].insert(0, ('basicauth', basicauth ))
+#     who_args["request_classifier"] = my_custom_classifier
+#
 
 
 # setup_auth(base_config.sa_auth)
@@ -171,6 +173,7 @@ base_config.sa_auth.post_login_url = '/post_login'
 # You may optionally define a page where you want users to be redirected to
 # on logout:
 base_config.sa_auth.post_logout_url = '/post_logout'
+
 try:
     # Enable DebugBar if available, install tgext.debugbar to turn it on
     from tgext.debugbar import enable_debugbar

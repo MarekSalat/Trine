@@ -7,7 +7,7 @@ from tgext.admin.controller import AdminController
 
 from trine import model
 from trine.model import DBSession
-from trine.controllers.FundController import FundController
+from trine.controllers.TransactionController import TransactionController
 from trine.lib.utils import exposeForThisName
 from trine.lib.base import BaseController
 
@@ -21,7 +21,7 @@ class MyAdminController(AdminController):
 class TGRootController(BaseController):
     admin = MyAdminController(model, DBSession, config_type=TGAdminConfig)
 
-    fund = FundController(DBSession)
+    transaction = TransactionController(DBSession)
 
     @exposeForThisName
     def index(self):

@@ -2,6 +2,7 @@
 // Forms
 // --------------------------------------------------
 
+
 // Normalize non-controls
 //
 // Restyle and baseline non-control form elements.
@@ -34,6 +35,7 @@ label {
   font-weight: bold;
 }
 
+
 // Normalize form controls
 //
 // While most of our form styles require extra classes, some basic normalization
@@ -49,7 +51,7 @@ input[type="search"] {
 input[type="radio"],
 input[type="checkbox"] {
   margin: 4px 0 0;
-  margin-top: 1px  \9; /* IE8-9 */
+  margin-top: 1px \9; /* IE8-9 */
   line-height: normal;
 }
 
@@ -85,6 +87,7 @@ output {
   line-height: @line-height-base;
   color: @input-color;
 }
+
 
 // Common form controls
 //
@@ -148,6 +151,7 @@ output {
   }
 }
 
+
 // Search inputs in iOS
 //
 // This overrides the extra rounded corners on search inputs in iOS so that our
@@ -159,6 +163,7 @@ input[type="search"] {
   -webkit-appearance: none;
 }
 
+
 // Special styles for iOS date input
 //
 // In Mobile Safari, date inputs require a pixel line-height that matches the
@@ -168,6 +173,7 @@ input[type="date"] {
   line-height: @input-height-base;
 }
 
+
 // Form groups
 //
 // Designed to help with the organization and spacing of vertical forms. For
@@ -176,6 +182,7 @@ input[type="date"] {
 .form-group {
   margin-bottom: 15px;
 }
+
 
 // Checkboxes and radios
 //
@@ -194,7 +201,6 @@ input[type="date"] {
     cursor: pointer;
   }
 }
-
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -202,7 +208,6 @@ input[type="date"] {
   float: left;
   margin-left: -20px;
 }
-
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
@@ -218,7 +223,6 @@ input[type="date"] {
   font-weight: normal;
   cursor: pointer;
 }
-
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
@@ -240,28 +244,20 @@ input[type="checkbox"],
   }
 }
 
+
 // Form control sizing
 //
 // Build on `.form-control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
 
 .input-sm {
-  .input-size(@input-height-small;
-@padding-small-vertical;
-@padding-small-horizontal;
-@font-size-small;
-@line-height-small;
-@border-radius-small);
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
 }
 
 .input-lg {
-  .input-size(@input-height-large;
-@padding-large-vertical;
-@padding-large-horizontal;
-@font-size-large;
-@line-height-large;
-@border-radius-large);
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
 }
+
 
 // Form control feedback states
 //
@@ -291,22 +287,15 @@ input[type="checkbox"],
 
 // Feedback states
 .has-success {
-  .form-control-validation(@state-success-text;
-@state-success-text;
-@state-success-bg);
+  .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
 }
-
 .has-warning {
-  .form-control-validation(@state-warning-text;
-@state-warning-text;
-@state-warning-bg);
+  .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
+}
+.has-error {
+  .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
 }
 
-.has-error {
-  .form-control-validation(@state-danger-text;
-@state-danger-text;
-@state-danger-bg);
-}
 
 // Static form control text
 //
@@ -316,6 +305,7 @@ input[type="checkbox"],
 .form-control-static {
   margin-bottom: 0; // Remove default margin from `p`
 }
+
 
 // Help text
 //
@@ -328,6 +318,8 @@ input[type="checkbox"],
   margin-bottom: 10px;
   color: lighten(@text-color, 25%); // lighten the text some for contrast
 }
+
+
 
 // Inline forms
 //
@@ -357,7 +349,6 @@ input[type="checkbox"],
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
     }
-
     // Input groups need that 100% width though
     .input-group > .form-control {
       width: 100%;
@@ -379,7 +370,6 @@ input[type="checkbox"],
       padding-left: 0;
       vertical-align: middle;
     }
-
     .radio input[type="radio"],
     .checkbox input[type="checkbox"] {
       float: none;
@@ -395,6 +385,7 @@ input[type="checkbox"],
     }
   }
 }
+
 
 // Horizontal forms
 //

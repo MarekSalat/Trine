@@ -3,6 +3,7 @@
 """WebHelpers used in trine."""
 
 #from webhelpers import date, feedgenerator, html, number, misc, text
+import pprint
 import re
 from datetime import datetime
 
@@ -30,3 +31,7 @@ def formatNumber(value):
 
 def current_datetime():
     return formatDatetime(datetime.now())
+
+def dump(value):
+    pp = pprint.PrettyPrinter(indent=4)
+    return pp.pformat(value)

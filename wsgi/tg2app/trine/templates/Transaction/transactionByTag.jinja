@@ -1,8 +1,8 @@
 {% extends "master.jinja" %}
-{% import 'Fund/macros.jinja' as m %}
+{% import 'Transaction/macros.jinja' as m %}
 
 {% block master_title %}
-    Funds
+    Transactions
 {% endblock %}
 
 {% block contents %}
@@ -19,11 +19,11 @@
             </div>
             <div class="row">
                 {% for group in tag.groups %}
-                    {% for fund in group.incomes %}
-                        {{ m.render_fund(fund) }}
+                    {% for transaction in group.incomes %}
+                        {{ m.render_transaction(transaction) }}
                     {% endfor %}
-                    {% for fund in group.expenses %}
-                        {{ m.render_fund(fund) }}
+                    {% for transaction in group.expenses %}
+                        {{ m.render_transaction(transaction) }}
                     {% endfor %}
                 {% endfor %}
             </div>

@@ -34,13 +34,19 @@ testpkgs = ['WebTest >= 1.2.3',
 ]
 
 install_requires = [
-    "TurboGears2 >= 2.3.1",
+    "TurboGears2 >= 2.3.2",
     "Genshi",
     "zope.sqlalchemy >= 0.4",
     "sqlalchemy",
     "alembic",
     "repoze.who",
     "tw2.forms",
+    "sprox",
+    "tgext.pluggable",
+    "tgext.crud",
+    "tgext.admin",
+    "tg.devtools",
+    "pyparsing>=2.0.1"
 ]
 if py_version == (3, 3):
     #jinja2 2.7 is incompatible with Python 3.2
@@ -61,8 +67,8 @@ setup(
     test_suite='nose.collector',
     tests_require=testpkgs,
     package_data={'trine': ['i18n/*/LC_MESSAGES/*.mo',
-                            'templates/*/*',
-                            'public/*/*']},
+                            'templates/*.*',
+                            'public/*.*']},
     message_extractors={'trine': [
         ('**.py', 'python', None),
         ('templates/**.html', 'genshi', None),

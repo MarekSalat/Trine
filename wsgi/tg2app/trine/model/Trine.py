@@ -1,4 +1,5 @@
 from datetime import datetime
+from tw2.forms import TextField
 
 from trine.utils.AutoRepr import AutoRepr
 from trine.utils.uuidType import id_column, UuidColumn
@@ -21,17 +22,15 @@ class Tag(Base, AutoRepr):
     name = Column(String(length=128))
     type = Column(String(length=16), default=TYPE_EXPENSE)
 
-    created = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
-    ishidden = Column(Boolean, default=False, nullable=False)
+    ishidden = Column(Boolean, default=False, nullable=True)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
-    _user = relationship(User, foreign_keys=_user_id, backref=backref('tags', order_by=created))
+    _user = relationship(User, foreign_keys=_user_id, backref=backref('tags'))
 
     __table_args__ = (UniqueConstraint(name, _user_id, name='_name_user_id_uc'), )
 
     class __sprox__(object):
         hide_fields = ['groups']
-        # field_widget_types = {'name':TextField}
 
 
 tags = Table('tags', Base.metadata,
@@ -44,10 +43,9 @@ class TagGroup(Base, AutoRepr):
     __tablename__ = "TagGroup"
 
     id = id_column()
-    created = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
-    _user = relationship(User, foreign_keys=_user_id, backref=backref('tagGroups', order_by=created))
+    _user = relationship(User, foreign_keys=_user_id, backref=backref('tagGroups'))
 
     # many to many TagGroup<->Tag
     tags = relationship('Tag', secondary=tags, backref='groups')
@@ -56,8 +54,8 @@ class TagGroup(Base, AutoRepr):
         hide_fields = ['incomes', 'expenses']
 
 
-class Fund(Base, AutoRepr):
-    __tablename__ = "fund"
+class Transaction(Base, AutoRepr):
+    __tablename__ = "transaction"
 
     id = id_column()
     amount = Column(Float, nullable=False)
@@ -65,7 +63,7 @@ class Fund(Base, AutoRepr):
     foreignCurrencyAmount = Column(Float, nullable=True)
     foreignCurrency = Column( String(3)) # according to http://www.xe.com/iso4217.php and symbol can be found http://www.xe.com/symbols.php
 
-    date = Column(TIMESTAMP, default=datetime.utcnow, nullable=False)
+    date = Column(TIMESTAMP, default=datetime.utcnow, nullable=True)
     description = Column(Text)
 
     incomeTagGroup_id = Column(UuidColumn, ForeignKey(TagGroup.id))
@@ -74,10 +72,11 @@ class Fund(Base, AutoRepr):
     incomeTagGroup = relationship(TagGroup, foreign_keys=incomeTagGroup_id, backref=backref('incomes', order_by=id))
     expenseTagGroup = relationship(TagGroup, foreign_keys=expenseTagGroup_id, backref=backref('expenses', order_by=id))
 
-    created = synonym(date)
+    # can bound more transaction together (for example transfer from account to account)
+    transferKey = Column(UuidColumn, nullable=True, default=None)
 
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
-    _user = relationship(User, foreign_keys=_user_id, backref=backref('funds', order_by=date))
+    _user = relationship(User, foreign_keys=_user_id, backref=backref('transactions', order_by=date))
 
 
 

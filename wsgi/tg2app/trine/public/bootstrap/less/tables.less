@@ -2,14 +2,15 @@
 // Tables
 // --------------------------------------------------
 
+
 table {
   max-width: 100%;
   background-color: @table-bg;
 }
-
 th {
   text-align: left;
 }
+
 
 // Baseline styles
 
@@ -57,6 +58,7 @@ th {
   }
 }
 
+
 // Condensed table w/ half padding
 
 .table-condensed {
@@ -71,6 +73,7 @@ th {
     }
   }
 }
+
 
 // Bordered version
 //
@@ -96,6 +99,7 @@ th {
   }
 }
 
+
 // Zebra-striping
 //
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
@@ -108,6 +112,7 @@ th {
     }
   }
 }
+
 
 // Hover effect
 //
@@ -122,6 +127,7 @@ th {
   }
 }
 
+
 // Table cell sizing
 //
 // Reset default table behavior
@@ -131,7 +137,6 @@ table col[class*="col-"] {
   float: none;
   display: table-column;
 }
-
 table {
   td,
   th {
@@ -143,42 +148,19 @@ table {
   }
 }
 
+
 // Table backgrounds
 //
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
 // Generate the contextual variants
-  .table-row-variant(active
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(success; @state-success-bg);
+.table-row-variant(info; @state-info-bg);
+.table-row-variant(warning; @state-warning-bg);
+.table-row-variant(danger; @state-danger-bg);
 
-;
-@table-bg-active
-)
-;
-  .table-row-variant(success
-
-;
-@state-success-bg
-)
-;
-  .table-row-variant(info
-
-;
-@state-info-bg
-)
-;
-  .table-row-variant(warning
-
-;
-@state-warning-bg
-)
-;
-  .table-row-variant(danger
-
-;
-@state-danger-bg
-)
-;
 
 // Responsive tables
 //

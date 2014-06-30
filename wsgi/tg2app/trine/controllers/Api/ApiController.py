@@ -1,14 +1,18 @@
 from json import JSONEncoder
 import json
 from os import environ
+from py._std import std
 from sprox.fillerbase import TableFiller, EditFormFiller
 from sprox.formbase import AddRecordForm, EditableForm
 from sprox.tablebase import TableBase
-from sqlalchemy.orm import subqueryload
-from tg import RestController, abort, request, expose, response, predicates
-from tgext.crud import CrudRestController
+from sqlalchemy.orm import subqueryload, defer
+from tg import RestController, abort, request, expose, response, predicates, redirect
+import tg
+from tgext.crud import CrudRestController, EasyCrudRestController
+from tgext.crud.decorators import catch_errors
+from tgext.crud.utils import RequestLocalTableFiller
 from trine.lib.base import BaseController
-from trine.model import Fund, DBSession, Tag, TagGroup
+from trine.model import Transaction, DBSession, Tag, TagGroup
 
 __author__ = 'Marek'
 
@@ -17,11 +21,12 @@ class ApiController(BaseController):
     apiKeys = ["quick-key", "7923fd82-400a-4c0b-b9ef-df40998a5f00"]
     supportedVersions = ['v1']
 
-    def __init__(self):
+    def __init__(self, session):
         super().__init__()
         self.apiControllers = dict(
-            fund=FundApiRestController(DBSession),
-            tag=TagRestController(DBSession)
+            transaction=TransactionApiRestController(session),
+            tag=TagRestController(session),
+            taggroup=TagGroupApiRestController(session)
         )
 
     @expose()
@@ -57,63 +62,108 @@ class ApiErrorController(BaseController):
         return dict(error=status, message="Api version is not supported")
 
 
-class ApiCrudRestController(CrudRestController):
-    pagination = {'items_per_page': 100}
+class ApiCrudRestController(RestController):
     allow_only = predicates.not_anonymous()
 
+    def __init__(self, session):
+        super().__init__()
+        self.session = session
+
     def _before(self, *args, **kw):
-        if request.response_type != 'application/json':
-            abort(406, 'Only JSON requests are supported')
+        pass
+        # if request.response_type != 'application/json':
+        #     abort(406, 'Only JSON requests are supported')
+
+
+    def _prepareQuery(self, model= None):
+        if not model:
+            model = self.model
+
+        return self.session.query(model)\
+                           .with_parent(request.identity["user"])\
+                           .options(defer('_user_id'))
+
+    @expose('json')
+    def get_all(self, **kw):
+        entities = self._prepareQuery().all()
+
+        if entities is None:
+            response.status_code = 404
+
+        return {'value_list': entities}
+
+    @expose('json')
+    def get_one(self, id, **kw):
+        entity = self._prepareQuery().filter(self.model.id == id).first()
+
+        if entity is None:
+            response.status_code = 404
+
+        return {'value': entity}
+
+    @expose('json')
+    def post(self, **kw):
+        # if request.response_type != 'application/json':
+        #     abort(406, 'Only JSON requests are supported')
+
+        entity = self.model(**request.json_body)
+        entity._user_id = request.identity["user"].id
+        self.session.add(entity)
+        self.session.flush()
+
+        return self.get_one(entity.id, **kw)
+
+    @expose('json')
+    def put(self, id, **kw):
+        # if request.response_type != 'application/json':
+        #     abort(406, 'Only JSON requests are supported')
+
+        entity = self._prepareQuery().filter(self.model.id == id).first()
+
+        if not entity:
+            response.status_code = 404
+            return {'error': 'no exists'}
+
+        for key, value in request.json_body.items():
+            setattr(entity, key, value)
+
+        self.session.flush()
+
+        return self.get_one(id, **kw)
+
+    @expose('json')
+    def post_delete(self, id, **kw):
+        self._prepareQuery().filter(self.model.id == id).delete()
+
 
 # ------------------
 
-class FundApiRestController(ApiCrudRestController):
-    model = Fund
-    substring_filters = [Fund.description]
+class TransactionApiRestController(ApiCrudRestController):
+    model = Transaction
 
-    # class new_form_type(AddRecordForm):
-    #     __model__ = Fund
-    #
-    # class edit_form_type(EditableForm):
-    #     __model__ = Fund
-    #
-    # class edit_filler_type(EditFormFiller):
-    #     __model__ = Fund
-    #
-    # class table_type(TableBase):
-    #     __model__ = Fund
+    def __init__(self, session):
+        super().__init__(session)
 
-    class table_filler_type(TableFiller):
-        __model__ = Fund
+    # def _prepareQuery(self, model= None):
+    #     return self.session.query(Transaction).options(
+    #             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
+    #             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
+    #         )..with_parent(request.identity["user"]).options(defer('_user_id'))
 
-        # def _do_get_provider_count_and_objs(self, **kw):
-        #     since = kw.pop('since', 0)
-        #     limit = kw.pop('limit', None)
-        #     offset = kw.pop('offset', None)
-        #     order_by = kw.pop('order_by', None)
-        #     desc = kw.pop('desc', False)
-        #     substring_filters = kw.pop('substring_filters', [])
-        #
-        #     # count, objs = self.__provider__.query(self.__entity__, limit, offset, self.__limit_fields__,
-        #     #                                       order_by, desc, substring_filters=substring_filters,
-        #     #                                       filters=kw)
-        #
-        #     objs = DBSession.query(Fund).options(
-        #         subqueryload(Fund.incomeTagGroup).subqueryload(TagGroup.tags),
-        #         subqueryload(Fund.expenseTagGroup).subqueryload(TagGroup.tags)
-        #     ).filter(Fund._user == request.identity["user"]).all()
-        #
-        #     count = len(objs)
-        #
-        #     self.__count__ = count
-        #
-        #     return count, objs
+class TagGroupApiRestController(ApiCrudRestController):
+    model = TagGroup
+
+    def __init__(self, session):
+        super().__init__(session)
+
+    def _prepareQuery(self, model= None):
+        return self.session.query(TagGroup).options(
+                subqueryload(TagGroup.tags)
+            ).with_parent(request.identity["user"]).options(defer('_user_id'))
 
 
 class TagRestController(ApiCrudRestController):
     model = Tag
-    substring_filters = ['name']
 
-    class table_filler_type(TableFiller):
-        __model__ = Tag
-
+    def __init__(self, session):
+        super().__init__(session)

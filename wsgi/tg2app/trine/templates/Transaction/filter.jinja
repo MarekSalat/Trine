@@ -1,0 +1,82 @@
+{% extends "master.jinja" %}
+{% import 'Transaction/macros.jinja' as m with context %}
+
+{% block master_title %}
+    Filter
+{% endblock %}
+
+{% block contents %}
+
+    <div class="row">
+        <form id="" class="form-horizontal col-lg-12" method="get" action="" >
+            <fieldset>
+                <div class="bs-callout bs-callout-info">
+                    <h1>Hints</h1>
+                    <pre>
+condition separator: and
+[not] xxx, zzz                  -- transaction must contains all mentioned tags (and some more)
+[not] any xxx, zzz              -- transaction must contains any of mentioned tags
+has [not] property              -- check if property is filled
+property [<|<=|>|>=|=|!=|regexp] value
+property since reldate [until reldate] -- since specific date until now or until specified date
+
+examples:
+    grocery, beers and not ,account and amount < -20 and date since -5 days until next week and has not description
+                    </pre>
+                </div>
+                <!-- Form Name -->
+                <legend>Filter query</legend>
+
+                <div class="">
+                    <div class="input-group col-lg-12">
+                        <input type="text" name="query" id="frm-query" class="form-control" value="{{ query }}"/>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="input-group pull-right">
+                        <input class="btn btn-primary btn-type-color" type="submit" value="Ok">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="col-lg-6">
+            <dl class="dl-horizontal">
+                <dt class="lead">Balance</dt>
+                <dd class="lead">{{ '{0:n}'.format(balance) if balance }}</dd>
+
+                {% if incomes %}
+                <dt>Incomes</dt>
+                <dd>{{ '{0:n}'.format(incomes) }}</dd>
+                {% endif %}
+                {% if expenses %}
+                <dt>Expenses</dt>
+                <dd>{{ '{0:n}'.format(expenses) }}</dd>
+
+                <dt>Daily expense</dt>
+                <dd>{{ '{0:n}'.format(expenses/queryGroups.days) }}</dd>
+
+                <dt>Weekly expense</dt>
+                <dd>{{ '{0:n}'.format(expenses/(queryGroups.weeks)) }}</dd>
+
+                <dt>Monthly expense</dt>
+                <dd>{{ '{0:n}'.format(expenses/(queryGroups.months)) }}</dd>
+                {% endif %}
+            </dl>
+        </div>
+        <div class="col-lg-6"><pre>{{ h.dump(queryGroups) }}</pre></div>
+    </div>
+
+    <div class="row ">
+        <h3>Result</h3>
+        {%- for transaction in transactions -%}
+            {{ m.render_transaction(transaction) }}
+            {% if loop.index is divisibleby 6 %}
+                <div class="clearfix visible-md visible-lg"></div>
+            {% endif %}
+            {% if loop.index is divisibleby 3 %}
+                <div class="clearfix visible-xs"></div>
+            {% endif %}
+        {%- endfor -%}
+    </div>
+{% endblock %}

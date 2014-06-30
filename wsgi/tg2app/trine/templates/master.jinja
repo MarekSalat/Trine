@@ -8,17 +8,23 @@
     <title>{% block master_title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" media="screen" href="{{ tg.url('/bootstrap/dist/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" type="text/css" media="screen" href="{{ tg.url('/bootstrap/dist/css/docs.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ tg.url('/css/trine.css') }}"/>
 
     {#    <link rel="stylesheet" type="text/css" media="screen" href="{{tg.url('/bootstrap/dist/css/bootstrap-theme.min.css')}}" />#}
     {#    <link rel="stylesheet" type="text/css" media="screen" href="{{tg.url('/css/style.css')}}" />#}
 
+
+    <script src="{{ tg.url('/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ tg.url('/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ tg.url('/javascript/form-validator/jquery.form-validator.min.js') }}"></script>
+    <script src="{{ tg.url('/javascript/fittext.js') }}"></script>
 
     <style type="text/css">
         #main-content {
             padding-top: 5em;
         }
 
-        .fund-amount {
+        .transaction-amount {
             font-size: 6em;
             text-align: center;
             vertical-align: middle;
@@ -46,8 +52,9 @@
                 <li><a href="{{ tg.url('/environ') }}" class="{{ 'active' if page == 'environ' }}">WSGI Environment</a>
                 </li>
 
-                <li><a href="{{ tg.url('/fund') }}">Funds</a></li>
-                <li><a href="{{ tg.url('/fund/fundByTag') }}">Funds by tag</a></li>
+                <li><a href="{{ tg.url('/transaction') }}">Transactions</a></li>
+                <li><a href="{{ tg.url('/transaction/transactionByTag') }}">Transactions by tag</a></li>
+                <li><a href="{{ tg.url('/transaction/filter') }}">Filter</a></li>
             </ul>
             {% if tg.auth_stack_enabled %}
                 <ul class="nav navbar-nav  navbar-right">
@@ -66,12 +73,13 @@
 
 
 <div class="container" id="main-content">
-    <h1>{{ args }}</h1>
+
     <!-- Flash messages -->
     {% with flash=tg.flash_obj.render('flash', use_js=False) %}
-        {#            <div class="row"><div class="col-md-2 col-md-offset-2">#}
+    {% if flash %}<div id="flash-box-main">
+        <h4>Message</h4>
         <pre>{{ flash|safe }}</pre>
-        {#            </div></div>#}
+    </div>{% endif %}
     {% endwith %}
 
     {% block contents %}
@@ -83,10 +91,6 @@
     </footer>
 </div>
 
-<script src="{{ tg.url('/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ tg.url('/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-
-<script src="{{ tg.url('/javascript/fittext.js') }}"></script>
 <script type="text/javascript">
     fitttext_callback = function () {
         $('.fittext').each(function () {
@@ -96,48 +100,6 @@
 
     $(window).ready(fitttext_callback);
     $(window).resize(fitttext_callback);
-
-    $( "input[name='date-sel']" ).change(function() {
-        $("#frm-datetime").val($(this).val());
-        if($(this).val() == 'own'){
-            $("#frm-datetime").removeClass('hidden');
-            $("#frm-datetime").val('');
-        }
-        else{
-            $("#frm-datetime").addClass('hidden');
-        }
-    });
-
-    $(".tags .tag").each(function () {
-        $(this).click(function () {
-            var relatedTo = $('#' + $(this).attr('relatedTo'));
-            var tagName = $(this).text();
-            //console.log( relatedTo );
-            var className = 'selected';
-
-            $(relatedTo).val($(relatedTo).val().replace(/(\s*,\s*)*$/g, ""));
-
-            if ($(this).hasClass(className)) {
-                $(this).removeClass(className);
-
-                $(relatedTo).val(function () {
-                    var pattern = new RegExp(
-                            "^\\s*" + tagName + "\\s*,?\\s*" +
-                                    "|\\s*,?\\s*" + tagName + "\\s*" +
-                                    "|\\s*" + tagName + "\\s*,?\\s*"
-                            , 'g');
-                    return $(relatedTo).val().replace(pattern, "")
-                });
-            }
-            else {
-                $(this).addClass(className);
-
-                $(relatedTo).val($(relatedTo).val().replace(/\s*,\s*$/g, ""));
-                var del = $(relatedTo).val().replace(/^\s+|\s+$/g, "").length != 0 ? ', ' : '';
-                $(relatedTo).val($(relatedTo).val() + del + tagName + ", ");
-            }
-        });
-    });
 </script>
 </body>
 </html>

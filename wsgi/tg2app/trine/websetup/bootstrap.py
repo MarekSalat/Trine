@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """Setup the trine application"""
 from __future__ import print_function
+from datetime import datetime
+import uuid
 
-import transaction
+import transaction as alchtransaction
 
 from trine import model
-from trine.model import Tag, TagGroup, Fund
+from trine.model import Tag, TagGroup, Transaction
 
 
 # noinspection PyArgumentList
@@ -57,7 +59,7 @@ def bootstrap(command, conf, vars):
 
         basicUserPermission = model.Permission()
         basicUserPermission.name = 'trine'
-        basicUserPermission.description = 'This permission give a basic user right to add, edit, delete funds,tag groups, tags and own credentials'
+        basicUserPermission.description = 'This permission give a basic user right to add, edit, delete transactions,tag groups, tags and own credentials'
         basicUserPermission.groups.append(basicUsersGroup)
 
         model.DBSession.add(basicUserPermission)
@@ -76,13 +78,19 @@ def bootstrap(command, conf, vars):
             account = Tag(name="account", type=Tag.TYPE_INCOME, _user=user)
             salary = Tag(name="salary", type=Tag.TYPE_INCOME, _user=user)
 
-            funds = []
+            transactions = []
 
             group_cash = TagGroup(tags=[cash], _user=user)
             group_account = TagGroup(tags=[account], _user=user)
             group_account_salary = TagGroup(tags=[account, salary], _user=user)
 
-            funds.append(Fund(
+            transactions.append(Transaction(
+                amount=500,
+                incomeTagGroup=group_cash,
+                _user=user
+            ))
+
+            transactions.append(Transaction(
                 amount=5000,
                 foreignCurrencyAmount=5000 / 28,
                 foreignCurrency="EUR",
@@ -90,14 +98,33 @@ def bootstrap(command, conf, vars):
                 _user=user
             ))
 
-            funds.append(Fund(
+            transferKey = uuid.uuid4()
+            created = datetime.utcnow()
+
+            transactions.append(Transaction(
+                amount=-500,
+                incomeTagGroup=group_account,
+                transferKey=transferKey,
+                date=created,
+                _user=user
+            ))
+
+            transactions.append(Transaction(
+                amount=500,
+                incomeTagGroup=group_cash,
+                transferKey=transferKey,
+                date=created,
+                _user=user
+            ))
+
+            transactions.append(Transaction(
                 amount=-50,
                 incomeTagGroup=group_cash,
                 expenseTagGroup=TagGroup(tags=[grocery, beers], _user=user),
                 _user=user
             ))
 
-            funds.append(Fund(
+            transactions.append(Transaction(
                 amount=-150,
                 incomeTagGroup=group_account,
                 expenseTagGroup=TagGroup(tags=[traveling, bus], _user=user),
@@ -105,39 +132,39 @@ def bootstrap(command, conf, vars):
             ))
 
             group_traveling_train = TagGroup(tags=[traveling, train], _user=user)
-            funds.append(Fund(
+            transactions.append(Transaction(
                 amount=-200,
                 incomeTagGroup=group_cash,
                 expenseTagGroup=group_traveling_train,
                 _user=user
             ))
 
-            funds.append(Fund(
+            transactions.append(Transaction(
                 amount=-128,
                 incomeTagGroup=group_account,
                 expenseTagGroup=group_traveling_train,
                 _user=user
             ))
 
-            funds.append(Fund(
+            transactions.append(Transaction(
                 amount=-42,
                 incomeTagGroup=group_account,
                 expenseTagGroup=TagGroup(tags=[grocery, home, beers], _user=user),
                 _user=user
             ))
 
-            for fund in funds:
-                model.DBSession.add(fund)
+            for transaction in transactions:
+                model.DBSession.add(transaction)
 
             model.DBSession.flush()
 
-        transaction.commit()
+        alchtransaction.commit()
     except IntegrityError:
         print('Warning, there was a problem adding your auth data, it may have already been added:')
         import traceback
 
         print(traceback.format_exc())
-        transaction.abort()
+        alchtransaction.abort()
         print('Continuing with bootstrapping...')
 
     # <websetup.bootstrap.after.auth>

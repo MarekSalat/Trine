@@ -1,27 +1,32 @@
-{% macro render_fund(fund) %}
-    <div class="col-md-2 col-xs-4">
-        <div style=""
-             class="bs-callout {% if fund.amount < 0 %}bs-callout-danger{% else %}bs-callout-info{% endif %}">
-            <h4 class="fittext">{{ fund.date.strftime("%d. %m. %Y.  %H:%M")|replace(' ', '&nbsp;')|safe }}</h4>
+{% macro render_transaction(transaction) %}
+    <div class="transaction-box {% if transaction.transferKey %}transfer{% endif %}">
+        <div style="margin-bottom: 0" class="info">
+            <h4 class="fittext">{{ transaction.date.strftime("%d. %m. %Y.  %H:%M")|replace(' ', '&nbsp;')|safe }}</h4>
 
-            <p class="fittext fund-amount">{{ '{0:n}'.format(fund.amount) }}</p>
+            <p class="fittext transaction-amount {% if transaction.amount < 0 %}expense{% else %}income{% endif %}">{{ '{0:n}'.format(transaction.amount) }}</p>
         </div>
-        {% for tag in fund.incomeTagGroup.tags %}
-            <span class="label {% if fund.amount < 0 %}label-danger{% else %}label-success{% endif %}">{{ tag.name }}</span>
-        {% endfor %}
-        {% for tag in fund.expenseTagGroup.tags %}
-            <span class="label label-info">{{ tag.name }}</span>
-        {% endfor %}
+        <div class="tags">
+            {% for tag in transaction.incomeTagGroup.tags %}
+                <span class="tag income">{{ tag.name }}</span>
+            {% endfor %}
+            {% for tag in transaction.expenseTagGroup.tags %}
+                <span class="tag expense">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
     </div>
 {% endmacro %}
 
-{% macro render_fund_form(actionLink, method="post", tags=[], groups=[]) %}
+{% macro render_transaction_form(actionLink, method="post", tags=[], groups=[]) %}
 
-    <form id="" class="form-horizontal" method="{{ method }}" action="{{ actionLink }}" novalidate="">
+    <form id="add-transaction-form" class="form-horizontal" method="{{ method }}" action="{{ actionLink }}" >
         <fieldset>
             <!-- Form Name -->
             <legend>Add transaction</legend>
-
+            <div class="row form-group">
+                <div class="col-xs-12">
+                    <button id="form-type-toggle" type="button" class="btn btn-primary" data-toggle="button" data-toggle-name="Click to Income/Expense">Click to transfer</button>
+                </div>
+            </div>
             <div class="row form-group">
                 <div class="col-xs-8">
                     <div id="form-type-radio-date-sel" class="btn-group" data-toggle="buttons">
@@ -31,9 +36,6 @@
                         <label class="btn btn-primary active">
                             <input type="radio" name="date-sel" id="date-sel-option2" value="now"/> now
                         </label>
-                        <label class="btn btn-primary disabled">
-                            <input type="radio" name="date-sel" id="date-sel-option3" value="+1 day"/> tomorrow
-                        </label>
                         <label class="btn btn-primary own">
                             <input type="radio" name="date-sel" id="date-sel-option4" value="own"/> own
                         </label>
@@ -42,7 +44,8 @@
                 <div class="col-xs-4 ">
                     <div class="input-group ">
                         <input type="datetime-local" name="datetime" id="frm-datetime" class="form-control hidden"
-                               placeholder="{{ h.current_datetime() }}"/>
+                               placeholder="{{ h.current_datetime() }}"
+                               ata-validation="date" data-validation-format="dd. mm. yyyy. HH:MM"/>
                     </div>
                 </div>
             </div>
@@ -52,7 +55,9 @@
                 <div class=" col-sm-6">
                     <div class="">
                         <div class="input-group">
-                            <input id="frm-amount" name="amount" class="form-control" placeholder="Amount" type="text" required="required">
+                            <input id="frm-amount" name="amount" class="form-control"
+                                   placeholder="Amount" type="number" required="required"
+                                   data-validation="number" data-validation-allowing="float, negative" />
                             <span class="input-group-addon">Kč</span>
                         </div>
                     </div>
@@ -63,7 +68,9 @@
                     <div class="">
                         <div class="input-group">
                             <input id="frm-foreign-currency-amount" name="foreign-currency-amount" class="form-control"
-                                   placeholder="Amount in foreign currency" type="text">
+                                   placeholder="Amount in foreign currency" type="number"
+{#                                   data-validation="number" data-validation-allowing="float, negative" #}
+                                    />
 
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -81,12 +88,12 @@
 
             <!-- Text input-->
             <div class="form-group col-md-12">
-                <div class="">
+                <div id="income-tags-wrapper" class="">
                     <input id="frm-income-tags" name="income-tags" placeholder="Income tags"
                            class="form-control input-md" type="text">
                     <span class="help-block tags">
                         {% for tag in tags if tag.type == "INCOME" %}
-                            <a class="tag label label-success" relatedto="frm-income-tags">{{ tag.name }}</a>
+                            <a class="tag income" relatedto="frm-income-tags">{{ tag.name }}</a>
                         {% endfor %}
                     </span>
                 </div>
@@ -94,12 +101,12 @@
 
             <!-- Text input-->
             <div class="form-group col-md-12">
-                <div class="">
+                <div id="expense-tags-wrapper" class="">
                     <input id="frm-expense-tags" name="expense-tags" placeholder="Expense tags"
                            class="form-control input-md" type="text">
                     <span class="help-block tags">
                         {% for tag in tags  if tag.type == "EXPENSE" %}
-                            <a class="tag label label-danger" relatedto="frm-expense-tags">{{ tag.name }}</a>
+                            <a class="tag expense" relatedto="frm-expense-tags">{{ tag.name }}</a>
                         {% endfor %}
                     </span>
                 </div>
@@ -121,5 +128,55 @@
             </div>
         </fieldset>
     </form>
+
+<script type="text/javascript">
+    $("#form-type-toggle").click(function(){
+        var innerText = $(this).text();
+        $(this).text($(this).attr('data-toggle-name'));
+        $(this).attr('data-toggle-name', innerText);
+    })
+
+    $( "input[name='date-sel']" ).change(function() {
+        $("#frm-datetime").val($(this).val());
+        if($(this).val() == 'own'){
+            $("#frm-datetime").removeClass('hidden');
+            $("#frm-datetime").val('');
+        }
+        else{
+            $("#frm-datetime").addClass('hidden');
+        }
+    });
+
+    $(".tags .tag").each(function () {
+        $(this).click(function () {
+            var relatedTo = $('#' + $(this).attr('relatedTo'));
+            var tagName = $(this).text();
+            //console.log( relatedTo );
+            var className = 'selected';
+
+            $(relatedTo).val($(relatedTo).val().replace(/(\s*,\s*)*$/g, ""));
+
+            if ($(this).hasClass(className)) {
+                $(this).removeClass(className);
+
+                $(relatedTo).val(function () {
+                    var pattern = new RegExp(
+                            "^\\s*" + tagName + "\\s*,?\\s*" +
+                                    "|\\s*,?\\s*" + tagName + "\\s*" +
+                                    "|\\s*" + tagName + "\\s*,?\\s*"
+                            , 'g');
+                    return $(relatedTo).val().replace(pattern, "")
+                });
+            }
+            else {
+                $(this).addClass(className);
+
+                $(relatedTo).val($(relatedTo).val().replace(/\s*,\s*$/g, ""));
+                var del = $(relatedTo).val().replace(/^\s+|\s+$/g, "").length != 0 ? ', ' : '';
+                $(relatedTo).val($(relatedTo).val() + del + tagName + ", ");
+            }
+        });
+    });
+</script>
 
 {% endmacro %}

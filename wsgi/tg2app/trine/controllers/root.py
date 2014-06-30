@@ -10,7 +10,7 @@ from trine.controllers.TGRootController import TGRootController
 
 from trine.lib.base import BaseController
 from trine.controllers.error import ErrorController
-from trine.controllers.FundController import FundController
+from trine.controllers.TransactionController import TransactionController
 from trine.model import DBSession
 
 __all__ = ['RootController']
@@ -33,10 +33,10 @@ class RootController(BaseController):
     """
 
     error = ErrorController()
-    api = ApiController()
+    api = ApiController(DBSession)
 
     def __init__(self):
-        self._fund = FundController(DBSession)
+        self._transaction = TransactionController(DBSession)
         self._root = TGRootController()
 
         # map = Mapper()

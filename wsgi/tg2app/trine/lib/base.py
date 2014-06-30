@@ -24,4 +24,5 @@ class BaseController(TGController):
 
         request.identity = request.environ.get('repoze.who.identity')
         tmpl_context.identity = request.identity
+
         return TGController.__call__(self, environ, context)

@@ -81,7 +81,7 @@ class User(DeclarativeBase, AutoRepr):
         return self.display_name or self.name
 
     class __sprox__(object):
-        hide_fields = ['tags', 'funds', 'tagGroups']
+        hide_fields = ['tags', 'transactions', 'tagGroups']
 
     @property
     def permissions(self):
