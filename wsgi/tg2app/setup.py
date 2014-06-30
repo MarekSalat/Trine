@@ -35,7 +35,7 @@ testpkgs = ['WebTest >= 1.2.3',
 
 install_requires = [
     "TurboGears2 >= 2.3.2",
-    "Genshi",
+    # "Genshi",
     "zope.sqlalchemy >= 0.4",
     "sqlalchemy",
     "alembic",

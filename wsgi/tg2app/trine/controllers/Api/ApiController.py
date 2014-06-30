@@ -1,18 +1,7 @@
-from json import JSONEncoder
-import json
-from os import environ
-from py._std import std
-from sprox.fillerbase import TableFiller, EditFormFiller
-from sprox.formbase import AddRecordForm, EditableForm
-from sprox.tablebase import TableBase
 from sqlalchemy.orm import subqueryload, defer
-from tg import RestController, abort, request, expose, response, predicates, redirect
-import tg
-from tgext.crud import CrudRestController, EasyCrudRestController
-from tgext.crud.decorators import catch_errors
-from tgext.crud.utils import RequestLocalTableFiller
+from tg import RestController, request, expose, response, predicates
 from trine.lib.base import BaseController
-from trine.model import Transaction, DBSession, Tag, TagGroup
+from trine.model import Transaction, Tag, TagGroup
 
 __author__ = 'Marek'
 
