@@ -1,15 +1,14 @@
 from datetime import datetime
-from tw2.forms import TextField
 
 from trine.utils.AutoRepr import AutoRepr
 from trine.utils.uuidType import id_column, UuidColumn
 
 __author__ = 'Marek'
 
-from sqlalchemy.orm import relationship, backref, synonym
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import String, Float, Text, ForeignKey, Table, Column, TIMESTAMP, UniqueConstraint, Boolean
 
-from trine.model import DeclarativeBase as Base, DBSession, User
+from trine.model import DeclarativeBase as Base, User
 
 class Tag(Base, AutoRepr):
     __tablename__ = "Tag"

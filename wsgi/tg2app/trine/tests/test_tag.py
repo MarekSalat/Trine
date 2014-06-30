@@ -1,16 +1,14 @@
-from datetime import datetime
 import json
 import os
-import pprint
 from unittest import TestCase
-import uuid
-from sqlalchemy import func, Column, and_, select, or_
+
+from sqlalchemy import func, Column
 from tg import jsonify
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, subqueryload, defer, class_mapper
+
 from trine.model import Tag, Transaction, TagGroup, User
 
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload, subqueryload, contains_eager, defer, class_mapper, RelationshipProperty
 
 # an Engine, which the Session will use for connection
 # resources

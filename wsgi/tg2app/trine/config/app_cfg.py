@@ -12,19 +12,10 @@ convert them into boolean, for example, you should use the
     setting = asbool(global_conf.get('the_setting'))
  
 """
-from repoze.who.classifiers import default_request_classifier
-from repoze.who.interfaces import IIdentifier, IChallenger
-from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
-from repoze.who.plugins.basicauth import BasicAuthPlugin
 from tg import AppConfig
-import tg
-
-from trine.config.TrineAppConfig import TrineAppConfig
 
 import trine
 from trine import model
-from trine.controllers.Api.ApiController import ApiErrorController, ApiCrudRestController, TagRestController
-from trine.lib import helpers
 
 base_config = AppConfig()
 base_config.renderers = []

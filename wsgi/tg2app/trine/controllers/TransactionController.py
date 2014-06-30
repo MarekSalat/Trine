@@ -1,15 +1,12 @@
 from datetime import datetime
-import pprint
-import re
 from formencode import validators
 from sqlalchemy import or_, func, and_
-from sqlalchemy.sql.functions import count
 from tg import request, predicates, expose, redirect, validate
 from tg.flash import flash
 from trine.lib import FilterParser
 from trine.lib.utils import exposeForThisName, RelativeDatetime
 from trine.lib.base import BaseController
-from trine.model import DBSession, Tag, Transaction, TagGroup, User
+from trine.model import DBSession, Tag, Transaction, TagGroup
 from trine.model.Mapper import TagGroupMapper, TagMapper
 
 __author__ = 'Marek'

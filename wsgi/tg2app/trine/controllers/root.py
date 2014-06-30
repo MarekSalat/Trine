@@ -3,8 +3,7 @@
 #from routes import Mapper
 # from routes import Mapper
 
-from tg import expose, flash, request, tmpl_context
-from tg.i18n import ugettext as _
+from tg import expose, tmpl_context
 from trine.controllers.Api.ApiController import ApiController
 from trine.controllers.TGRootController import TGRootController
 
