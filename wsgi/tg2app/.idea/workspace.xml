@@ -1,107 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="trocha toho REST API, uprava">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/model/Mapper.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/controllers/TransactionController.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/templates/Transaction/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/docs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/templates/Transaction/filter.jinja" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/public/css/trine.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trine/public/css/trine.less" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\README.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\controllers\FundController.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\public\bootstrap\.bower.json" afterPath="" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\model\fund.py" afterPath="$PROJECT_DIR$/trine/model/Trine.py" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\templates\Fund\__init__.py" afterPath="$PROJECT_DIR$/trine/lib/FilterParser.py" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\templates\Fund\fundByTag.jinja" afterPath="$PROJECT_DIR$/trine/templates/Transaction/transactionByTag.jinja" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\templates\Fund\index.jinja" afterPath="$PROJECT_DIR$/trine/templates/Transaction/index.jinja" />
-      <change type="MOVED" beforePath="C:\tg2env\openshift\trine\wsgi\tg2app\trine\templates\Fund\macros.jinja" afterPath="$PROJECT_DIR$/trine/templates/Transaction/macros.jinja" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" afterPath="$PROJECT_DIR$/trine/controllers/Api/ApiController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/Gruntfile.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/Gruntfile.js" />
+    <list default="true" id="8f08541a-0414-4a31-a75b-afaee6e757d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/TGRootController.py" afterPath="$PROJECT_DIR$/trine/controllers/TGRootController.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/__init__.py" afterPath="$PROJECT_DIR$/trine/model/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/affix.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/affix.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/alert.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/alerts.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/alerts.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/config/app_cfg.py" afterPath="$PROJECT_DIR$/trine/config/app_cfg.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/model/auth.py" afterPath="$PROJECT_DIR$/trine/model/auth.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/badges.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/badges.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/base.py" afterPath="$PROJECT_DIR$/trine/lib/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap-theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap-theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap.css" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/js/bootstrap.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/bootstrap.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/bootstrap.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/websetup/bootstrap.py" afterPath="$PROJECT_DIR$/trine/websetup/bootstrap.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/bower.json" afterPath="$PROJECT_DIR$/trine/public/bootstrap/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/breadcrumbs.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/breadcrumbs.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-glyphicons-data-generator.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-glyphicons-data-generator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-lessdoc-parser.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-lessdoc-parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-raw-files-generator.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/grunt/bs-raw-files-generator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/button-groups.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/button-groups.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/button.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/buttons.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/buttons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/carousel.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/carousel.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/carousel.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/close.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/close.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/code.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/code.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/collapse.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/collapse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/component-animations.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/component-animations.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/docs.min.css" afterPath="$PROJECT_DIR$/trine/public/bootstrap/dist/css/docs.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/dropdown.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/dropdown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/dropdowns.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/dropdowns.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/forms.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/forms.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/glyphicons.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/glyphicons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/grid.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/grid.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/lib/helpers.py" afterPath="$PROJECT_DIR$/trine/lib/helpers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/input-groups.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/input-groups.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/jumbotron.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/jumbotron.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/list-group.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/list-group.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/templates/master.jinja" afterPath="$PROJECT_DIR$/trine/templates/master.jinja" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/media.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/media.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/mixins.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/modal.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/modals.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/modals.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/navbar.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/navbar.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/navs.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/navs.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/test-infra/npm-shrinkwrap.canonical.json" afterPath="$PROJECT_DIR$/trine/public/bootstrap/test-infra/npm-shrinkwrap.canonical.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/package.json" afterPath="$PROJECT_DIR$/trine/public/bootstrap/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/pager.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/pager.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/pagination.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/pagination.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/panels.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/panels.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/popover.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/popover.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/popovers.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/popovers.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/print.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/print.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/progress-bars.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/progress-bars.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/responsive-utilities.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/responsive-utilities.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/controllers/root.py" afterPath="$PROJECT_DIR$/trine/controllers/root.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/sandbox.py" afterPath="$PROJECT_DIR$/trine/tests/sandbox.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/scaffolding.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/scaffolding.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/scrollspy.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/scrollspy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/grunt/shrinkwrap.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/grunt/shrinkwrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/tab.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/tab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/tables.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/tables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/tests/test_tag.py" afterPath="$PROJECT_DIR$/trine/tests/test_tag.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/theme.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/thumbnails.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/thumbnails.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/tooltip.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/tooltip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/tooltip.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/tooltip.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/js/transition.js" afterPath="$PROJECT_DIR$/trine/public/bootstrap/js/transition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/type.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/type.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/utilities.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/utilities.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/variables.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trine/public/bootstrap/less/wells.less" afterPath="$PROJECT_DIR$/trine/public/bootstrap/less/wells.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tg2app.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1404146729037" ignored="false" />
+    <file path="/Dummy.txt" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1404147578947" ignored="false" />
     <file path="/_app_globals.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396703995600" ignored="false" />
     <file path="/app_cfg.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396978078986" ignored="false" />
     <file path="/development.ini" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1396705371344" ignored="false" />
@@ -137,7 +43,7 @@
     <file path="/base.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1398451734938" ignored="false" />
     <file path="/Mapper.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1404069534337" ignored="false" />
     <file path="/FilterParser.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1398530651467" ignored="false" />
-    <file path="/README.md" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1404147099432" ignored="false" />
+    <file path="/README.md" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1404147429760" ignored="false" />
     <file path="/transaction.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1403444458118" ignored="false" />
     <file path="/TransactionController.py" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1403448732692" ignored="false" />
     <file path="/transactionByTag.jinja" changelist="8f08541a-0414-4a31-a75b-afaee6e757d8" time="1403437196691" ignored="false" />
@@ -171,9 +77,7 @@
         <entry file="file://$PROJECT_DIR$/trine/controllers/TransactionController.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="34" column="49" selection-start="1115" selection-end="1126" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -196,15 +100,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.09505703">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sandbox.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trine/tests/sandbox.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -218,9 +113,7 @@
         <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="161" column="51" selection-start="4989" selection-end="4989" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -243,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restcontroller.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="restcontroller.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/restcontroller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="17" selection-start="3663" selection-end="3674" vertical-scroll-proportion="0.0">
+            <state line="50" column="23" selection-start="4868" selection-end="4868" vertical-scroll-proportion="0.3096539">
               <folding />
             </state>
           </provider>
@@ -363,130 +256,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wsgi">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wsgi">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="tg2app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wsgi">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="tg2app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wsgi">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="tg2app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controllers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wsgi">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="tg2app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trine">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controllers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Api">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -909,19 +678,143 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controllers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wsgi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tg2app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controllers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="settings" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Blackboard" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Blackboard" />
     <property name="FullScreen" value="false" />
     <property name="last.edited.regexp" value="a sdf " />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -1075,42 +968,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="tg2app" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="80" />
-      <option name="HOST" value="localhost" />
-      <PathMappingSettings>
-        <option name="pathMappings">
-          <list />
-        </option>
-      </PathMappingSettings>
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1132,6 +989,42 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="80" />
+      <option name="HOST" value="localhost" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list />
+        </option>
+      </PathMappingSettings>
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tg2app" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -1243,6 +1136,11 @@
       <created>1396702592912</created>
       <updated>1396702592912</updated>
     </task>
+    <task id="LOCAL-00001" summary="trocha toho REST API, uprava readme a setup.py">
+      <created>1404147148379</created>
+      <updated>1404147148379</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1271,18 +1169,19 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32593855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24166666" sideWeight="0.3197279" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24166666" sideWeight="0.6740614" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24545455" sideWeight="0.61734694" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965987" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38395905" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38265306" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33617747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="23" y="220" width="1320" height="287" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32593855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1330,7 +1229,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="trocha toho REST API, uprava readme a setup.py" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1344,6 +1243,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="trocha toho REST API, uprava readme a setup.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1351,59 +1251,41 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trine/model/Trine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="18" selection-start="2164" selection-end="2178" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/websetup/bootstrap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="32" selection-start="3672" selection-end="3867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="0" selection-start="6688" selection-end="6688" vertical-scroll-proportion="0.51428574">
-          <folding>
-            <element signature="e#442#503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="60" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.4296161">
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trine/controllers/error.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="36" selection-start="530" selection-end="530" vertical-scroll-proportion="0.48392856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sprox/configbase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="83" selection-start="7095" selection-end="7095" vertical-scroll-proportion="0.425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/restcontroller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="17" selection-start="3663" selection-end="3674" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/model/Trine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="18" selection-start="2164" selection-end="2178" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/websetup/bootstrap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="32" selection-start="3672" selection-end="3867" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/config/app_cfg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="0" selection-start="6688" selection-end="6688" vertical-scroll-proportion="0.51428574" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/tests/test_tag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="60" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.4296161" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trine/controllers/error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="36" selection-start="530" selection-end="530" vertical-scroll-proportion="0.48392856" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/sprox/configbase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="83" selection-start="7095" selection-end="7095" vertical-scroll-proportion="0.425" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tgext/crud/controller.py">
@@ -1423,18 +1305,14 @@
     <entry file="file://$PROJECT_DIR$/trine/controllers/TransactionController.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="49" selection-start="1115" selection-end="1126" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trine/controllers/Api/ApiController.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="161" column="51" selection-start="4989" selection-end="4989" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1461,7 +1339,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.09505703">
+        <state line="7" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.16611296" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../Lib/site-packages/tg/controllers/restcontroller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="23" selection-start="4868" selection-end="4868" vertical-scroll-proportion="0.3096539">
           <folding />
         </state>
       </provider>
