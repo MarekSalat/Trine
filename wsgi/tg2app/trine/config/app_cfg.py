@@ -17,6 +17,7 @@ from tg import AppConfig
 import trine
 from trine import model
 from trine.lib import helpers
+from trine.lib.app_globals import Globals
 
 base_config = AppConfig()
 base_config.renderers = []
