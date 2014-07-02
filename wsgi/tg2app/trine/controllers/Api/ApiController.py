@@ -1,8 +1,9 @@
-from sqlalchemy.orm import subqueryload, defer
-from tg import RestController, request, expose, response, predicates
+from sprox.providerselector import ProviderTypeSelector
+from tg import RestController, request, expose, response, predicates, abort
 
 from trine.lib.base import BaseController
 from trine.model import Transaction, Tag, TagGroup
+
 
 __author__ = 'Marek'
 
@@ -32,6 +33,7 @@ class ApiController(BaseController):
 
         return self.apiControllers[resource], remainder
 
+
 class ApiErrorController(BaseController):
 
     @expose('json')
@@ -54,42 +56,59 @@ class ApiErrorController(BaseController):
 
 class ApiCrudRestController(RestController):
     allow_only = predicates.not_anonymous()
+    omit_fields = ['_user', '_user_id']
+    model = None
 
     def __init__(self, session):
         super().__init__()
         self.session = session
+        self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=session)
+
+    def _dictify(self, value):
+        if self.omit_fields is False:
+            return value
+
+        def _dictify(entity):
+            if hasattr(entity, '__json__'):
+                return entity.__json__()
+            else:
+                return self.provider.dictify(entity, omit_fields=self.omit_fields)
+
+        if isinstance(value, list):
+            #return a generator, we don't want to consume the whole query
+            return (_dictify(entity) for entity in value)
+        else:
+            return _dictify(value)
 
     def _before(self, *args, **kw):
         pass
         # if request.response_type != 'application/json':
         #     abort(406, 'Only JSON requests are supported')
 
-
-    def _prepareQuery(self, model= None):
+    def _prepare_query(self, model=None, **kw):
         if not model:
             model = self.model
 
         return self.session.query(model)\
-                           .with_parent(request.identity["user"])\
-                           .options(defer('_user_id'))
+                           .with_parent(request.identity["user"])
 
     @expose('json')
     def get_all(self, **kw):
-        entities = self._prepareQuery().all()
+        entities = self._prepare_query(**kw).all()
 
         if entities is None:
-            response.status_code = 404
+            abort(404, 'Not found')
 
-        return {'value_list': entities}
+        return {'value_list': self._dictify(entities)}
 
     @expose('json')
     def get_one(self, id, **kw):
-        entity = self._prepareQuery().filter(self.model.id == id).first()
+        entity = self._prepare_query(**kw).filter(self.model.id == id).first()
 
         if entity is None:
-            response.status_code = 404
+            abort(404, 'Not found')
 
-        return {'value': entity}
+        return {'value': self._dictify(entity)}
 
     @expose('json')
     def post(self, **kw):
@@ -108,7 +127,7 @@ class ApiCrudRestController(RestController):
         # if request.response_type != 'application/json':
         #     abort(406, 'Only JSON requests are supported')
 
-        entity = self._prepareQuery().filter(self.model.id == id).first()
+        entity = self._prepare_query(**kw).filter(self.model.id == id).first()
 
         if not entity:
             response.status_code = 404
@@ -123,37 +142,24 @@ class ApiCrudRestController(RestController):
 
     @expose('json')
     def post_delete(self, id, **kw):
-        self._prepareQuery().filter(self.model.id == id).delete()
+        self._prepare_query(**kw).filter(self.model.id == id).delete()
 
-
-# ------------------
 
 class TransactionApiRestController(ApiCrudRestController):
     model = Transaction
 
     def __init__(self, session):
         super().__init__(session)
+        self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id']
 
-    # def _prepareQuery(self, model= None):
-    #     return self.session.query(Transaction).options(
-    #             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
-    #             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
-    #         )..with_parent(request.identity["user"]).options(defer('_user_id'))
 
 class TagGroupApiRestController(ApiCrudRestController):
     model = TagGroup
 
     def __init__(self, session):
         super().__init__(session)
-
-    def _prepareQuery(self, model= None):
-        return self.session.query(TagGroup).options(
-                subqueryload(TagGroup.tags)
-            ).with_parent(request.identity["user"]).options(defer('_user_id'))
+        self.omit_fields += ['expenses', 'incomes']
 
 
 class TagRestController(ApiCrudRestController):
     model = Tag
-
-    def __init__(self, session):
-        super().__init__(session)
