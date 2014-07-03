@@ -11,9 +11,11 @@ though.
 import os
 from datetime import datetime
 from hashlib import sha256
+
 from trine.utils.uuidType import UuidColumn
 from trine.utils.AutoRepr import AutoRepr
 from trine.utils.uuidType import id_column
+
 
 __all__ = ['User', 'UserGroup', 'Permission']
 
@@ -94,7 +96,7 @@ class User(DeclarativeBase, AutoRepr):
     @classmethod
     def by_email_address(cls, email):
         """Return the user object whose email address is ``email``."""
-        return DBSession.query(cls).filter_by(email_address=email).first()
+        return DBSession.query(cls).filter_by(email=email).first()
 
     @classmethod
     def by_user_name(cls, username):
@@ -162,4 +164,4 @@ class Permission(DeclarativeBase, AutoRepr):
                       backref='permissions')
 
     def __unicode__(self):
-        return self.permission_name
+        return self.name

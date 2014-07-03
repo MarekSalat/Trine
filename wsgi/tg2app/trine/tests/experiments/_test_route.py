@@ -1,9 +1,13 @@
 from unittest import TestCase
-from trine.tests.route import Route
+import unittest
+
+from trine.tests.experiments.route import Route
+
 
 __author__ = 'Marek'
 
 
+@unittest.skip("classing skipping")
 class TestTag(TestCase):
     def setUp(self):
         self.route = Route('{controller}/{action}/{id}', defaults={'controller': 'home', 'action': 'index', 'id': None})

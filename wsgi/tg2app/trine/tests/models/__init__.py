@@ -1,32 +1,27 @@
 # -*- coding: utf-8 -*-
 """Unit test suite for the models of the application."""
+from unittest import TestCase
 
 from nose.tools import eq_
+
 from trine.model import DBSession
-from trine.tests import load_app
-from trine.tests import setup_db, teardown_db
+from trine.tests import load_app, setup_db, teardown_db
+
 
 __all__ = ['ModelTest']
 
 
-def setup():
-    """Setup test fixture for all model tests."""
-    load_app()
-    setup_db()
-
-
-def teardown():
-    """Tear down test fixture for all model tests."""
-    teardown_db()
-
-
-class ModelTest(object):
+class ModelTest(TestCase):
     """Base unit test case for the models."""
 
     klass = None
     attrs = {}
 
     def setUp(self):
+        super().setUp()
+        load_app()
+        setup_db()
+
         """Setup test fixture for each model test method."""
         try:
             new_attrs = {}
@@ -43,6 +38,8 @@ class ModelTest(object):
     def tearDown(self):
         """Tear down test fixture for each model test method."""
         DBSession.rollback()
+        teardown_db()
+        super().tearDown()
 
     def do_get_dependencies(self):
         """Get model test dependencies.

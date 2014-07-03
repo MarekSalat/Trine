@@ -54,7 +54,7 @@ class ApiErrorController(BaseController):
         return dict(error=status, message="Api version is not supported")
 
 
-class ApiCrudRestController(RestController):
+class ApiCrudRestController(BaseController, RestController):
     allow_only = predicates.not_anonymous()
     omit_fields = ['_user', '_user_id']
     model = None
@@ -85,12 +85,13 @@ class ApiCrudRestController(RestController):
         # if request.response_type != 'application/json':
         #     abort(406, 'Only JSON requests are supported')
 
-    def _prepare_query(self, model=None, **kw):
+    def _prepare_query(self, model=None, limit=False, **kw):
         if not model:
             model = self.model
-
-        return self.session.query(model)\
-                           .with_parent(request.identity["user"])
+        query = self.session.query(model).with_parent(request.identity["user"])
+        if limit:
+            query = query.limit(limit)
+        return query
 
     @expose('json')
     def get_all(self, **kw):

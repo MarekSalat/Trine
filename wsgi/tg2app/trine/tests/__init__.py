@@ -1,4 +1,7 @@
-# -*- coding: utf-8 -*-
+from unittest import TestCase
+
+__author__ = 'Marek'
+
 """Unit and functional test suite for trine."""
 
 from os import getcwd
@@ -30,14 +33,15 @@ def setup_app():
 
 def setup_db():
     """Create the database schema (not needed when you run setup_app)."""
-    engine = config['TGroot.app_globals'].sa_engine
+    engine = config['tg.app_globals'].sa_engine
     model.init_model(engine)
     model.metadata.create_all(engine)
 
 
 def teardown_db():
     """Destroy the database schema."""
-    engine = config['TGroot.app_globals'].sa_engine
+    model.DBSession.remove()
+    engine = config['tg.app_globals'].sa_engine
     model.metadata.drop_all(engine)
 
 
@@ -63,8 +67,20 @@ class TestController(object):
         """Setup test fixture for each functional test method."""
         self.app = load_app(self.application_under_test)
         setup_app()
+        setup_db()
 
     def tearDown(self):
         """Tear down test fixture for each functional test method."""
-        model.DBSession.remove()
+
         teardown_db()
+
+class TrineControllerTestCase(TestCase):
+    def setUp(self):
+        super().setUp()
+        self.tgTestController = TestController()
+        self.tgTestController.setUp()
+        self.app = self.tgTestController.app
+
+    def tearDown(self):
+        self.tgTestController.tearDown()
+        super().tearDown()

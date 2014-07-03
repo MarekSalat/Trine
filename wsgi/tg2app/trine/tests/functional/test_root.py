@@ -11,12 +11,15 @@ Please read http://pythonpaste.org/webtest/ for more information.
 
 """
 
+import unittest
+
 from nose.tools import ok_
 
-from trine.tests import TestController
+from trine.tests import TrineControllerTestCase
 
 
-class TestRootController(TestController):
+@unittest.skip("classing skipping")
+class TestRootController(TrineControllerTestCase):
     """Tests for the method in the root controller."""
 
     def test_index(self):

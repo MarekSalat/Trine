@@ -1,5 +1,7 @@
 import json
+
 from pip._vendor import requests
+
 
 credentials = {'login': 'mareks', 'password': 'mareks', "remember": "225200"}
 

@@ -1,39 +1,18 @@
 import json
-import os
-from unittest import TestCase
+import unittest
 
-from sqlalchemy import func, Column
+from app.model import DBSession
+from sqlalchemy import func
 from tg import jsonify
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, subqueryload, defer, class_mapper
+from sqlalchemy.orm import subqueryload, defer
 
 from trine.model import Tag, Transaction, TagGroup, User
+from trine.tests import TrineControllerTestCase
 
 
-# an Engine, which the Session will use for connection
-# resources
-here = os.path.dirname(os.path.abspath(__file__))
-some_engine = create_engine('sqlite:///'+here+"../../../devdata.db", echo=False, echo_pool=False, pool_recycle=3600)
+@unittest.skip("classing skipping")
+class TestTag(TrineControllerTestCase):
 
-# create a configured "Session" class
-Session = sessionmaker(bind=some_engine)
-
-# create a Session
-DBSession = Session()
-
-# print(DBSession.query("").all())
-
-def exclude_fields(entity, cols):
-    cls = class_mapper(entity)
-
-    clsFields = [p.key for p in cls.iterate_properties if isinstance(getattr(entity, p.key), Column)]
-    excludedFields = [p if isinstance(p, str) else p.key for p in cols]
-
-    fields = set(clsFields)-set(excludedFields)
-
-    return [getattr(entity, key) for key in fields]
-
-class TestTag(TestCase):
     def test_deref(self):
         trans = DBSession.query(Transaction).options(
                 subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
@@ -44,7 +23,7 @@ class TestTag(TestCase):
         print(tran)
         print(json.dumps({'fsd':tran.incomeTagGroup.tags[0]}))
 
-    def xxtest_concat(self):
+    def test_concat(self):
         user = DBSession.query(User).filter(User.id == "d09b9111-70a0-43c0-9373-aba10f2af592").all()[0]
 
         # balanceQuery = DBSession.query(func.sum(Transaction.amount).label("balance")).with_parent(user).\
@@ -61,7 +40,7 @@ class TestTag(TestCase):
         print(balances)
 
 
-    def xxtest_some(self):
+    def test_some(self):
         # fields = exclude_fields(Transaction, [Transaction._user, Transaction._user_id, Transaction.expenseTagGroup_id, Transaction.incomeTagGroup_id, Transaction.expenseTagGroup, Transaction.incomeTagGroup])
         transactions = DBSession.query(Transaction).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
@@ -75,7 +54,7 @@ class TestTag(TestCase):
         # print(fields)
         # print(fields[0])
 
-    def xxtest_tag(self):
+    def test_tag(self):
         db = DBSession()
 
         res = db.query(func.sum(Transaction.amount).label("balance"))
@@ -98,8 +77,8 @@ class TestTag(TestCase):
                 for transaction in transactions:
                     print(transaction)
 
-    def xxtest_user(self):
-        db = Session()
+    def test_user(self):
+        db = DBSession()
         user = db.query(User) \
             .filter(User.password == User.encryptPassword('root'), User.email == r'salat.marek42@gmail.com') \
             .one()

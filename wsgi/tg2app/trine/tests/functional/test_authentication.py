@@ -8,12 +8,15 @@ should be updated.
 """
 from __future__ import unicode_literals
 
+import unittest
+
 from nose.tools import eq_, ok_
 
-from trine.tests import TestController
+from trine.tests import TrineControllerTestCase
 
 
-class TestAuthentication(TestController):
+@unittest.skip("classing skipping")
+class TestAuthentication(TrineControllerTestCase):
     """
     Tests for the default authentication setup.
 
