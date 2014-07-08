@@ -1,3 +1,3 @@
-trine.factory('TransactionService', ['$resource', function($resource) {
+angular.module('trine').factory('TransactionService', ['$resource', function($resource) {
 	return $resource('/api/v1/quick-key/transaction/');
 }]);
