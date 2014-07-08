@@ -2,6 +2,6 @@
 <br />
 <br />
 <br />
-<div ng-repeat='transaction in data.data.value track by $index'>
+<div ng-repeat='transaction in data.data.value track by transaction.id'>
 	<d-transaction amount='{{transaction.amount}}' date='{{transaction.date}}' guid='{{transaction.id}}' incomes='{{transaction.incomeTagGroup.tags}}' expenses='{{transaction.expenseTagGroup.tags}}'></d-transaction>	
 </div>
