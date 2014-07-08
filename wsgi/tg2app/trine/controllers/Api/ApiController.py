@@ -5,6 +5,7 @@ from tg import RestController, request, expose, response, predicates, abort
 from tgext.crud.decorators import register_validators, registered_validate
 
 from trine.lib.base import BaseController
+from trine.lib.provider import TrineProvider
 from trine.model import Transaction, Tag, TagGroup
 
 
@@ -176,19 +177,22 @@ class TransactionApiRestController(ApiCrudRestController):
 
     def __init__(self, session):
         super().__init__(session)
-        # self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id']
+        self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups", "transactions"]
+        self.provider = TrineProvider()
 
-    @expose(inherit=True)
-    def get_all(self, **kw):
-        entities = self.session.query(Transaction).options(
+    def _prepare_query(self, model=None, limit=False, **kw):
+        if not model:
+            model = self.model
+
+        query = self.session.query(model).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
-        ).with_parent(request.identity["user"]).all()
+        ).with_parent(request.identity["user"])
 
-        if entities is None:
-            abort(404, 'Not found')
+        if limit:
+            query = query.limit(limit)
 
-        return {'value': entities}
+        return query
 
 
 class TagGroupApiRestController(ApiCrudRestController):
