@@ -1,5 +1,8 @@
+from sprox.formbase import EditableForm, AddRecordForm
 from sprox.providerselector import ProviderTypeSelector
+from sqlalchemy.orm import subqueryload
 from tg import RestController, request, expose, response, predicates, abort
+from tgext.crud.decorators import register_validators, registered_validate
 
 from trine.lib.base import BaseController
 from trine.model import Transaction, Tag, TagGroup
@@ -63,6 +66,24 @@ class ApiCrudRestController(BaseController, RestController):
         self.session = session
         self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=session)
 
+        # if not hasattr(self, 'new_form'):
+        # class EditForm(EditableForm):
+        #         __entity__ = self.model
+        #         __omit_fields__ = self.omit_fields
+        #
+        #     self.edit_form = EditForm(session)
+        #
+        # register_validators(self, 'post', self.new_form)
+        #
+        # if not hasattr(self, 'edit_form'):
+        #     class NewForm(AddRecordForm):
+        #         __entity__ = self.model
+        #         __omit_fields__ = self.omit_fields
+        #
+        #     self.new_form = NewForm(session)
+        #
+        # register_validators(self, 'put', self.edit_form)
+
     def _dictify(self, value):
         if self.omit_fields is False:
             return value
@@ -111,9 +132,13 @@ class ApiCrudRestController(BaseController, RestController):
         return {'value': self._dictify(entity)}
 
     @expose('json')
+    @registered_validate()
     def post(self, **kw):
         # if request.response_type != 'application/json':
         # abort(406, 'Only JSON requests are supported')
+
+        if request.validation['errors']:
+            return "There was an error"
 
         entity = self.model(**request.json_body)
         entity._user_id = request.identity["user"].id
@@ -123,6 +148,7 @@ class ApiCrudRestController(BaseController, RestController):
         return self.get_one(entity.id, **kw)
 
     @expose('json')
+    @registered_validate()
     def put(self, id, **kw):
         # if request.response_type != 'application/json':
         # abort(406, 'Only JSON requests are supported')
@@ -150,7 +176,19 @@ class TransactionApiRestController(ApiCrudRestController):
 
     def __init__(self, session):
         super().__init__(session)
-        self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id']
+        # self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id']
+
+    @expose(inherit=True)
+    def get_all(self, **kw):
+        entities = self.session.query(Transaction).options(
+            subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
+            subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
+        ).with_parent(request.identity["user"]).all()
+
+        if entities is None:
+            abort(404, 'Not found')
+
+        return {'value': entities}
 
 
 class TagGroupApiRestController(ApiCrudRestController):

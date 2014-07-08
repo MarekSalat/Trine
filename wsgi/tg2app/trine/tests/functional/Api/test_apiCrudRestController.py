@@ -15,3 +15,6 @@ class TestApiCrudRestController(TrineControllerTestCase):
 
     def test_get_all(self):
         resp = self.app.get('/api/v1/quick-key/tag', status=200, **self.defaults)
+
+    def test_put(self):
+        self.app.get('/api/v1/quick-key/tag', status=200, **self.defaults)
