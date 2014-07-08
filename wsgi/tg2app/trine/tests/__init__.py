@@ -67,12 +67,13 @@ class TestController(object):
         """Setup test fixture for each functional test method."""
         self.app = load_app(self.application_under_test)
         setup_app()
-        setup_db()
+        # setup_db()
 
     def tearDown(self):
         """Tear down test fixture for each functional test method."""
 
         teardown_db()
+
 
 class TrineControllerTestCase(TestCase):
     def setUp(self):

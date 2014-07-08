@@ -5,22 +5,14 @@ from __future__ import unicode_literals
 from nose.tools import eq_
 
 from trine import model
+from trine.model import User
 from trine.tests.models import ModelTest
-
-
-class TestGroup(ModelTest):
-    """Unit test case for the ``Group`` model."""
-    klass = model.UserGroup
-    attrs = dict(
-        name="test_group",
-        display_name="Test Group"
-    )
 
 
 class TestUser(ModelTest):
     """Unit test case for the ``User`` model."""
 
-    klass = model.User
+    klass = User
     attrs = dict(
         name="ignucius",
         email="ignucius@example.org"

@@ -23,17 +23,22 @@ class ModelTest(TestCase):
         setup_db()
 
         """Setup test fixture for each model test method."""
-        try:
-            new_attrs = {}
-            new_attrs.update(self.attrs)
-            new_attrs.update(self.do_get_dependencies())
-            self.obj = self.klass(**new_attrs)
-            DBSession.add(self.obj)
-            DBSession.flush()
-            return self.obj
-        except:
-            DBSession.rollback()
-            raise
+        if self.attrs:
+            try:
+                attrs_list = self.attrs if isinstance(self.attrs, list) else [self.attrs]
+                self.objects = []
+                for attrs in attrs_list:
+                    new_attrs = {}
+                    new_attrs.update(attrs)
+                    new_attrs.update(self.do_get_dependencies())
+                    obj = self.klass(**new_attrs)
+                    self.objects.append(obj)
+                    DBSession.add(obj)
+                    DBSession.flush()
+                return self.objects
+            except:
+                DBSession.rollback()
+                raise
 
     def tearDown(self):
         """Tear down test fixture for each model test method."""
@@ -49,13 +54,3 @@ class ModelTest(TestCase):
 
         """
         return {}
-
-    def test_create_obj(self):
-        """Model objects can be created"""
-        pass
-
-    def test_query_obj(self):
-        """Model objects can be queried"""
-        obj = DBSession.query(self.klass).one()
-        for key, value in self.attrs.items():
-            eq_(getattr(obj, key), value)

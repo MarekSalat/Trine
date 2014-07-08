@@ -1,7 +1,8 @@
 import re
-from trine.model.Mapper import TagMapper
+from trine.model import Tag
 
 __author__ = 'Marek'
+
 
 class Parser:
     '''
@@ -32,7 +33,8 @@ class Parser:
 
     pass
 
-def parse(value:str):
+
+def parse(value: str):
     if not value:
         return {}
 
@@ -43,7 +45,7 @@ def parse(value:str):
     for condition in conditions:
         res = re.match(r'^has (not )?([\w]+)$', condition)
         if res:
-            result.append({'has':{
+            result.append({'has': {
                 'not': res.group(1) is not None,
                 'property': res.group(2)
             }})
@@ -51,7 +53,7 @@ def parse(value:str):
 
         res = re.match(r'^([\w]+)\s*(<|<=|>|>=|=|!=|regexp)\s*(.+)$', condition)
         if res:
-            result.append({'property':{
+            result.append({'property': {
                 'name': res.group(1),
                 'operator': res.group(2),
                 'value': res.group(3)
@@ -67,7 +69,7 @@ def parse(value:str):
                 sinceRelDate = sinceRelDate2
                 untilRelDate = 'now'
 
-            result.append({'date':{
+            result.append({'date': {
                 'property': prop,
                 'since': sinceRelDate,
                 'until': untilRelDate
@@ -77,10 +79,10 @@ def parse(value:str):
         res = re.match(r'^(not )?(any )?(.+)$', condition)
         if res:
             result.append({'tags': {
-                    'not': res.group(1) is not None,
-                    'operator': 'any' if not res.group(2) is None else 'contains',
-                    'names': TagMapper.getTagNamesListFromString(res.group(3)),
-                    'null': re.match(r'^,.+', res.group(3)) is not None,
+                'not': res.group(1) is not None,
+                'operator': 'any' if not res.group(2) is None else 'contains',
+                'names': Tag.get_names_from_str(res.group(3)),
+                'null': re.match(r'^,.+', res.group(3)) is not None,
             }})
             continue
 

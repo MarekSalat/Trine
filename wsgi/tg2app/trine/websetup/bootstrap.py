@@ -18,76 +18,62 @@ def bootstrap(command, conf, vars):
     from sqlalchemy.exc import IntegrityError
 
     try:
-        adminUser = model.User()
-        adminUser.name = 'mareks'
-        adminUser.display_name = 'Marek Salát'
-        adminUser.email = 'mareks@trine.com'
-        adminUser.password = 'mareks'
-        adminUser.defaultCurrency = "CZK"
+        permission_admin = model.Permission()
+        permission_admin.name = 'all'
+        permission_admin.description = 'This permission give an all possible permission'
 
-        model.DBSession.add(adminUser)
+        permission_trine = model.Permission()
+        permission_trine.name = 'trine'
+        permission_trine.description = 'This permission give a basic user right to add, edit, delete transactions,tag groups, tags and own credentials'
 
-        adminsGroup = model.UserGroup()
-        adminsGroup.name = 'admins'
-        adminsGroup.display_name = 'Admins group'
+        user_group_admins = model.UserGroup()
+        user_group_admins.name = 'admins'
+        user_group_admins.display_name = 'Admins group'
+        user_group_admins.permissions = [permission_admin, permission_trine]
 
-        adminsGroup.users.append(adminUser)
+        user_group_trine = model.UserGroup()
+        user_group_trine.name = 'trine user'
+        user_group_trine.display_name = 'Trine users group'
+        user_group_admins.permissions = [permission_trine]
 
-        model.DBSession.add(adminsGroup)
+        user_admin = model.User()
+        user_admin.name = 'mareks'
+        user_admin.display_name = 'Marek Salát'
+        user_admin.email = 'mareks@trine.com'
+        user_admin.password = 'mareks'
+        user_admin.defaultCurrency = "CZK"
+        user_admin.groups = [user_group_admins]
 
-        adminPermission = model.Permission()
-        adminPermission.name = 'all'
-        adminPermission.description = 'This permission give an all possible permission'
-        adminPermission.groups.append(adminsGroup)
+        user_trine = model.User()
+        user_trine.name = 'mareks2'
+        user_trine.display_name = 'Example basic user'
+        user_trine.email = 'mareks2@trine.com'
+        user_trine.password = 'mareks2'
+        user_trine.defaultCurrency = "EUR"
+        user_trine.groups = [user_trine]
 
-        model.DBSession.add(adminPermission)
+        for user in [user_admin, user_trine]:
+            grocery = Tag(name="grocery", user=user)
+            beers = Tag(name="beers", user=user)
+            home = Tag(name="home", user=user)
+            traveling = Tag(name="traveling", user=user)
+            bus = Tag(name="bus", user=user)
+            train = Tag(name="train", user=user)
 
-        basicUser = model.User()
-        basicUser.name = 'mareks2'
-        basicUser.display_name = 'Example basic user'
-        basicUser.email = 'mareks2@trine.com'
-        basicUser.password = 'mareks2'
-        basicUser.defaultCurrency = "EUR"
-
-        model.DBSession.add(basicUser)
-
-        basicUsersGroup = model.UserGroup()
-        basicUsersGroup.name = 'basicUsers'
-        basicUsersGroup.display_name = 'Basic users group'
-
-        model.DBSession.add(basicUsersGroup)
-
-        basicUserPermission = model.Permission()
-        basicUserPermission.name = 'trine'
-        basicUserPermission.description = 'This permission give a basic user right to add, edit, delete transactions,tag groups, tags and own credentials'
-        basicUserPermission.groups.append(basicUsersGroup)
-
-        model.DBSession.add(basicUserPermission)
-
-        model.DBSession.flush()
-
-        for user in [adminUser, basicUser]:
-            grocery = Tag(name="grocery", _user=user)
-            beers = Tag(name="beers", _user=user)
-            home = Tag(name="home", _user=user)
-            traveling = Tag(name="traveling", _user=user)
-            bus = Tag(name="bus", _user=user)
-            train = Tag(name="train", _user=user)
-
-            cash = Tag(name="cash", type=Tag.TYPE_INCOME, _user=user)
-            account = Tag(name="account", type=Tag.TYPE_INCOME, _user=user)
-            salary = Tag(name="salary", type=Tag.TYPE_INCOME, _user=user)
+            cash = Tag(name="cash", type=Tag.TYPE_INCOME, user=user)
+            account = Tag(name="account", type=Tag.TYPE_INCOME, user=user)
+            salary = Tag(name="salary", type=Tag.TYPE_INCOME, user=user)
 
             transactions = []
 
-            group_cash = TagGroup(tags=[cash], _user=user)
-            group_account = TagGroup(tags=[account], _user=user)
-            group_account_salary = TagGroup(tags=[account, salary], _user=user)
+            group_cash = TagGroup(tags=[cash], user=user)
+            group_account = TagGroup(tags=[account], user=user)
+            group_account_salary = TagGroup(tags=[account, salary], user=user)
 
             transactions.append(Transaction(
                 amount=500,
                 incomeTagGroup=group_cash,
-                _user=user
+                user=user
             ))
 
             transactions.append(Transaction(
@@ -95,67 +81,51 @@ def bootstrap(command, conf, vars):
                 foreignCurrencyAmount=5000 / 28,
                 foreignCurrency="EUR",
                 incomeTagGroup=group_account_salary,
-                _user=user
+                user=user
             ))
 
-            transferKey = uuid.uuid4()
-            created = datetime.utcnow()
-
-            transactions.append(Transaction(
+            transactions.append(Transaction.new_transfer(
                 amount=-500,
-                incomeTagGroup=group_account,
-                transferKey=transferKey,
-                date=created,
-                _user=user
-            ))
-
-            transactions.append(Transaction(
-                amount=500,
-                incomeTagGroup=group_cash,
-                transferKey=transferKey,
-                date=created,
-                _user=user
-            ))
+                user=user
+            ), group_account, group_cash)
 
             transactions.append(Transaction(
                 amount=-50,
                 incomeTagGroup=group_cash,
-                expenseTagGroup=TagGroup(tags=[grocery, beers], _user=user),
-                _user=user
+                expenseTagGroup=TagGroup(tags=[grocery, beers], user=user),
+                user=user
             ))
 
             transactions.append(Transaction(
                 amount=-150,
                 incomeTagGroup=group_account,
-                expenseTagGroup=TagGroup(tags=[traveling, bus], _user=user),
-                _user=user
+                expenseTagGroup=TagGroup(tags=[traveling, bus], user=user),
+                user=user
             ))
 
-            group_traveling_train = TagGroup(tags=[traveling, train], _user=user)
+            group_traveling_train = TagGroup(tags=[traveling, train], user=user)
             transactions.append(Transaction(
                 amount=-200,
                 incomeTagGroup=group_cash,
                 expenseTagGroup=group_traveling_train,
-                _user=user
+                user=user
             ))
 
             transactions.append(Transaction(
                 amount=-128,
                 incomeTagGroup=group_account,
                 expenseTagGroup=group_traveling_train,
-                _user=user
+                user=user
             ))
 
             transactions.append(Transaction(
                 amount=-42,
                 incomeTagGroup=group_account,
-                expenseTagGroup=TagGroup(tags=[grocery, home, beers], _user=user),
-                _user=user
+                expenseTagGroup=TagGroup(tags=[grocery, home, beers], user=user),
+                user=user
             ))
 
-            for transaction in transactions:
-                model.DBSession.add(transaction)
-
+            model.DBSession.add_all(transactions)
             model.DBSession.flush()
 
         alchtransaction.commit()
@@ -167,4 +137,4 @@ def bootstrap(command, conf, vars):
         alchtransaction.abort()
         print('Continuing with bootstrapping...')
 
-    # <websetup.bootstrap.after.auth>
+        # <websetup.bootstrap.after.auth>

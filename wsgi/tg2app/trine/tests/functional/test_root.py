@@ -18,7 +18,7 @@ from nose.tools import ok_
 from trine.tests import TrineControllerTestCase
 
 
-@unittest.skip("classing skipping")
+# @unittest.skip("classing skipping")
 class TestRootController(TrineControllerTestCase):
     """Tests for the method in the root controller."""
 
@@ -72,5 +72,5 @@ class TestRootController(TrineControllerTestCase):
 
     def test_secc_with_anonymous(self):
         """Anonymous users must not access the secure controller"""
-        self.app.get('/secc', status=401)
+        self.app.get('/transaction', status=401)
         # It's enough to know that authorization was denied with a 401 status

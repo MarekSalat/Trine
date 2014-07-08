@@ -35,7 +35,6 @@ class ApiController(BaseController):
 
 
 class ApiErrorController(BaseController):
-
     @expose('json')
     def needAuth(self):
         response.status = 401
@@ -56,7 +55,7 @@ class ApiErrorController(BaseController):
 
 class ApiCrudRestController(BaseController, RestController):
     allow_only = predicates.not_anonymous()
-    omit_fields = ['_user', '_user_id']
+    omit_fields = ['user', '_user_id']
     model = None
 
     def __init__(self, session):
@@ -75,7 +74,7 @@ class ApiCrudRestController(BaseController, RestController):
                 return self.provider.dictify(entity, omit_fields=self.omit_fields)
 
         if isinstance(value, list):
-            #return a generator, we don't want to consume the whole query
+            # return a generator, we don't want to consume the whole query
             return (_dictify(entity) for entity in value)
         else:
             return _dictify(value)
@@ -83,7 +82,7 @@ class ApiCrudRestController(BaseController, RestController):
     def _before(self, *args, **kw):
         pass
         # if request.response_type != 'application/json':
-        #     abort(406, 'Only JSON requests are supported')
+        # abort(406, 'Only JSON requests are supported')
 
     def _prepare_query(self, model=None, limit=False, **kw):
         if not model:
@@ -114,7 +113,7 @@ class ApiCrudRestController(BaseController, RestController):
     @expose('json')
     def post(self, **kw):
         # if request.response_type != 'application/json':
-        #     abort(406, 'Only JSON requests are supported')
+        # abort(406, 'Only JSON requests are supported')
 
         entity = self.model(**request.json_body)
         entity._user_id = request.identity["user"].id
@@ -126,7 +125,7 @@ class ApiCrudRestController(BaseController, RestController):
     @expose('json')
     def put(self, id, **kw):
         # if request.response_type != 'application/json':
-        #     abort(406, 'Only JSON requests are supported')
+        # abort(406, 'Only JSON requests are supported')
 
         entity = self._prepare_query(**kw).filter(self.model.id == id).first()
 

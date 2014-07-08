@@ -7,7 +7,6 @@ from trine.lib import FilterParser
 from trine.lib.utils import exposeForThisName, RelativeDatetime
 from trine.lib.base import BaseController
 from trine.model import DBSession, Tag, Transaction, TagGroup
-from trine.model.Mapper import TagGroupMapper, TagMapper
 
 __author__ = 'Marek'
 
@@ -59,7 +58,7 @@ class TransactionController(BaseController):
 
         user = request.identity["user"]
 
-        transaction = Transaction(_user=user)
+        transaction = Transaction(user=user)
         transaction.amount = float(values["amount"])
         transaction.date = RelativeDatetime.str2date(values["datetime"])
 
@@ -67,14 +66,13 @@ class TransactionController(BaseController):
             transaction.foreignCurrencyAmount = float(values["foreign-currency-amount"])
             transaction.foreignCurrency = "EUR"
 
-        tgMapper = TagGroupMapper(self.db)
-        incomeTags = TagMapper.getTagNamesListFromString(values["income-tags"])
-        if incomeTags:
-            transaction.incomeTagGroup = tgMapper.getTagGroupOrCreateFromTagNames(incomeTags, user, Tag.TYPE_INCOME)
+        income_tags_names = Tag.get_names_from_str(values["income-tags"])
+        if income_tags_names:
+            transaction.incomeTagGroup = Tag.new_from_name_list(income_tags_names)
 
-        expenseTags =  TagMapper.getTagNamesListFromString(values["expense-tags"])
-        if expenseTags:
-            transaction.expenseTagGroup = tgMapper.getTagGroupOrCreateFromTagNames(expenseTags, user, Tag.TYPE_EXPENSE)
+        expense_tags_names = Tag.get_names_from_str(values["expense-tags"])
+        if expense_tags_names:
+            transaction.expenseTagGroup = Tag.new_from_name_list(income_tags_names)
 
         self.db.add(transaction)
         self.db.flush()
@@ -86,7 +84,6 @@ class TransactionController(BaseController):
 
         parsedQuery = FilterParser.parse(query)
 
-        tgMapper = TagGroupMapper(self.db)
         user = request.identity["user"]
 
         dbQuery = self.db.query(Transaction).with_parent(user)
@@ -99,7 +96,7 @@ class TransactionController(BaseController):
                         ops_ = {'contains': and_, 'any': or_}
                         op_ = ops_[values['operator']]
 
-                        tags = tgMapper.findTagByNames(values['names'], user)
+                        tags = Tag.by_names(values['names'], user)
 
                         tagConditions  = {Tag.TYPE_INCOME:[], Tag.TYPE_EXPENSE: []}
                         tagFields = {Tag.TYPE_INCOME:Transaction.incomeTagGroup, Tag.TYPE_EXPENSE: Transaction.expenseTagGroup}
@@ -167,6 +164,6 @@ class TransactionController(BaseController):
 
     def getBalanceQuery(self, query):
         return self.db.query(func.sum(
-            query.filter(Transaction.transferKey == None ).subquery().columns.amount
+            query.filter(Transaction.transferKey == None).subquery().columns.amount
         ))
 
