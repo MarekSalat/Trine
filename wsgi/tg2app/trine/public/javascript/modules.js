@@ -6,3 +6,5 @@ trine.config(['$routeProvider', function ($routeProvider) {
 		templateUrl: 'views/home.html'
 	})
 }]);
+
+trine.constant('testValue', 42);

@@ -1,3 +1,7 @@
-{{data.welcome}}
-
 {{data.data | json}}
+<br />
+<br />
+<br />
+<div ng-repeat='transaction in data.data.value track by $index'>
+	<d-transaction amount='{{transaction.amount}}' date='{{transaction.date}}' guid='{{transaction.id}}' incomes='{{transaction.incomeTagGroup.tags}}' expenses='{{transaction.expenseTagGroup.tags}}'></d-transaction>	
+</div>
