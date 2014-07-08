@@ -1,5 +1,7 @@
-{{data.data | json}}
-<br />
+<div ng-if="data.clicked">
+	{{data.data | json}}
+</div>
+<input type='submit' ng-click="data.showJson()" ng-value="!data.clicked ? 'Show json' : 'Hide json'" />
 <br />
 <br />
 <div ng-repeat='transaction in data.data.value_list track by transaction.id'>

@@ -17,9 +17,8 @@ angular.module('trine')
             	if (attrs.expenses) {	
             	scope.expenses = angular.fromJson(attrs.expenses);		
             	}
-      		},
-      		controller: function($scope) {
-  				$scope.dateParsed = Date.parse($scope.date);
+
+            	scope.dateParsed = Date.parse(scope.date);
       		}
       }    
     });
