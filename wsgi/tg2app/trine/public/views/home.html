@@ -1,9 +1,26 @@
 <div ng-if="data.clicked">
-	{{data.data | json}}
+	{{data.transactions.value_list | json}}
+	<br />
+	<br />
+	{{data.tags.value_list | json}}
 </div>
 <input type='submit' ng-click="data.showJson()" ng-value="!data.clicked ? 'Show json' : 'Hide json'" />
 <br />
+model = transaction|taggroup|tag
 <br />
-<div ng-repeat='transaction in data.data.value_list track by transaction.id'>
+http://domain/api/v1/quick-key/{model}[/{guid}]
+<br />
+
+
+<tags-input ng-model="incomeTags">
+  <auto-complete source="loadIncomeItems($query)" min-length="1" debounce-delay="1"></auto-complete>
+</tags-input>
+<br /><br /><br /><br />
+<tags-input ng-model="expenseTags">
+  <auto-complete source="loadExpenseItems($query)" min-length="1" debounce-delay="1"></auto-complete>
+</tags-input>
+
+<br /><br /><br /><br />
+<div ng-repeat='transaction in data.transactions.value_list track by transaction.id'>
 	<d-transaction amount='{{transaction.amount}}' date='{{transaction.date}}' guid='{{transaction.id}}' incomes='{{transaction.incomeTagGroup.tags}}' expenses='{{transaction.expenseTagGroup.tags}}'></d-transaction>	
 </div>

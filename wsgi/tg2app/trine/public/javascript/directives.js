@@ -1,4 +1,4 @@
-angular.module('trine')
+angular.module('trine.directives', ['ngTagsInput'])
 	.directive('dTransaction', function ()
 	{
 		return {
