@@ -50,7 +50,7 @@ def bootstrap(command, conf, vars):
         user_trine.email = 'mareks2@trine.com'
         user_trine.password = 'mareks2'
         user_trine.defaultCurrency = "EUR"
-        user_trine.groups = [user_trine]
+        user_trine.groups = [user_group_trine]
 
         for user in [user_admin, user_trine]:
             grocery = Tag(name="grocery", user=user)
@@ -84,8 +84,9 @@ def bootstrap(command, conf, vars):
                 user=user
             ))
 
-            transactions.append(Transaction.new_transfer(
+            Transaction.new_transfer(Transaction(
                 amount=-500,
+				foreignCurrencyAmount=0,
                 user=user
             ), group_account, group_cash)
 
