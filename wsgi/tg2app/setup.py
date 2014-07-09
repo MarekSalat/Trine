@@ -37,6 +37,7 @@ install_requires = [
     "TurboGears2 >= 2.3.2",
     "zope.sqlalchemy >= 0.4",
 	"genshi",
+	"jinja2",
     "sqlalchemy",
     "alembic",
     "repoze.who",
