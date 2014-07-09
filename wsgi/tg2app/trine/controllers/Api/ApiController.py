@@ -6,13 +6,19 @@ from tgext.crud.decorators import register_validators, registered_validate
 
 from trine.lib.base import BaseController
 from trine.lib.provider import TrineProvider
-from trine.model import Transaction, Tag, TagGroup
+from trine.model import Transaction, Tag, TagGroup, User
 
 
 __author__ = 'Marek'
 
 
 class ApiController(BaseController):
+    """
+        /api/v1/{api-key}/{model}[/{guid}]
+
+        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    """
+
     apiKeys = ["quick-key", "7923fd82-400a-4c0b-b9ef-df40998a5f00"]
     supportedVersions = ['v1']
 
@@ -21,7 +27,8 @@ class ApiController(BaseController):
         self.apiControllers = dict(
             transaction=TransactionApiRestController(session),
             tag=TagRestController(session),
-            taggroup=TagGroupApiRestController(session)
+            taggroup=TagGroupApiRestController(session),
+            user=UserRestController(session)
         )
 
     @expose()
@@ -106,22 +113,56 @@ class ApiCrudRestController(BaseController, RestController):
         # if request.response_type != 'application/json':
         # abort(406, 'Only JSON requests are supported')
 
-    def _prepare_query(self, model=None, limit=False, **kw):
-        if not model:
-            model = self.model
-        query = self.session.query(model).with_parent(request.identity["user"])
+    def _prepare_query(self):
+        return self.session.query(self.model).with_parent(request.identity["user"])
+
+    def _filter_query(self, query, limit=0, offset=0, order_by="", pagesize=10, page=0, filter="", **kw):
         if limit:
             query = query.limit(limit)
+
+        if limit and offset:
+            query = query.offset(offset)
+
+        if order_by:
+            for col in [col.split("|") for col in order_by.split(";")]:
+                field_name = col[0]
+                if not hasattr(self.model, field_name):
+                    continue
+                field = getattr(self.model, field_name)
+                if len(col) == 2:
+                    strategy = col[1].lower()
+                    if strategy == "asc":
+                        field = field.asc()
+                    if strategy == "desc":
+                        field = field.desc()
+                query = query.order_by(field)
+
+        # TODO: pagesize=10&page=1
+        # TODO: filter={ field: { $gt: value1, $lt: value2 } }
+
         return query
 
     @expose('json')
     def get_all(self, **kw):
-        entities = self._prepare_query(**kw).all()
+        """
+            model?limit=5
+            model?limit=5&offset=2
+            model?order_by=amount
+            model?order_by=date|desc;amount|desc
+            model?pagesize=10&page=1
+
+        :param kw:
+        :return:
+        """
+        query = self._prepare_query(**kw)
+        filtered_query = self._filter_query(query, **kw)
+
+        entities = filtered_query.all()
 
         if entities is None:
             abort(404, 'Not found')
 
-        return {'value_list': self._dictify(entities)}
+        return {'value_list': self._dictify(entities), 'total_entries': query.count(), 'entries': filtered_query.count()}
 
     @expose('json')
     def get_one(self, id, **kw):
@@ -133,7 +174,7 @@ class ApiCrudRestController(BaseController, RestController):
         return {'value': self._dictify(entity)}
 
     @expose('json')
-    @registered_validate()
+    # @registered_validate()
     def post(self, **kw):
         # if request.response_type != 'application/json':
         # abort(406, 'Only JSON requests are supported')
@@ -149,7 +190,7 @@ class ApiCrudRestController(BaseController, RestController):
         return self.get_one(entity.id, **kw)
 
     @expose('json')
-    @registered_validate()
+    # @registered_validate()
     def put(self, id, **kw):
         # if request.response_type != 'application/json':
         # abort(406, 'Only JSON requests are supported')
@@ -177,22 +218,24 @@ class TransactionApiRestController(ApiCrudRestController):
 
     def __init__(self, session):
         super().__init__(session)
-        self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups", "transactions"]
+        self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups"]
         self.provider = TrineProvider()
 
-    def _prepare_query(self, model=None, limit=False, **kw):
-        if not model:
-            model = self.model
-
-        query = self.session.query(model).options(
+    def _prepare_query(self, **kw):
+        return self.session.query(Transaction).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
         ).with_parent(request.identity["user"])
 
-        if limit:
-            query = query.limit(limit)
+    @expose(inherit=True)
+    def post(self, **kw):
+        request.json['incomeTagGroup'] = TagGroup.new_with_these_tags(
+            Tag.new_from_name_list(request.json_body['incomeTagGroup'], request.identity["user"], Tag.TYPE_INCOME))
+        request.json['expenseTagGroup'] = TagGroup.new_with_these_tags(
+            Tag.new_from_name_list(request.json_body['expenseTagGroup'], request.identity["user"], Tag.TYPE_EXPENSE))
 
-        return query
+        request.json['incomeTagGroup'] = 'XXXXXXXXXXXX'
+        return super().post(**kw)
 
 
 class TagGroupApiRestController(ApiCrudRestController):
@@ -201,7 +244,29 @@ class TagGroupApiRestController(ApiCrudRestController):
     def __init__(self, session):
         super().__init__(session)
         self.omit_fields += ['expenses', 'incomes']
+        self.provider = TrineProvider()
 
 
 class TagRestController(ApiCrudRestController):
     model = Tag
+
+
+class UserRestController(ApiCrudRestController):
+    model = User
+
+    def _prepare_query(self):
+        return self.session.query(self.model).filter(self.model.id == request.identity["user"].id)
+
+    def __init__(self, session):
+        super().__init__(session)
+        self.omit_fields = ['expenses', 'incomes', 'groups', 'transactions', "_password", "password", "tagGroups", "tags"]
+
+    @expose(inherit=True)
+    def get_all(self, **kw):
+        return self.get_one(request.identity["user"].id, **kw)
+
+    def post(self, **kw):
+        pass
+
+    def post_delete(self, id, **kw):
+        pass

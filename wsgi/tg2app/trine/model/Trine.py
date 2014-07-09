@@ -75,14 +75,15 @@ class Tag(Base, AutoRepr):
         :param type:
         :return: list of Tag
         """
-        existing_names = DBSession.query(Tag).with_parent(user).filter(or_(*[Tag.name == name for name in str_names]))
+        existing_names = DBSession.query(Tag).with_parent(user).\
+            filter(or_(*[Tag.name == name for name in str_names])).all()
 
         not_existing_names = list(set(str_names) - set([tag.name for tag in existing_names]))
 
         for name in not_existing_names:
             tag = Tag(user=user, name=name, type=type)
-            existing_names.append(tag)
             DBSession.add(tag)
+            existing_names.append(tag)
 
         return existing_names
 
