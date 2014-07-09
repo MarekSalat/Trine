@@ -229,13 +229,21 @@ class TransactionApiRestController(ApiCrudRestController):
 
     @expose(inherit=True)
     def post(self, **kw):
-        request.json['incomeTagGroup'] = TagGroup.new_with_these_tags(
-            Tag.new_from_name_list(request.json_body['incomeTagGroup'], request.identity["user"], Tag.TYPE_INCOME))
-        request.json['expenseTagGroup'] = TagGroup.new_with_these_tags(
-            Tag.new_from_name_list(request.json_body['expenseTagGroup'], request.identity["user"], Tag.TYPE_EXPENSE))
+        # TODO: validation
+        # TODO: transfer
+        
+        transaction = request.json
+        transaction['incomeTagGroup'] = TagGroup.new_with_these_tags(
+            Tag.new_from_name_list(transaction, request.identity["user"], Tag.TYPE_INCOME))
+        transaction['expenseTagGroup'] = TagGroup.new_with_these_tags(
+            Tag.new_from_name_list(transaction, request.identity["user"], Tag.TYPE_EXPENSE))
 
-        request.json['incomeTagGroup'] = 'XXXXXXXXXXXX'
-        return super().post(**kw)
+        entity = self.model(**transaction)
+        entity._user_id = request.identity["user"].id
+        self.session.add(entity)
+        self.session.flush()
+
+        return self.get_one(entity.id, **kw)
 
 
 class TagGroupApiRestController(ApiCrudRestController):
