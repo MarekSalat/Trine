@@ -75,7 +75,7 @@ class Tag(Base, AutoRepr):
         :param type:
         :return: list of Tag
         """
-        existing_names = DBSession.query(Tag).with_parent(user).\
+        existing_names = DBSession.query(Tag).with_parent(user). \
             filter(or_(*[Tag.name == name for name in str_names])).all()
 
         not_existing_names = list(set(str_names) - set([tag.name for tag in existing_names]))
@@ -141,6 +141,7 @@ class TagGroup(Base, AutoRepr):
 
         tags_ids = [tag.id for tag in tags]
 
+        # a and b and c <=> not (not a or not b or not c)
         groups = DBSession.query(TagGroup). \
             join(TagGroup.tags). \
             filter(TagGroup.tags.any(Tag.id.in_(tags_ids))). \
@@ -189,6 +190,8 @@ class Transaction(Base, AutoRepr):
         """
 
         template_transaction.transferKey = JsonableUUID(uuid.uuid4().hex)
+        template_transaction.expenseTagGroup = None
+        template_transaction.expenseTagGroup_id = None
 
         source = copy(template_transaction)
         """ :type: Transaction """
@@ -201,7 +204,8 @@ class Transaction(Base, AutoRepr):
         target.id = JsonableUUID(uuid.uuid4().hex)
         target.incomeTagGroup = to_group
         target.amount *= -1
-        target.foreignCurrencyAmount *= -1
+        if target.foreignCurrency:
+            target.foreignCurrencyAmount *= -1
 
         DBSession.add_all([source, target])
         DBSession.flush()

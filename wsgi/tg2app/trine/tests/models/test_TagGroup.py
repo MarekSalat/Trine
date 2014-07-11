@@ -28,6 +28,7 @@ class TestGroup(ModelTest):
         groups = [
             TagGroup(user=self.users[0], tags=self.tags[0:3]),
             TagGroup(user=self.users[0], tags=self.tags[0:4]),
+            TagGroup(user=self.users[0], tags=self.tags[1:4]),
             TagGroup(user=self.users[0], tags=self.tags[0:5]),
             TagGroup(user=self.users[0], tags=self.tags[2:5]),
             TagGroup(user=self.users[0], tags=self.tags[2:6]),
@@ -42,7 +43,7 @@ class TestGroup(ModelTest):
         for i, group in enumerate(groups):
             self.assertEquals(TagGroup.with_these_tags(group.tags).first().id, group.id, "Group %d" % i)
 
-        self.assertEquals(TagGroup.with_these_tags([]), [])
+        self.assertEquals(TagGroup.with_these_tags([]).all(), [])
 
     def test_new_with_these_tags(self):
         self.assertEquals(TagGroup.with_these_tags([]).all(), [])

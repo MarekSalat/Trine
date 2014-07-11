@@ -7,6 +7,7 @@ __author__ = 'Marek'
 
 class TrineProvider(SAORMProvider):
     pass
+
     def dictify(self, obj, fields=None, omit_fields=None):
         if obj is None:
             return {}
@@ -20,6 +21,10 @@ class TrineProvider(SAORMProvider):
                 continue
 
             value = getattr(obj, prop.key)
+
+            if value is None:
+                continue
+
             if value is not None:
                 if isinstance(prop, PropertyLoader):
                     klass = prop.argument
@@ -28,11 +33,11 @@ class TrineProvider(SAORMProvider):
                     pk_name = self.get_primary_field(klass)
                     if isinstance(value, list) or isinstance(value, Query):
                         pass
-                        #joins
+                        # joins
                         value = [self.dictify(value, fields, omit_fields) for value in value]
                     else:
                         pass
-                        #fks
+                        # fks
                         value = self.dictify(value, fields, omit_fields)
             r[prop.key] = value
         return r
