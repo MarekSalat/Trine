@@ -1,12 +1,12 @@
 from sprox.formbase import EditableForm, AddRecordForm
 from sprox.providerselector import ProviderTypeSelector
 from sqlalchemy.orm import subqueryload
-from tg import RestController, request, expose, response, predicates, abort
+from tg import RestController, request, expose, response, predicates, abort, validate
 from tgext.crud.decorators import register_validators, registered_validate
 
 from trine.lib.base import BaseController
 from trine.lib.provider import TrineProvider
-from trine.model import Transaction, Tag, TagGroup, User
+from trine.model import Transaction, Tag, TagGroup, User, DBSession as db
 
 
 __author__ = 'Marek'
@@ -22,13 +22,13 @@ class ApiController(BaseController):
     apiKeys = ["quick-key", "7923fd82-400a-4c0b-b9ef-df40998a5f00"]
     supportedVersions = ['v1']
 
-    def __init__(self, session):
+    def __init__(self):
         super().__init__()
         self.apiControllers = dict(
-            transaction=TransactionApiRestController(session),
-            tag=TagRestController(session),
-            taggroup=TagGroupApiRestController(session),
-            user=UserRestController(session)
+            transaction=TransactionApiRestController(),
+            tag=TagRestController(),
+            taggroup=TagGroupApiRestController(),
+            user=UserRestController()
         )
 
     @expose()
@@ -69,10 +69,9 @@ class ApiCrudRestController(BaseController, RestController):
     omit_fields = ['user', '_user_id']
     model = None
 
-    def __init__(self, session):
+    def __init__(self):
         super().__init__()
-        self.session = session
-        self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=session)
+        self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=db)
 
         # if not hasattr(self, 'new_form'):
         # class EditForm(EditableForm):
@@ -114,7 +113,7 @@ class ApiCrudRestController(BaseController, RestController):
         # abort(406, 'Only JSON requests are supported')
 
     def _prepare_query(self):
-        return self.session.query(self.model).with_parent(request.identity["user"])
+        return db.query(self.model).with_parent(request.identity["user"])
 
     def _filter_query(self, query, limit=0, offset=0, order_by="", pagesize=10, page=0, filter="", **kw):
         if limit:
@@ -184,8 +183,8 @@ class ApiCrudRestController(BaseController, RestController):
 
         entity = self.model(**request.json_body)
         entity._user_id = request.identity["user"].id
-        self.session.add(entity)
-        self.session.flush()
+        db.add(entity)
+        db.flush()
 
         return self.get_one(entity.id, **kw)
 
@@ -204,7 +203,7 @@ class ApiCrudRestController(BaseController, RestController):
         for key, value in request.json_body.items():
             setattr(entity, key, value)
 
-        self.session.flush()
+        db.flush()
 
         return self.get_one(id, **kw)
 
@@ -216,41 +215,73 @@ class ApiCrudRestController(BaseController, RestController):
 class TransactionApiRestController(ApiCrudRestController):
     model = Transaction
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
         self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups"]
         self.provider = TrineProvider()
 
     def _prepare_query(self, **kw):
-        return self.session.query(Transaction).options(
+        return db.query(Transaction).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
         ).with_parent(request.identity["user"])
 
     @expose(inherit=True)
-    def post(self, **kw):
+    def post(self, as_transfer=False, **kw):
         # TODO: validation
-        # TODO: transfer
-        
         transaction = request.json
-        transaction['incomeTagGroup'] = TagGroup.new_with_these_tags(
-            Tag.new_from_name_list(transaction, request.identity["user"], Tag.TYPE_INCOME))
-        transaction['expenseTagGroup'] = TagGroup.new_with_these_tags(
-            Tag.new_from_name_list(transaction, request.identity["user"], Tag.TYPE_EXPENSE))
+
+        for field, tag_type in [('incomeTagGroup', Tag.TYPE_INCOME), ('expenseTagGroup', Tag.TYPE_EXPENSE)]:
+            if field not in transaction or not isinstance(transaction[field], list):
+                continue
+            transaction[field] = TagGroup.new_with_these_tags(
+                Tag.new_from_name_list(transaction[field], request.identity["user"], tag_type))
 
         entity = self.model(**transaction)
         entity._user_id = request.identity["user"].id
-        self.session.add(entity)
-        self.session.flush()
+
+        if as_transfer:
+            entity.incomeTagGroup = entity.expenseTagGroup = None
+            source, target = Transaction.new_transfer(entity,
+                                                      transaction['incomeTagGroup'],
+                                                      transaction['expenseTagGroup'])
+            return {'value_list': self._dictify([source, target]), 'entries': 2}
+
+        db.add(entity)
+        db.flush()
 
         return self.get_one(entity.id, **kw)
+
+    @expose(inherit=True)
+    def put(self, id, **kw):
+        entity = self._prepare_query(**kw).filter(self.model.id == id).first()
+
+        if not entity:
+            response.status_code = 404
+            return {'error': 'no exists'}
+
+        transaction_changes = request.json_body
+
+        for field, tag_type in [('incomeTagGroup', Tag.TYPE_INCOME), ('expenseTagGroup', Tag.TYPE_EXPENSE)]:
+            if field not in transaction_changes or not isinstance(transaction_changes[field], list):
+                continue
+            transaction_changes[field] = TagGroup.new_with_these_tags(
+                Tag.new_from_name_list(transaction_changes[field], request.identity["user"], tag_type))
+
+        for key, value in transaction_changes.items():
+            if not hasattr(entity, key):
+                continue
+            setattr(entity, key, value)
+
+        db.flush()
+
+        return self.get_one(id, **kw)
 
 
 class TagGroupApiRestController(ApiCrudRestController):
     model = TagGroup
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
+        super().__init__()
         self.omit_fields += ['expenses', 'incomes']
         self.provider = TrineProvider()
 
@@ -263,10 +294,10 @@ class UserRestController(ApiCrudRestController):
     model = User
 
     def _prepare_query(self):
-        return self.session.query(self.model).filter(self.model.id == request.identity["user"].id)
+        return db.query(self.model).filter(self.model.id == request.identity["user"].id)
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
+        super().__init__()
         self.omit_fields = ['expenses', 'incomes', 'groups', 'transactions', "_password", "password", "tagGroups", "tags"]
 
     @expose(inherit=True)

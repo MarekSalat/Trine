@@ -6,9 +6,51 @@
 </div>
 <input type='submit' ng-click="data.showJson()" ng-value="!data.clicked ? 'Show json' : 'Hide json'" />
 <br />
-model = transaction|taggroup|tag
 <br />
-http://domain/api/v1/quick-key/{model}[/{guid}]
+<!--
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | Method          | Description                                                  | Example Method(s) / URL(s)                 |
+    +=================+==============================================================+============================================+
+    | get_one         | Display one record.                                          | GET /movies/1                              |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | get_all         | Display all records in a resource.                           | GET /movies/                               |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | post            | Create a new record.                                         | POST /movies/                              |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | put             | Update an existing record.                                   | POST /movies/1?_method=PUT                 |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | PUT /movies/1                              |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | post_delete     | Delete an existing record.                                   | POST /movies/1?_method=DELETE              |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | DELETE /movies/1                           |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+    | delete          | A combination of post_delete and get_delete.                 | GET /movies/delete                         |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | DELETE /movies/1                           |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | DELETE /movies/                            |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | POST /movies/1/delete                      |
+    |                 |                                                              +--------------------------------------------+
+    |                 |                                                              | POST /movies/delete                        |
+    +-----------------+--------------------------------------------------------------+--------------------------------------------+
+-->
+<pre>
+    model = transaction|taggroup|tag|user
+
+    https://domain/api/v1/quick-key/{model}[/{guid}]
+    https://domain/api/v1/quick-key/{model}?
+                limit=5&offset=2
+                limit=5
+                order_by=amount
+                order_by=date;amount|desc
+                pagesize=10&page=1
+
+    POST transaction?as_transfer=1 // prida transfer (dve transakce, viz testy)
+        - incomeTagGroup das skupinu zdroju (treba account)
+        - expenseTagGroup das skupinu cilu (treba cash)
+</pre>
 <br />
 
 

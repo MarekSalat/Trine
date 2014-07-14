@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
-#from routes import Mapper
+# from routes import Mapper
 # from routes import Mapper
 
 from tg import expose, tmpl_context
-from trine.controllers.Api.ApiController import ApiController
-from trine.controllers.TGRootController import TGRootController
 
+from trine.controllers.Api.ApiController import ApiController
+from trine.controllers.AppController import AppController
+from trine.controllers.TGRootController import TGRootController
 from trine.lib.base import BaseController
 from trine.controllers.error import ErrorController
 from trine.controllers.TransactionController import TransactionController
 from trine.model import DBSession
+
 
 __all__ = ['RootController']
 
@@ -32,21 +34,12 @@ class RootController(BaseController):
     """
 
     error = ErrorController()
-    api = ApiController(DBSession)
+    api = ApiController()
+    app = AppController()
+    transaction = TransactionController()
 
     def __init__(self):
-        self._transaction = TransactionController(DBSession)
         self._root = TGRootController()
-
-        # map = Mapper()
-        # map.connect(None, "/error/{action}/{id}", controller="error")
-        # map.connect("home", "/", controller="main", action="index")
-        # # ADD CUSTOM ROUTES HERE
-        # map.connect(None, "/{controller}/{action}")
-        # map.connect(None, "/{controller}/{action}/{id}")
-        #
-        # self.map = map
-
 
     @expose()
     def _lookup(self, *args):

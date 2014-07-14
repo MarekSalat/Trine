@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="trine">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="charset={{ response.charset }}"/>
@@ -51,7 +51,9 @@
                 <li><a href="{{ tg.url('/data') }}" class="{{ 'active' if page == 'data' }}">Serving Data</a></li>
                 <li><a href="{{ tg.url('/environ') }}" class="{{ 'active' if page == 'environ' }}">WSGI Environment</a>
                 </li>
-
+                <li></li>
+                <li><a href="{{ tg.url('/app') }}">App</a></li>
+                <li></li>
                 <li><a href="{{ tg.url('/transaction') }}">Transactions</a></li>
                 <li><a href="{{ tg.url('/transaction/transactionByTag') }}">Transactions by tag</a></li>
                 <li><a href="{{ tg.url('/transaction/filter') }}">Filter</a></li>

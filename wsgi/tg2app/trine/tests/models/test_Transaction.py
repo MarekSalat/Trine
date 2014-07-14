@@ -1,4 +1,6 @@
 from unittest import TestCase
+from sqlalchemy import func
+from sqlalchemy.orm import make_transient
 from trine.model import DBSession as db, Transaction, UserGroup, User, Tag, TagGroup
 from trine.tests.models import ModelTest
 
@@ -20,21 +22,21 @@ class TestTransaction(ModelTest):
 
     def test_new_transfer(self):
         template = Transaction(user=self.users[0], amount=42, foreignCurrencyAmount=1, description="Something ...")
-        sourceGroup = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="account")])
-        targetGroup = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="cache")])
+        # make_transient(template)
 
-        sourceTrans, targetTrans = Transaction.new_transfer(template, sourceGroup, targetGroup)
+        source_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="account")])
+        target_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="cache")])
 
-        self.assertNotEqual(sourceTrans.id, targetTrans.id)
-        self.assertEquals(sourceTrans.transferKey, targetTrans.transferKey)
-        self.assertEquals(sourceTrans.amount, -targetTrans.amount)
-        self.assertEquals(sourceTrans.foreignCurrencyAmount, -targetTrans.foreignCurrencyAmount)
-        self.assertEquals(sourceTrans.foreignCurrency, targetTrans.foreignCurrency)
-        self.assertEquals(sourceTrans.description, targetTrans.description)
-        self.assertEquals(sourceTrans.user.id, targetTrans.user.id)
-        self.assertEquals(sourceTrans.date, targetTrans.date)
+        source_trans, target_trans = Transaction.new_transfer(template, source_group, target_group)
+
+        self.assertNotEqual(source_trans.id, target_trans.id)
+        self.assertEquals(source_trans.transferKey, target_trans.transferKey)
+        self.assertEquals(source_trans.amount, -target_trans.amount)
+        self.assertEquals(source_trans.foreignCurrencyAmount, -target_trans.foreignCurrencyAmount)
+        self.assertEquals(source_trans.foreignCurrency, target_trans.foreignCurrency)
+        self.assertEquals(source_trans.description, target_trans.description)
+        self.assertEquals(source_trans.user.id, target_trans.user.id)
+        self.assertEquals(source_trans.date, target_trans.date)
 
         trans = db.query(Transaction).all()
-
-        print(trans)
         self.assertEquals(len(trans), 2)
