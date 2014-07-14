@@ -51,9 +51,9 @@
                         <dt>Balance</dt>
                         <dd>{{ totalBalance }}</dd>
 
-                        {% for name,balance in balances.items() %}
-                        <dt>{{ name }}</dt>
-                        <dd>{{ balance }}</dd>
+                        {% for name, balance in balances %}
+                            <dt>{{ name }}</dt>
+                            <dd>{{ balance }}</dd>
                         {% endfor %}
 
                         <dt>Total incomes</dt>
@@ -68,7 +68,9 @@
     </div>
 
     <div class="row ">
-        <h1>Latest <small><a href="{{ tg.url('/transaction/filter') }}">more</a></small></h1>
+        <h1>Latest
+            <small><a href="{{ tg.url('/transaction/filter') }}">more</a></small>
+        </h1>
         {%- for transaction in transactions -%}
             {{ m.render_transaction(transaction) }}
             {% if loop.index is divisibleby 6 %}

@@ -17,7 +17,7 @@ class TestApiCrudRestController(TrineControllerTestCase):
     def test_get_all(self):
         resp = self.app.get('/api/v1/quick-key/transaction?limit=2', status=200, **self.defaults)
         self.assertEquals(resp.json_body['entries'], 2)
-        self.assertEquals(resp.json_body['total_entries'], 8)
+        self.assertGreaterEqual(resp.json_body['total_entries'], 2)
 
         self.app.get('/api/v1/quick-key/transaction?order_by=date|desc;amount|desc', status=200, **self.defaults)
 
@@ -25,7 +25,7 @@ class TestApiCrudRestController(TrineControllerTestCase):
         id = db.query(Transaction).limit(0).first().id
         resp = self.app.get('/api/v1/quick-key/transaction/%s' % id, status=200, **self.defaults)
         self.assertIsNotNone(resp.json_body['value'])
-        self.assertEquals(resp.json_body['value']['id'], id)
+        self.assertEquals(resp.json_body['value']['id'], str(id))
 
     def test_post(self):
         transaction = dict(amount=42, incomeTagGroup=['tag'], expenseTagGroup=['tag1', 'tag2'])
@@ -38,8 +38,7 @@ class TestApiCrudRestController(TrineControllerTestCase):
         self.assertEqual(len(trans1['incomeTagGroup']['tags']), 1)
         self.assertEqual(len(trans1['expenseTagGroup']['tags']), 2)
         self.assertEqual(trans1['incomeTagGroup']['tags'][0]['name'], 'tag')
-        self.assertEqual(trans1['expenseTagGroup']['tags'][0]['name'], 'tag1')
-        self.assertEqual(trans1['expenseTagGroup']['tags'][1]['name'], 'tag2')
+        self.assertListEqual(sorted([tag['name'] for tag in trans1['expenseTagGroup']['tags']]), ['tag1', 'tag2'])
 
         resp2 = self.app.post_json('/api/v1/quick-key/transaction', params=transaction, status=200, **self.defaults)
         trans2 = resp.json_body['value']
@@ -58,7 +57,8 @@ class TestApiCrudRestController(TrineControllerTestCase):
 
     def test_post_as_transfer(self):
         transaction = dict(amount=-500, incomeTagGroup=['from account'], expenseTagGroup=['to account'])
-        resp = self.app.post_json('/api/v1/quick-key/transaction?as_transfer=1', params=transaction, **self.defaults)
+        resp = self.app.post_json('/api/v1/quick-key/transaction?as_transfer=1', params=transaction, status=200,
+                                  **self.defaults)
         trans = resp.json_body['value_list']
 
         self.assertEqual(len(trans), 2)

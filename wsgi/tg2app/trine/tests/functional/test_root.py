@@ -14,11 +14,14 @@ Please read http://pythonpaste.org/webtest/ for more information.
 import unittest
 
 from nose.tools import ok_
+from sqlalchemy import func
+from sqlalchemy.orm import aliased
+from trine.model import Tag, DBSession as db, User, Transaction, TagGroup
 
 from trine.tests import TrineControllerTestCase
 
 
-# @unittest.skip("classing skipping")
+# @unittest.skip('Serve as example')
 class TestRootController(TrineControllerTestCase):
     """Tests for the method in the root controller."""
 

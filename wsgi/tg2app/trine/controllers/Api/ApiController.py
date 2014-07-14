@@ -6,7 +6,7 @@ from tgext.crud.decorators import register_validators, registered_validate
 
 from trine.lib.base import BaseController
 from trine.lib.provider import TrineProvider
-from trine.model import Transaction, Tag, TagGroup, User
+from trine.model import Transaction, Tag, TagGroup, User, DBSession as db
 
 
 __author__ = 'Marek'
@@ -22,13 +22,13 @@ class ApiController(BaseController):
     apiKeys = ["quick-key", "7923fd82-400a-4c0b-b9ef-df40998a5f00"]
     supportedVersions = ['v1']
 
-    def __init__(self, session):
+    def __init__(self):
         super().__init__()
         self.apiControllers = dict(
-            transaction=TransactionApiRestController(session),
-            tag=TagRestController(session),
-            taggroup=TagGroupApiRestController(session),
-            user=UserRestController(session)
+            transaction=TransactionApiRestController(),
+            tag=TagRestController(),
+            taggroup=TagGroupApiRestController(),
+            user=UserRestController()
         )
 
     @expose()
@@ -69,10 +69,9 @@ class ApiCrudRestController(BaseController, RestController):
     omit_fields = ['user', '_user_id']
     model = None
 
-    def __init__(self, session):
+    def __init__(self):
         super().__init__()
-        self.session = session
-        self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=session)
+        self.provider = ProviderTypeSelector().get_selector(self.model).get_provider(self.model, hint=db)
 
         # if not hasattr(self, 'new_form'):
         # class EditForm(EditableForm):
@@ -114,7 +113,7 @@ class ApiCrudRestController(BaseController, RestController):
         # abort(406, 'Only JSON requests are supported')
 
     def _prepare_query(self):
-        return self.session.query(self.model).with_parent(request.identity["user"])
+        return db.query(self.model).with_parent(request.identity["user"])
 
     def _filter_query(self, query, limit=0, offset=0, order_by="", pagesize=10, page=0, filter="", **kw):
         if limit:
@@ -184,8 +183,8 @@ class ApiCrudRestController(BaseController, RestController):
 
         entity = self.model(**request.json_body)
         entity._user_id = request.identity["user"].id
-        self.session.add(entity)
-        self.session.flush()
+        db.add(entity)
+        db.flush()
 
         return self.get_one(entity.id, **kw)
 
@@ -204,7 +203,7 @@ class ApiCrudRestController(BaseController, RestController):
         for key, value in request.json_body.items():
             setattr(entity, key, value)
 
-        self.session.flush()
+        db.flush()
 
         return self.get_one(id, **kw)
 
@@ -216,13 +215,12 @@ class ApiCrudRestController(BaseController, RestController):
 class TransactionApiRestController(ApiCrudRestController):
     model = Transaction
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
         self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups"]
         self.provider = TrineProvider()
 
     def _prepare_query(self, **kw):
-        return self.session.query(Transaction).options(
+        return db.query(Transaction).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
         ).with_parent(request.identity["user"])
@@ -248,8 +246,8 @@ class TransactionApiRestController(ApiCrudRestController):
                                                       transaction['expenseTagGroup'])
             return {'value_list': self._dictify([source, target]), 'entries': 2}
 
-        self.session.add(entity)
-        self.session.flush()
+        db.add(entity)
+        db.flush()
 
         return self.get_one(entity.id, **kw)
 
@@ -274,7 +272,7 @@ class TransactionApiRestController(ApiCrudRestController):
                 continue
             setattr(entity, key, value)
 
-        self.session.flush()
+        db.flush()
 
         return self.get_one(id, **kw)
 
@@ -282,8 +280,8 @@ class TransactionApiRestController(ApiCrudRestController):
 class TagGroupApiRestController(ApiCrudRestController):
     model = TagGroup
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
+        super().__init__()
         self.omit_fields += ['expenses', 'incomes']
         self.provider = TrineProvider()
 
@@ -296,10 +294,10 @@ class UserRestController(ApiCrudRestController):
     model = User
 
     def _prepare_query(self):
-        return self.session.query(self.model).filter(self.model.id == request.identity["user"].id)
+        return db.query(self.model).filter(self.model.id == request.identity["user"].id)
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self):
+        super().__init__()
         self.omit_fields = ['expenses', 'incomes', 'groups', 'transactions', "_password", "password", "tagGroups", "tags"]
 
     @expose(inherit=True)

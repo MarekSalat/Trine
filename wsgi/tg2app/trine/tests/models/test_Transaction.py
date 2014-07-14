@@ -1,4 +1,6 @@
 from unittest import TestCase
+from sqlalchemy import func
+from sqlalchemy.orm import make_transient
 from trine.model import DBSession as db, Transaction, UserGroup, User, Tag, TagGroup
 from trine.tests.models import ModelTest
 
@@ -20,6 +22,8 @@ class TestTransaction(ModelTest):
 
     def test_new_transfer(self):
         template = Transaction(user=self.users[0], amount=42, foreignCurrencyAmount=1, description="Something ...")
+        # make_transient(template)
+
         source_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="account")])
         target_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="cache")])
 
@@ -35,6 +39,4 @@ class TestTransaction(ModelTest):
         self.assertEquals(source_trans.date, target_trans.date)
 
         trans = db.query(Transaction).all()
-
-        print(trans)
         self.assertEquals(len(trans), 2)
