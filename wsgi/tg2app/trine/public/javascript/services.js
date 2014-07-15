@@ -18,4 +18,6 @@ return $resource('/api/v1/quick-key/tag/', {}, {
         headers: { 'Content-Type': 'application/json;charset=utf-8' }
       }
     });
-}]);
+}]).factory('_', function() {
+    return window._;
+});

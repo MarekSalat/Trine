@@ -53,16 +53,114 @@
 </pre>
 <br />
 
-
-<tags-input ng-model="incomeTags">
-  <auto-complete source="loadIncomeItems($query)" min-length="1" debounce-delay="1"></auto-complete>
-</tags-input>
-<br /><br /><br /><br />
-<tags-input ng-model="expenseTags">
-  <auto-complete source="loadExpenseItems($query)" min-length="1" debounce-delay="1"></auto-complete>
-</tags-input>
-
-<br /><br /><br /><br />
 <div ng-repeat='transaction in data.transactions.value_list track by transaction.id'>
 	<d-transaction amount='{{transaction.amount}}' date='{{transaction.date}}' guid='{{transaction.id}}' incomes='{{transaction.incomeTagGroup.tags}}' expenses='{{transaction.expenseTagGroup.tags}}'></d-transaction>	
+</div>
+
+
+
+<div class="row col-xs-12">
+<div class="col-md-6 col-sm-12">
+
+
+    <form id="add-transaction-form" class="form-horizontal" method="post" action="/transaction/add_transaction">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Add transaction</legend>
+            <div class="row form-group">
+                <div class="col-xs-12">
+                    <button id="form-type-toggle" type="button" class="btn btn-primary" data-toggle="button" data-toggle-name="Click to Income/Expense">Click to transfer</button>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-xs-8">
+                    <div id="form-type-radio-date-sel" class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" name="date-sel" id="date-sel-option1" value="-1 day"> yesterday
+                        </label>
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="date-sel" id="date-sel-option2" value="now"> now
+                        </label>
+                        <label class="btn btn-primary own">
+                            <input type="radio" name="date-sel" id="date-sel-option4" value="own"> own
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-group ">
+                        <input type="datetime-local" name="datetime" id="frm-datetime" class="form-control hidden" placeholder="15. 07. 2014.  19:34" ata-validation="date" data-validation-format="dd. mm. yyyy. HH:MM">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <!-- Appended Input-->
+                <div class=" col-sm-6">
+                    <div class="">
+                        <div class="input-group">
+                            <input id="frm-amount" name="amount" class="form-control" ng-model="data.new.amount" placeholder="Amount" type="number" required="required" data-validation="number" data-validation-allowing="float, negative">
+                            <span class="input-group-addon">Kč</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button Drop Down -->
+                <div class="col-sm-6">
+                    <div class="">
+                        <div class="input-group">
+                            <input id="frm-foreign-currency-amount" name="foreign-currency-amount" ng-model="data.new.foreignAmount" class="form-control" placeholder="Amount in foreign currency" type="number">
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    €
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">€</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group col-md-12">
+                <div id="income-tags-wrapper" class="">
+                    <tags-input ng-model="data.new.incomeTags" class="input-md" placeholder="Income tags">
+                        <auto-complete source="loadIncomeItems($query)" min-length="1" debounce-delay="1"></auto-complete>
+                    </tags-input>
+                    <span class="help-block tags">
+                         <d-tag ng-repeat="tag in data.income" name="{{tag.name}}" type="{{tag.type}}" income-tags="data.new.incomeTags"></d-tag>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group col-md-12">
+                <div id="expense-tags-wrapper" class="">
+                    <tags-input ng-model="data.new.expenseTags" placeholder="Expense tags" class="input-md">
+                        <auto-complete source="loadExpenseItems($query)" min-length="1" debounce-delay="1"></auto-complete>
+                    </tags-input>
+                    <span class="help-block tags">
+                         <d-tag ng-repeat="tag in data.expense" name="{{tag.name}}" type="{{tag.type}}" expense-tags="data.new.expenseTags"></d-tag>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group col-md-12">
+                <div class="">
+                    <textarea class="form-control" id="frm-description" name="description" ng-model="data.new.description" placeholder="Description"></textarea>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="input-group pull-right">
+                    <a class="btn btn-default from-control" name="btn-send" href="">Cancel</a>
+                    <input class="btn btn-primary btn-type-color" type="submit" value="Save">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
 </div>
