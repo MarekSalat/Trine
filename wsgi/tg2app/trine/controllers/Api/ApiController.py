@@ -1,3 +1,5 @@
+from operator import or_, and_
+from datetime import datetime
 from sprox.formbase import EditableForm, AddRecordForm
 from sprox.providerselector import ProviderTypeSelector
 from sqlalchemy.orm import subqueryload
@@ -219,16 +221,34 @@ class TransactionApiRestController(ApiCrudRestController):
         self.omit_fields += ['incomeTagGroup_id', 'expenseTagGroup_id', "groups"]
         self.provider = TrineProvider()
 
-    def _prepare_query(self, **kw):
-        return db.query(Transaction).options(
+    def _prepare_query(self, only_passed=False, only_planned=False, **kw):
+        query = db.query(Transaction).options(
             subqueryload(Transaction.incomeTagGroup).subqueryload(TagGroup.tags),
             subqueryload(Transaction.expenseTagGroup).subqueryload(TagGroup.tags)
         ).with_parent(request.identity["user"])
+
+        if only_planned:
+            query = query.filter(or_(Transaction.date == None, Transaction.date > datetime.datetime.utcnow()))
+
+        if only_passed:
+            query = query.filter(Transaction.date <= datetime.datetime.utcnow())
+
+        return query
+
+    @expose('json')
+    def balances(self, **kw):
+        return dict(hello='world')
 
     @expose(inherit=True)
     def post(self, as_transfer=False, **kw):
         # TODO: validation
         transaction = request.json
+
+        if 'date' in transaction:
+            if isinstance(transaction['date'], str):
+                transaction['date'] = datetime.strptime(transaction['date'], "%Y-%m-%d %H:%M:%S.%f")
+            else:
+                datetime.fromtimestamp(transaction['date'])
 
         for field, tag_type in [('incomeTagGroup', Tag.TYPE_INCOME), ('expenseTagGroup', Tag.TYPE_EXPENSE)]:
             if field not in transaction or not isinstance(transaction[field], list):
