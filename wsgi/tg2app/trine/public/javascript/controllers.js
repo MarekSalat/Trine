@@ -54,7 +54,7 @@ angular.module('trine.controllers', [])
             $scope.saveTransaction = function () {
                 var transaction = {
                     amount: $scope.data.new.amount,
-                    date: Date.now(),
+                    date: Date.now() / 1000,
                     incomeTagGroup: _.pluck($scope.data.new.incomeTags, 'text'),
                     expenseTagGroup: _.pluck($scope.data.new.expenseTags, 'text')
                 };
