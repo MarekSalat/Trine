@@ -250,9 +250,11 @@ class TransactionApiRestController(ApiCrudRestController):
             else:
                 transaction['date'] = datetime.strptime(transaction['date'], "%Y-%m-%d %H:%M:%S.%f")
 
-
         for field, tag_type in [('incomeTagGroup', Tag.TYPE_INCOME), ('expenseTagGroup', Tag.TYPE_EXPENSE)]:
             if field not in transaction or not isinstance(transaction[field], list):
+                continue
+            if not transaction[field]:
+                transaction.pop(field)
                 continue
             transaction[field] = TagGroup.new_with_these_tags(
                 Tag.new_from_name_list(transaction[field], request.identity["user"], tag_type))
