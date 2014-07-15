@@ -5,15 +5,17 @@ angular.module('trine.controllers', [])
 			$scope.data.clicked = false;
 
 			if (!$scope.data.transactions) { 
-			 	$scope.data.transactions = TransactionService.get({});
+			 	TransactionService.get({}, function (data) {
+                    $scope.data.transactions = data.value_list;
+                });
 			}	
 
 			if (!$scope.data.tags) {
 				TagsService.get({}, function (data) {
-                    $scope.data.tags = data;
+                    $scope.data.tags = data.value_list;
 
-                    $scope.data.income = _.filter(data.value_list, function (val) { return val.type == 'INCOME'; });
-                    $scope.data.expense = _.filter(data.value_list, function (val) { return val.type == 'EXPENSE'; });
+                    $scope.data.income = _.filter($scope.data.tags, function (tag) { return tag.type == 'INCOME'; });
+                    $scope.data.expense = _.filter($scope.data.tags, function (tag) { return tag.type == 'EXPENSE'; });
                 });
 			}
 
@@ -22,13 +24,10 @@ angular.module('trine.controllers', [])
 				var tags = [];
 
 				setTimeout(function() {
-                    _.each($scope.data.tags.value_list, function (val) {
-                        var name = val.name;
-                        var type = val.type;
-
-                        if (type == requiredType) {
-                            if (name.indexOf($query) > -1) {
-                                tags.push({ text: '' + name + '' });
+                    _.each($scope.data.tags, function (tag) {
+                        if (tag.type == requiredType) {
+                            if (tag.name.indexOf($query) > -1) {
+                                tags.push({ text: tag.name });
                             }
                         }
                     });
@@ -58,8 +57,9 @@ angular.module('trine.controllers', [])
                     incomeTagGroup: _.pluck($scope.data.new.incomeTags, 'text'),
                     expenseTagGroup: _.pluck($scope.data.new.expenseTags, 'text')
                 };
+
                 TransactionService.post(transaction, function (result) {
-                    $scope.data.transactions.value_list.push(result.value);
+                    $scope.data.transactions.push(result.value);
                 });
             };
 }]);
