@@ -245,10 +245,11 @@ class TransactionApiRestController(ApiCrudRestController):
         transaction = request.json
 
         if 'date' in transaction:
-            if isinstance(transaction['date'], str):
-                transaction['date'] = datetime.strptime(transaction['date'], "%Y-%m-%d %H:%M:%S.%f")
+            if isinstance(transaction['date'], int):
+                transaction['date'] = datetime.fromtimestamp(transaction['date'])
             else:
-                datetime.fromtimestamp(transaction['date'])
+                transaction['date'] = datetime.strptime(transaction['date'], "%Y-%m-%d %H:%M:%S.%f")
+
 
         for field, tag_type in [('incomeTagGroup', Tag.TYPE_INCOME), ('expenseTagGroup', Tag.TYPE_EXPENSE)]:
             if field not in transaction or not isinstance(transaction[field], list):
