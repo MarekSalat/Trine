@@ -63,7 +63,7 @@
 <div class="col-md-6 col-sm-12">
 
 
-    <form id="add-transaction-form" class="form-horizontal" method="post" action="/transaction/add_transaction">
+    <form id="add-transaction-form" class="form-horizontal">
         <fieldset>
             <!-- Form Name -->
             <legend>Add transaction</legend>
@@ -157,7 +157,7 @@
             <div class="form-group col-md-12">
                 <div class="input-group pull-right">
                     <a class="btn btn-default from-control" name="btn-send" href="">Cancel</a>
-                    <input class="btn btn-primary btn-type-color" type="submit" value="Save">
+                    <input class="btn btn-primary btn-type-color" type="submit" value="Save" ng-click="saveTransaction()">
                 </div>
             </div>
         </fieldset>

@@ -7,6 +7,9 @@ return $resource('/api/v1/quick-key/transaction/', {}, {
         method: 'GET',
         params: { },
         headers: { 'Content-Type': 'application/json;charset=utf-8' }
+      },
+      post: {
+          method: 'POST'
       }
     });
 }]).factory('TagsService', ['$resource', function($resource) {
