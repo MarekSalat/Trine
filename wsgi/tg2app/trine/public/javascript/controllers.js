@@ -58,6 +58,8 @@ angular.module('trine.controllers', [])
                     incomeTagGroup: _.pluck($scope.data.new.incomeTags, 'text'),
                     expenseTagGroup: _.pluck($scope.data.new.expenseTags, 'text')
                 };
-                TransactionService.post(transaction);
+                TransactionService.post(transaction, function (result) {
+                    $scope.data.transactions.value_list.push(result.value);
+                });
             };
 }]);
