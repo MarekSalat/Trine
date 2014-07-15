@@ -54,11 +54,10 @@ angular.module('trine.controllers', [])
             $scope.saveTransaction = function () {
                 var transaction = {
                     amount: $scope.data.new.amount,
-                    date: '2014-06-30 18:26:59.059707',
+                    date: Date.now(),
                     incomeTagGroup: _.pluck($scope.data.new.incomeTags, 'text'),
                     expenseTagGroup: _.pluck($scope.data.new.expenseTags, 'text')
                 };
-                debugger;
                 TransactionService.post(transaction);
             };
 }]);
