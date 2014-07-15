@@ -60,4 +60,6 @@ def init_model(engine):
 
 # Import your model modules here.
 from trine.model.auth import User, UserGroup, Permission
-from trine.model.Trine import *
+from trine.model.Tag import Tag
+from trine.model.TagGroup import TagGroup
+from trine.model.Transaction import Transaction

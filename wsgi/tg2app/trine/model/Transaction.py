@@ -1,8 +1,7 @@
-from copy import copy, deepcopy
+from copy import deepcopy
 from datetime import datetime
-import re
+
 import uuid
-from bson.json_util import default
 
 from trine.utils.AutoRepr import AutoRepr
 from trine.utils.uuidType import id_column, UuidColumn, JsonableUUID
@@ -10,7 +9,7 @@ from trine.utils.uuidType import id_column, UuidColumn, JsonableUUID
 __author__ = 'Marek'
 
 from sqlalchemy.orm import relationship, backref, make_transient
-from sqlalchemy import String, Float, Text, ForeignKey, Table, Column, TIMESTAMP, UniqueConstraint, Boolean, or_, func
+from sqlalchemy import String, Float, Text, ForeignKey, Column, TIMESTAMP, func
 
 from trine.model import DeclarativeBase as Base, User, DBSession, Tag, TagGroup
 
@@ -97,6 +96,14 @@ class Transaction(Base, AutoRepr):
         return cls.get_balance(user, **kw).filter(cls.amount < 0)
 
     @classmethod
+    def get_balance(cls, user: User, to_date=None, **kw):
+        query = DBSession.query(func.sum(cls.amount)).with_parent(user).filter(cls.transferKey == None)
+        if not to_date:
+            query = query.filter(cls.date <= datetime.utcnow())
+
+        return query
+
+    @classmethod
     def get_balances_per_tag(cls, user: User, tag_type=Tag.TYPE_INCOME):
         if tag_type is not Tag.TYPE_INCOME and tag_type is not Tag.TYPE_EXPENSE:
             raise Exception('Unsupported tag type: ' + str(tag_type))
@@ -112,10 +119,3 @@ class Transaction(Base, AutoRepr):
 
         return query.group_by(Tag.name)
 
-    @classmethod
-    def get_balance(cls, user: User, to_date=None, **kw):
-        query = DBSession.query(func.sum(cls.amount)).with_parent(user).filter(cls.transferKey == None)
-        if not to_date:
-            query = query.filter(cls.date <= datetime.utcnow())
-
-        return query

@@ -78,6 +78,7 @@ class User(DeclarativeBase, AutoRepr):
     created = Column(TIMESTAMP, default=datetime.now)
 
     defaultCurrency = Column(String(3))
+    defaultTimezone = Column(String(3), default='UTC', nullable=True)
 
     def __unicode__(self):
         return self.display_name or self.name
