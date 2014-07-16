@@ -3,6 +3,7 @@ angular.module('trine.directives', ['ngTagsInput'])
 	{
 		return {
 	  		restrict: 'E',
+            replace: true,
 	  		scope: {
 	  			amount: '@amount',
 	  			date: '@date',
@@ -24,6 +25,7 @@ angular.module('trine.directives', ['ngTagsInput'])
     }]).directive('dTag', ['_', function (_) {
         return {
             restrict: 'E',
+            replace: true,
             scope: {
                 name: '@name',
                 type: '@type',
