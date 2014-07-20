@@ -40,4 +40,5 @@ nosetests.xml
 .pydevproject
 *.db
 
-wsgi/tg2app/trine/public/assets/
+# Ignore design/assets as this folder is using symbolic link
+wsgi/tg2app/trine/public/design/assets
