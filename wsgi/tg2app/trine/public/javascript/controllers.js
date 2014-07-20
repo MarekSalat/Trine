@@ -1,54 +1,59 @@
 angular.module('trine.controllers', [])
-	.controller('HomeController', ['$q', '$scope', 'TransactionService', 'TagsService', '_',
-		function($q, $scope, TransactionService, TagsService, _) {
+    .controller('HomeController', ['$q', '$scope', 'TransactionService', 'TagsService', '_',
+        function ($q, $scope, TransactionService, TagsService, _) {
             $scope.data = {};
-			$scope.data.clicked = false;
+            $scope.data.clicked = false;
 
-			if (!$scope.data.transactions) { 
-			 	TransactionService.get({}, function (data) {
-                    $scope.data.transactions = data.value_list;
+            if (!$scope.data.transactions) {
+                $scope.data.transactions = TransactionService.get({});
+            }
+
+            if (!$scope.data.tags) {
+                TagsService.get({}, function (data) {
+                    $scope.data.tags = data;
+
+                    $scope.data.income = _.filter(data.value_list, function (val) {
+                        return val.type == 'INCOME';
+                    });
+                    $scope.data.expense = _.filter(data.value_list, function (val) {
+                        return val.type == 'EXPENSE';
+                    });
                 });
-			}	
+            }
 
-			if (!$scope.data.tags) {
-				TagsService.get({}, function (data) {
-                    $scope.data.tags = data.value_list;
+            $scope.loadItems = function ($query, requiredType) {
+                var deferred = $q.defer();
+                var tags = [];
 
-                    $scope.data.income = _.filter($scope.data.tags, function (tag) { return tag.type == 'INCOME'; });
-                    $scope.data.expense = _.filter($scope.data.tags, function (tag) { return tag.type == 'EXPENSE'; });
-                });
-			}
+                setTimeout(function () {
+                    _.each($scope.data.tags.value_list, function (val) {
+                        var name = val.name;
+                        var type = val.type;
 
-			$scope.loadItems = function ($query, requiredType) {
-				var deferred = $q.defer();
-				var tags = [];
-
-				setTimeout(function() {
-                    _.each($scope.data.tags, function (tag) {
-                        if (tag.type == requiredType) {
-                            if (tag.name.indexOf($query) > -1) {
-                                tags.push({ text: tag.name });
+                        if (type == requiredType) {
+                            if (name.indexOf($query) > -1) {
+                                tags.push({ text: '' + name + '' });
                             }
                         }
                     });
 
-                deferred.resolve(tags);
-				}, 10);
+                    deferred.resolve(tags);
+                }, 10);
 
-				return deferred.promise;
-			};
+                return deferred.promise;
+            };
 
-			$scope.loadIncomeItems = function ($query) {
-				return $scope.loadItems($query, 'INCOME');
-			};
+            $scope.loadIncomeItems = function ($query) {
+                return $scope.loadItems($query, 'INCOME');
+            };
 
-			$scope.loadExpenseItems = function ($query) {
-				return $scope.loadItems($query, 'EXPENSE');
-			};
+            $scope.loadExpenseItems = function ($query) {
+                return $scope.loadItems($query, 'EXPENSE');
+            };
 
-			$scope.data.showJson = function () {
-				$scope.data.clicked = !$scope.data.clicked;
-			}
+            $scope.data.showJson = function () {
+                $scope.data.clicked = !$scope.data.clicked;
+            }
 
             $scope.saveTransaction = function () {
                 var transaction = {
@@ -57,9 +62,8 @@ angular.module('trine.controllers', [])
                     incomeTagGroup: _.pluck($scope.data.new.incomeTags, 'text'),
                     expenseTagGroup: _.pluck($scope.data.new.expenseTags, 'text')
                 };
-
                 TransactionService.post(transaction, function (result) {
-                    $scope.data.transactions.push(result.value);
+                    $scope.data.transactions.value_list.push(result.value);
                 });
             };
-}]);
+        }]);
