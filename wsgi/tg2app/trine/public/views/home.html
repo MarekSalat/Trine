@@ -137,7 +137,7 @@
                 <!-- Text input-->
                 <div class="form-group col-md-12">
                     <div id="income-tags-wrapper" class="">
-                        <tags-input ng-model="data.new.incomeTags" class="input-md" placeholder="Income tags">
+                        <tags-input ng-model="data.new.incomeTags" class="input-md" placeholder="Income tags" type="income">
                             <auto-complete source="loadIncomeItems($query)" min-length="1"
                                            debounce-delay="1"></auto-complete>
                         </tags-input>
@@ -151,7 +151,7 @@
                 <!-- Text input-->
                 <div class="form-group col-md-12">
                     <div id="expense-tags-wrapper" class="">
-                        <tags-input ng-model="data.new.expenseTags" placeholder="Expense tags" class="input-md">
+                        <tags-input ng-model="data.new.expenseTags" placeholder="Expense tags" class="input-md" type="expense">
                             <auto-complete source="loadExpenseItems($query)" min-length="1"
                                            debounce-delay="1"></auto-complete>
                         </tags-input>
