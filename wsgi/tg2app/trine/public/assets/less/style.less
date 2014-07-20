@@ -5138,6 +5138,32 @@ form legend,.form-view legend {
     padding-bottom: 4px;
     color: #5E5E5E;
 }
+.tag {
+  padding: 3px 9px;
+  font-size: 11px;
+  text-shadow: none;
+  background-color: @color-primary-grey;
+  font-family: @base-font-family-two;
+  font-weight: 600;
+  color: #5E5E5E;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.tag-income {
+    background-color: @color-primary;
+    color:  @color-white;
+    margin-right: 2px;
+  }
+
+  &.tag-expense {
+    background-color: @color-important;
+    color:  @color-white;
+    margin-right: 2px;
+  }
+}
 .label-primary, .badge-primary {
     background-color: @color-success;
     color:  @color-white ;
@@ -5146,6 +5172,7 @@ form legend,.form-view legend {
     background-color: @color-primary;
     color:  @color-white ;
 }
+
 .label-warning, .badge-warning {
     background-color: @color-warning-luminous;
     color:  @color-white ;
@@ -5154,6 +5181,7 @@ form legend,.form-view legend {
     background-color: @color-important;
     color:  @color-white  ;
 }
+
 .label-danger, .badge-danger {
     background-color: @color-danger;
     color:  @color-white  ;
