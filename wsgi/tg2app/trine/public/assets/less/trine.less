@@ -1,0 +1,68 @@
+@import "./bootstrap/bootstrap.less";
+@import "../plugins/boostrapv3/css/docs.less";
+@import "./style.less";
+
+#flash-box-main {
+  .bs-callout;
+  .bs-callout-warning;
+}
+
+.transaction-box {
+  .make-md-column(2);
+  .make-xs-column(4);
+
+  &.transfer {
+    .transaction-amount {
+      color: @brand-info
+    }
+  }
+
+  .info {
+    .bs-callout;
+  }
+
+  .tags {
+    text-align: center;
+  }
+}
+
+.bs-callout-green {
+  border-color: @brand-success;
+  background-color: fadeout(@brand-success, 43%);
+}
+
+.transaction-amount.expense {
+  color: darken(@brand-danger, 20%);
+}
+
+.transaction-amount.income {
+  color: darken(@brand-success, 20%);
+}
+
+
+.tag {
+  padding: 3px 9px;
+  font-size: 11px;
+  text-shadow: none;
+  background-color: @color-primary-grey;
+  font-family: @base-font-family-two;
+  font-weight: 600;
+  color: #5E5E5E;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.tag-income {
+    background-color: @color-primary;
+    color:  @color-white;
+    margin-right: 2px;
+  }
+
+  &.tag-expense {
+    background-color: @color-important;
+    color:  @color-white;
+    margin-right: 2px;
+  }
+}
