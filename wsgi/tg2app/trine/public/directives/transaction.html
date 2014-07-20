@@ -1,6 +1,6 @@
 <div class="transaction-box">
-	<div style="margin-bottom: 0" class="info">
-		<h4 class="fittext" style="font-size: 13.125px;">{{dateParsed | date:'dd.MM.yyyy hh:mm'}}</h4>
+	<div class="info">
+		<h5>{{dateParsed | date:'dd.MM.yyyy hh:mm'}}</h5>
         <h1 ng-class="amount >= 0 ? 'text-success' : 'text-error'" class=" bold inline no-margin">{{amount}}</h1>
 	</div>
 	<div class="tags">
