@@ -68,6 +68,9 @@ class Tag(Base, AutoRepr):
         :param type:
         :return: list of Tag
         """
+        if not str_names:
+            return []
+
         existing_names = DBSession.query(Tag).with_parent(user). \
             filter(or_(*[Tag.name == name for name in str_names])).all()
 

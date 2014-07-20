@@ -5,10 +5,10 @@
     Filter
 {% endblock %}
 
-{% block contents %}
+{% block content %}
 
     <div class="row">
-        <form id="" class="form-horizontal col-lg-12" method="get" action="" >
+        <form id="" class="form-horizontal col-lg-12" method="get" action="">
             <fieldset>
                 <div class="bs-callout bs-callout-info">
                     <h1>Hints</h1>
@@ -46,25 +46,27 @@ examples:
                 <dd class="lead">{{ '{0:n}'.format(balance) if balance }}</dd>
 
                 {% if incomes %}
-                <dt>Incomes</dt>
-                <dd>{{ '{0:n}'.format(incomes) }}</dd>
+                    <dt>Incomes</dt>
+                    <dd>{{ '{0:n}'.format(incomes) }}</dd>
                 {% endif %}
                 {% if expenses %}
-                <dt>Expenses</dt>
-                <dd>{{ '{0:n}'.format(expenses) }}</dd>
+                    <dt>Expenses</dt>
+                    <dd>{{ '{0:n}'.format(expenses) }}</dd>
 
-                <dt>Daily expense</dt>
-                <dd>{{ '{0:n}'.format(expenses/queryGroups.days) }}</dd>
+                    <dt>Daily expense</dt>
+                    <dd>{{ '{0:n}'.format(expenses/queryGroups.days) }}</dd>
 
-                <dt>Weekly expense</dt>
-                <dd>{{ '{0:n}'.format(expenses/(queryGroups.weeks)) }}</dd>
+                    <dt>Weekly expense</dt>
+                    <dd>{{ '{0:n}'.format(expenses/(queryGroups.weeks)) }}</dd>
 
-                <dt>Monthly expense</dt>
-                <dd>{{ '{0:n}'.format(expenses/(queryGroups.months)) }}</dd>
+                    <dt>Monthly expense</dt>
+                    <dd>{{ '{0:n}'.format(expenses/(queryGroups.months)) }}</dd>
                 {% endif %}
             </dl>
         </div>
-        <div class="col-lg-6"><pre>{{ h.dump(queryGroups) }}</pre></div>
+        <div class="col-lg-6">
+            <pre>{{ h.dump(queryGroups) }}</pre>
+        </div>
     </div>
 
     <div class="row ">
