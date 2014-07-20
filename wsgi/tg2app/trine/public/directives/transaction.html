@@ -1,10 +1,10 @@
 <div class="transaction-box">
 	<div style="margin-bottom: 0" class="info">
 		<h4 class="fittext" style="font-size: 13.125px;">{{dateParsed | date:'dd.MM.yyyy hh:mm'}}</h4>
-		<p class="fittext transaction-amount" ng-class="amount >= 0 ? 'income' : 'expense'" style="font-size: 50px;">{{amount}}</p>
+        <h1 ng-class="amount >= 0 ? 'text-success' : 'text-error'" class=" bold inline no-margin">{{amount}}</h1>
 	</div>
 	<div class="tags">
-		<span ng-repeat="tag in incomes track by tag.id" class="tag income">{{tag.name}}</span>
-		<span ng-repeat="tag in expenses track by tag.id" class="tag expense">{{tag.name}}</span>
+        <d-tag ng-repeat="tag in incomes track by tag.id" name="{{tag.name}}" type="{{tag.type}}"></d-tag>
+        <d-tag ng-repeat="tag in expenses track by tag.id" name="{{tag.name}}" type="{{tag.type}}"></d-tag>
 	</div>
 </div>

@@ -75,39 +75,6 @@
   background-color: #fcf8f2;
   border-color: #f0ad4e;
 }
-.tag {
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: bold;
-  line-height: 1;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-  background-color: #999999;
-}
-.tag:empty {
-  display: none;
-}
-.btn .tag {
-  position: relative;
-  top: -1px;
-}
-.tag.selected,
-.tag:hover {
-  background-color: darkgrey;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-}
-.tag.income {
-  background-color: #5cb85c;
-}
-.tag.expense {
-  background-color: #d9534f;
-}
 .transaction-box {
   position: relative;
   float: left;
