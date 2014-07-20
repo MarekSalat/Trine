@@ -192,7 +192,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
         templateUrl: 'ngTagsInput/tags-input.html',
         controller: ["$scope","$attrs","$element", function($scope, $attrs, $element) {
             tagsInputConfig.load('tagsInput', $scope, $attrs, {
-                placeholder: [String, 'Add a tag'],
+                placeholder: [String, ''],
                 tabindex: [Number],
                 removeTagSymbol: [String, String.fromCharCode(215)],
                 replaceSpacesWithDashes: [Boolean, true],
@@ -246,7 +246,8 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
                 tagList = scope.tagList,
                 events = scope.events,
                 options = scope.options,
-                input = element.find('input');
+                input = element.find('input'),
+                placeholderBackup = options.placeholder;
 
             events
                 .on('tag-added', scope.onTagAdded)
@@ -299,6 +300,13 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
             scope.$watch('tags.length', function(value) {
                 ngModelCtrl.$setValidity('maxTags', angular.isUndefined(options.maxTags) || value <= options.maxTags);
                 ngModelCtrl.$setValidity('minTags', angular.isUndefined(options.minTags) || value >= options.minTags);
+
+                if (value > 0) {
+                    options.placeholder = '';
+                }
+                else {
+                    options.placeholder = placeholderBackup;
+                }
             });
 
             input
