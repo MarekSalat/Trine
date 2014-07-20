@@ -1,8 +1,8 @@
 <div ng-if="data.clicked">
-    {{ data.transactions.value_list | json }}
+    {{ data.transactions | json }}
     <br/>
     <br/>
-    {{ data.tags.value_list | json }}
+    {{ data.tags | json }}
 </div>
 <input type='submit' ng-click="data.showJson()" ng-value="!data.clicked ? 'Show json' : 'Hide json'"/>
 <br/>
@@ -53,12 +53,16 @@
 </pre>
 <br/>
 
-<div ng-repeat='transaction in data.transactions.value_list track by transaction.id'>
-    <d-transaction amount='{{ transaction.amount }}' date='{{ transaction.date }}' guid='{{ transaction.id }}'
-                   incomes='{{ transaction.incomeTagGroup.tags }}'
-                   expenses='{{ transaction.expenseTagGroup.tags }}'></d-transaction>
-</div>
 
+<d-transaction ng-repeat='transaction in data.transactions.value_list track by transaction.id'
+               amount='{{ transaction.amount }}'
+               date='{{ transaction.date }}'
+               guid='{{ transaction.id }}'
+               incomes='{{ transaction.incomeTagGroup.tags }}'
+               expenses='{{ transaction.expenseTagGroup.tags }}'>
+</d-transaction>
+
+<br/><br/>
 
 <div class="row col-xs-12">
     <div class="col-md-6 col-sm-12">

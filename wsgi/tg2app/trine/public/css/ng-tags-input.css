@@ -36,7 +36,7 @@ tags-input .tags .tag-list {
   list-style-type: none;
 }
 tags-input .tags .tag-item {
-  margin: 5px;
+  margin: 5px 2px;
   padding: 0 5px;
   float: left;
 }
