@@ -77,7 +77,7 @@ define([
 
                         // Don't pass non-elements to Sizzle
                         cur.nodeType === 1 &&
-                            jQuery.find.matchesSelector(cur, selectors))) {
+                        jQuery.find.matchesSelector(cur, selectors))) {
 
                         matched.push(cur);
                         break;
@@ -120,7 +120,7 @@ define([
 
         addBack: function (selector) {
             return this.add(selector == null ?
-                this.prevObject : this.prevObject.filter(selector)
+                    this.prevObject : this.prevObject.filter(selector)
             );
         }
     });

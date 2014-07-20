@@ -167,7 +167,7 @@ define([
         },
         hasData: function (owner) {
             return !jQuery.isEmptyObject(
-                this.cache[ owner[ this.expando ] ] || {}
+                    this.cache[ owner[ this.expando ] ] || {}
             );
         },
         discard: function (owner) {
