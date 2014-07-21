@@ -29,7 +29,7 @@ class TestApiCrudRestController(TrineControllerTestCase):
 
     def test_post(self):
         transaction = dict(amount=42, incomeTagGroup=['tag'], expenseTagGroup=['tag1', 'tag2'])
-        resp = self.app.post_json('/api/v1/quick-key/transaction', params=transaction, status=200, **self.defaults)
+        resp = self.app.post_json('/api/v1/quick-key/transaction', params=transaction, **self.defaults)
 
         self.assertTrue('value' in resp.json_body)
         trans1 = resp.json_body['value']

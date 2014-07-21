@@ -4,21 +4,118 @@
     Learning TurboGears 2.3: Information about TG and WSGI
 {% endblock %}
 
-{% block contents %}
-    <h2>The WSGI nature of the framework</h2>
-    <p>In this page you can see all the WSGI variables your request object has,
+{% block content %}
+    <div class="page-title"><i class="icon-custom-left"></i>
+
+    <h3>The WSGI - <span class="semi-bold">nature of the framework</span></h3>
+</div>
+{#    <h2>The WSGI nature of the framework</h2>#}
+{#    <p>In this page you can see all the WSGI variables your request object has,#}
+{#        the ones in capital letters are required by the spec, then a sorted by#}
+{#        component list of variables provided by the Components, and at last#}
+{#        the "wsgi." namespace with very useful information about your WSGI Server</p>#}
+{#    <p>The keys in the environment are:</p>#}
+<div class="row-fluid">
+<div class="span12">
+<div class="grid simple ">
+<div class="grid-title">
+    <h4>Advance <span class="semi-bold">Options</span></h4>
+
+    <div class="tools"><a class="collapse" href="javascript:;"></a> <a class="config" data-toggle="modal"
+                                                                       href="#grid-config"></a> <a class="reload"
+                                                                                                   href="javascript:;"></a>
+        <a class="remove" href="javascript:;"></a></div>
+</div>
+<div class="grid-body ">
+<p>In this page you can see all the WSGI variables your request object has,
         the ones in capital letters are required by the spec, then a sorted by
         component list of variables provided by the Components, and at last
         the "wsgi." namespace with very useful information about your WSGI Server</p>
-    <p>The keys in the environment are:
-    <table class="table">
+<div role="grid" class="dataTables_wrapper form-inline" id="example3_wrapper">
+<div class="row">
+    <div class="col-md-6">
+        <div id="example3_length" class="dataTables_length"><label>
+            <div class="select2-container span12" id="s2id_autogen7"><a tabindex="-1" class="select2-choice"
+                                                                        onclick="return false;"
+                                                                        href="javascript:void(0)"> <span
+                    class="select2-chosen">100</span><abbr class="select2-search-choice-close"></abbr> <span
+                    class="select2-arrow"><b></b></span></a><input type="text"
+                                                                   class="select2-focusser select2-offscreen"
+                                                                   id="s2id_autogen8"></div>
+            <select name="example3_length" size="1" aria-controls="example3"
+                    class="select2-wrapper span12 select2-offscreen" tabindex="-1">
+                <option value="10" selected="selected">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select> </label></div>
+        <div class="toolbar">
+            <div class="table-tools-actions">
+                <button id="test2" style="margin-left:12px" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dataTables_filter" id="example3_filter"><label>Search: <input type="text" aria-controls="example3"
+                                                                                  class="input-medium"></label></div>
+    </div>
+</div>
+<table id="example3" class="table dataTable" aria-describedby="example3_info">
+<thead>
+<tr role="row">
+    <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 163px;"
+        aria-label="Rendering engine">Rendering engine
+    </th>
+    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
+        style="width: 239px;" aria-sort="ascending" aria-label="Browser: activate to sort column descending">Browser
+    </th>
+</tr>
+</thead>
+
+<tbody role="alert" aria-live="polite" aria-relevant="all">
         {% for key in environment.keys()|sort %}
             <tr>
                 <td>{{ key }}</td>
                 <td>{{ environment[key]|string }}</td>
             </tr>
         {% endfor %}
-    </table>
-
-    </p>
+</tbody>
+</table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="dataTables_paginate paging_bootstrap pagination">
+            <ul>
+                <li class="prev disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li class="next disabled"><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+        <div class="dataTables_info" id="example3_info">Showing <b>1 to 57</b> of 57 entries</div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
+
+{% block master_footer_scripts %}
+    {{ super() }}
+    <script>
+    //Too Small for new file - Helps the to tick all options in the table
+    $('table .checkbox input').click(function () {
+        if ($(this).is(':checked')) {
+            $(this).parent().parent().parent().toggleClass('row_selected');
+        }
+        else {
+            $(this).parent().parent().parent().toggleClass('row_selected');
+        }
+    });
+    // Demo charts - not required
+    $('.customer-sparkline').each(function () {
+        $(this).sparkline('html', { type: $(this).attr("data-sparkline-type"), barColor: $(this).attr("data-sparkline-color"), enableTagOptions: true });
+    });
+</script>
+{% endblock %}
+

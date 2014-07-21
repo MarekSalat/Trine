@@ -192,7 +192,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
         templateUrl: 'ngTagsInput/tags-input.html',
         controller: ["$scope","$attrs","$element", function($scope, $attrs, $element) {
             tagsInputConfig.load('tagsInput', $scope, $attrs, {
-                placeholder: [String, 'Add a tag'],
+                placeholder: [String, ''],
                 tabindex: [Number],
                 removeTagSymbol: [String, String.fromCharCode(215)],
                 replaceSpacesWithDashes: [Boolean, true],
@@ -208,7 +208,8 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
                 maxTags: [Number],
                 displayProperty: [String, 'text'],
                 allowLeftoverText: [Boolean, false],
-                addFromAutocompleteOnly: [Boolean, false]
+                addFromAutocompleteOnly: [Boolean, false],
+                type: [String, '']
             });
 
             $scope.events = new SimplePubSub();
@@ -245,7 +246,8 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
                 tagList = scope.tagList,
                 events = scope.events,
                 options = scope.options,
-                input = element.find('input');
+                input = element.find('input'),
+                placeholderBackup = options.placeholder;
 
             events
                 .on('tag-added', scope.onTagAdded)
@@ -298,6 +300,13 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
             scope.$watch('tags.length', function(value) {
                 ngModelCtrl.$setValidity('maxTags', angular.isUndefined(options.maxTags) || value <= options.maxTags);
                 ngModelCtrl.$setValidity('minTags', angular.isUndefined(options.minTags) || value >= options.minTags);
+
+                if (value > 0) {
+                    options.placeholder = '';
+                }
+                else {
+                    options.placeholder = placeholderBackup;
+                }
             });
 
             input
@@ -765,7 +774,7 @@ tagsInput.provider('tagsInputConfig', function() {
 /* HTML templates */
 tagsInput.run(["$templateCache", function($templateCache) {
     $templateCache.put('ngTagsInput/tags-input.html',
-    "<div class=\"host\" tabindex=\"-1\" ti-transclude-append=\"\"><div class=\"tags\" ng-class=\"{focused: hasFocus}\"><ul class=\"tag-list\"><li class=\"tag-item\" ng-repeat=\"tag in tagList.items track by track(tag)\" ng-class=\"{ selected: tag == tagList.selected }\"><span>{{getDisplayText(tag)}}</span> <a class=\"remove-button\" ng-click=\"tagList.remove($index)\">{{options.removeTagSymbol}}</a></li></ul><input class=\"input\" placeholder=\"{{options.placeholder}}\" tabindex=\"{{options.tabindex}}\" ng-model=\"newTag.text\" ng-change=\"newTagChange()\" ng-trim=\"false\" ng-class=\"{'invalid-tag': newTag.invalid}\" ti-autosize=\"\"></div></div>"
+    "<div class=\"host\" tabindex=\"-1\" ti-transclude-append=\"\"><div class=\"tags\" ng-class=\"{focused: hasFocus}\"><span class=\"tag-item tag tag-{{options.type}}\" ng-click=\"tagList.remove($index)\" ng-repeat=\"tag in tagList.items track by track(tag)\" ng-class=\"{ selected: tag == tagList.selected }\"><span>{{getDisplayText(tag)}}</span> <a class=\"remove-button\" ng-click=\"tagList.remove($index)\">{{options.removeTagSymbol}}</a></span><input class=\"input\" placeholder=\"{{options.placeholder}}\" tabindex=\"{{options.tabindex}}\" ng-model=\"newTag.text\" ng-change=\"newTagChange()\" ng-trim=\"false\" ng-class=\"{'invalid-tag': newTag.invalid}\" ti-autosize=\"\"></div></div>"
   );
 
   $templateCache.put('ngTagsInput/auto-complete.html',

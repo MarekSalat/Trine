@@ -1,6 +1,7 @@
 {% extends "master.jinja" %}
 
 {% block master_head %}
+    <script src="javascript/underscore-min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
     <script src="https://code.angularjs.org/1.2.18/angular-resource.js"></script>
@@ -11,13 +12,13 @@
     <script src="javascript/controllers.js"></script>
     <script src="javascript/directives.js"></script>
     <script src="javascript/modules.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/ng-tags-input.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/ng-tags-input.css"/>
 {% endblock %}
 
 {% block master_title %}
     Welcome to Trine App
 {% endblock %}
 
-{% block contents %}
+{% block content %}
     <div ng-view></div>
 {% endblock %}
