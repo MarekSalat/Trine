@@ -48,3 +48,6 @@ class TestTag(ModelTest):
         self.assertListEqual(Tag.by_names(["tag 1 user 0"], self.users[0]).all(), [self.tags[1]])
         self.assertListEqual(Tag.by_names(["tag 0 user 0", "tag 1 user 0"], self.users[0]).all(), self.tags[0:2])
         self.assertListEqual(Tag.by_names(["tag 0 user 0", "tag 1 user 0"], self.users[1]).all(), [])
+
+    def test_is_pure_income_tag(self):
+        self.assertFalse(self.tags[0].is_pure_income_tag)

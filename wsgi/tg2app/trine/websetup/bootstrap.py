@@ -84,11 +84,13 @@ def bootstrap(command, conf, vars):
                 user=user
             ))
 
-            Transaction.new_transfer(Transaction(
+            source, target = Transaction.new_transfer(Transaction(
                 amount=-500,
 				foreignCurrencyAmount=0,
                 user=user
             ), group_account, group_cash)
+            transactions.append(source)
+            transactions.append(target)
 
             transactions.append(Transaction(
                 amount=-50,

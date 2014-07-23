@@ -43,6 +43,34 @@ class Transaction(Base, AutoRepr):
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
     user = relationship(User, foreign_keys=_user_id, backref=backref('transactions', order_by=date))
 
+    def calculate_amount(self):
+        """
+        There should be one (and only one) balancing income tag in incomeTagGroup field
+
+        Story:
+            -   I have in cash 42$, I do not remember how much I spend. I want to add my balance a application should
+                calculate how much I spent.
+                amount: 42$; incomeTagGroup: cash; expenseTagGroup: pub, beers; -> App should create transaction
+                    with 42$ minus actual cash balance
+            -   I have not used app for a while. I know my balances and I do not want to calculate how much I need to
+                add or subtract.
+            -   I had 453$ on my "account" now I have 896$ on my account and the difference is my "salary"
+                amount: 896$; incomeTagGroup: account, salary;    -> App should create transaction with 443$
+
+        """
+        balance = self.get_balances_per_tag(self.user)\
+            .filter(
+                Tag.id.in_([tag.id for tag in self.incomeTagGroup.tags])
+            ).all()
+
+        if len(balance) != 1:
+            raise Exception("There should be one (and only one) balancing income tag in incomeTagGroup field")
+        else:
+            balance = balance[0]
+
+        self.amount -= balance[1]
+        return self
+
     @classmethod
     def new_transfer(cls, template_transaction, from_group: TagGroup, to_group: TagGroup):
         """
@@ -53,6 +81,8 @@ class Transaction(Base, AutoRepr):
         :param from_group: incomeTagGroup of source
         :param to_group: incomeTagGroup of target
         :return: source:Transaction, target:Transaction
+        Story:
+            -   I have withdraw some money and I do not want add two separate transactions
         """
         make_transient(template_transaction)
 
@@ -83,8 +113,6 @@ class Transaction(Base, AutoRepr):
         if target.foreignCurrencyAmount:
             target.foreignCurrencyAmount *= -1
 
-        DBSession.add_all([source, target])
-        DBSession.flush()
         return source, target
 
     @classmethod
@@ -110,7 +138,8 @@ class Transaction(Base, AutoRepr):
 
         query = DBSession.query(Tag.name, func.sum(Transaction.amount)).with_parent(user) \
             .filter(Transaction.transferKey == None) \
-            .join(Tag.groups)
+            .join(Tag.groups)\
+            .filter(Tag.groups.any(TagGroup.incomes.any(Transaction.amount < 0)))
 
         if tag_type == Tag.TYPE_INCOME:
             query = query.join(TagGroup.incomes)

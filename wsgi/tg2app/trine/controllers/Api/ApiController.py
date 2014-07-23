@@ -240,7 +240,7 @@ class TransactionApiRestController(ApiCrudRestController):
         return dict(hello='world')
 
     @expose(inherit=True)
-    def post(self, as_transfer=False, **kw):
+    def post(self, as_transfer=False, as_balance=False, **kw):
         # TODO: validation
         transaction = request.json
 
@@ -260,6 +260,7 @@ class TransactionApiRestController(ApiCrudRestController):
                 Tag.new_from_name_list(transaction[field], request.identity["user"], tag_type))
 
         entity = self.model(**transaction)
+        """ :type: Transaction.Transaction """
         entity._user_id = request.identity["user"].id
 
         if as_transfer:
@@ -267,7 +268,12 @@ class TransactionApiRestController(ApiCrudRestController):
             source, target = Transaction.new_transfer(entity,
                                                       transaction['incomeTagGroup'],
                                                       transaction['expenseTagGroup'])
+            db.add_all([source, target])
+            db.flush()
             return {'value_list': self._dictify([source, target]), 'entries': 2}
+
+        if as_balance:
+            entity.calculate_amount()
 
         db.add(entity)
         db.flush()
