@@ -228,10 +228,10 @@ class TransactionApiRestController(ApiCrudRestController):
         ).with_parent(request.identity["user"])
 
         if only_planned:
-            query = query.filter(or_(Transaction.date == None, Transaction.date > datetime.datetime.utcnow()))
+            query = query.filter(or_(Transaction.date == None, Transaction.date > datetime.utcnow()))
 
         if only_passed:
-            query = query.filter(Transaction.date <= datetime.datetime.utcnow())
+            query = query.filter(Transaction.date <= datetime.utcnow())
 
         return query
 
