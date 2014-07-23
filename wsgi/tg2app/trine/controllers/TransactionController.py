@@ -25,7 +25,7 @@ class TransactionController(BaseController):
                 .filter(Transaction.date <= datetime.utcnow())
                 .order_by(Transaction.date.desc(), Transaction.amount.desc())
                 .limit(36),
-            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME),
+            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME).all(),
             'totalBalance': Transaction.get_balance(user).scalar(),
             'totalIncomes': Transaction.get_total_incomes(user).scalar(),
             'totalExpenses': Transaction.get_total_expenses(user).scalar(),

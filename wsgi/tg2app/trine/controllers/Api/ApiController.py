@@ -237,7 +237,13 @@ class TransactionApiRestController(ApiCrudRestController):
 
     @expose('json')
     def balances(self, **kw):
-        return dict(hello='world')
+        user = request.identity["user"]
+        return {
+            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME).all(),
+            'totalBalance': Transaction.get_balance(user).scalar(),
+            'totalIncomes': Transaction.get_total_incomes(user).scalar(),
+            'totalExpenses': Transaction.get_total_expenses(user).scalar(),
+        }
 
     @expose(inherit=True)
     def post(self, as_transfer=False, as_balance=False, **kw):
