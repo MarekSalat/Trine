@@ -236,13 +236,17 @@ class TransactionApiRestController(ApiCrudRestController):
         return query
 
     @expose('json')
-    def balances(self, **kw):
+    def balances(self, only_passed=False, **kw):
         user = request.identity["user"]
+
+        if only_passed:
+            kw['to_date'] = datetime.utcnow()
+
         return {
-            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME).all(),
-            'totalBalance': Transaction.get_balance(user).scalar(),
-            'totalIncomes': Transaction.get_total_incomes(user).scalar(),
-            'totalExpenses': Transaction.get_total_expenses(user).scalar(),
+            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME, **kw).all(),
+            'totalBalance': Transaction.get_balance(user, **kw).scalar(),
+            'totalIncomes': Transaction.get_total_incomes(user, **kw).scalar(),
+            'totalExpenses': Transaction.get_total_expenses(user, **kw).scalar(),
         }
 
     @expose(inherit=True)

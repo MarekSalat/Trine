@@ -9,7 +9,7 @@ from trine.utils.uuidType import id_column, UuidColumn, JsonableUUID
 __author__ = 'Marek'
 
 from sqlalchemy.orm import relationship, backref, make_transient
-from sqlalchemy import String, Float, Text, ForeignKey, Column, TIMESTAMP, func
+from sqlalchemy import String, Float, Text, ForeignKey, Column, TIMESTAMP, func, or_
 
 from trine.model import DeclarativeBase as Base, User, DBSession, Tag, TagGroup
 
@@ -124,22 +124,36 @@ class Transaction(Base, AutoRepr):
         return cls.get_balance(user, **kw).filter(cls.amount < 0)
 
     @classmethod
-    def get_balance(cls, user: User, to_date=None, **kw):
+    def get_balance(cls, user: User, from_date=None, to_date=None, only_planned=False, **kw):
         query = DBSession.query(func.sum(cls.amount)).with_parent(user).filter(cls.transferKey == None)
-        if not to_date:
-            query = query.filter(cls.date <= datetime.utcnow())
+
+        if to_date:
+            query = query.filter(cls.date <= to_date)
+        if from_date and not only_planned:
+            query = query.filter(cls.date >= from_date)
+        if only_planned:
+            _from_date = from_date if from_date else datetime.utcnow()
+            query = query.filter(or_(cls.date == None, cls.date > _from_date))
 
         return query
 
     @classmethod
-    def get_balances_per_tag(cls, user: User, tag_type=Tag.TYPE_INCOME):
+    def get_balances_per_tag(cls, user: User, tag_type=Tag.TYPE_INCOME, from_date=None, to_date=None, only_planned=False, **kw):
         if tag_type is not Tag.TYPE_INCOME and tag_type is not Tag.TYPE_EXPENSE:
             raise Exception('Unsupported tag type: ' + str(tag_type))
 
-        query = DBSession.query(Tag.name, func.sum(Transaction.amount)).with_parent(user) \
+        query = DBSession.query(Tag.name, func.sum(cls.amount)).with_parent(user) \
             .filter(Transaction.transferKey == None) \
             .join(Tag.groups)\
-            .filter(Tag.groups.any(TagGroup.incomes.any(Transaction.amount < 0)))
+            .filter(Tag.groups.any(TagGroup.incomes.any(cls.amount < 0)))
+
+        if to_date:
+            query = query.filter(cls.date < to_date)
+        if from_date and not only_planned:
+            query = query.filter(cls.date > from_date)
+        if only_planned:
+            _from_date = from_date if from_date else datetime.utcnow()
+            query = query.filter(or_(cls.date == None, cls.date >= _from_date))
 
         if tag_type == Tag.TYPE_INCOME:
             query = query.join(TagGroup.incomes)

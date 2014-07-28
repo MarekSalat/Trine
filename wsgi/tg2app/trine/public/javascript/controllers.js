@@ -1,11 +1,19 @@
 angular.module('trine.controllers', [])
-    .controller('HomeController', ['$q', '$scope', 'TransactionService', 'TagsService', '_',
-        function ($q, $scope, TransactionService, TagsService, _) {
+    .controller('HomeController', ['$q', '$scope', 'TransactionService', 'BalancesService', 'UserService', 'TagsService', '_',
+        function ($q, $scope, TransactionService, BalancesService, UserService, TagsService, _) {
             $scope.data = {};
             $scope.data.clicked = false;
 
             if (!$scope.data.transactions) {
                 $scope.data.transactions = TransactionService.get({});
+            }
+
+            if (!$scope.data.balances) {
+                $scope.data.balances = BalancesService.get({});
+            }
+
+            if (!$scope.data.user) {
+                $scope.data.user = UserService.get({});
             }
 
             if (!$scope.data.tags) {

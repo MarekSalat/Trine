@@ -72,7 +72,7 @@ class TransactionController(BaseController):
 
         user = request.identity["user"]
 
-        dbQuery = self.db.query(Transaction).with_parent(user)
+        dbQuery = db.query(Transaction).with_parent(user)
 
         # contains
         if query:
