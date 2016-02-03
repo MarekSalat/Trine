@@ -228,19 +228,29 @@ class TransactionApiRestController(ApiCrudRestController):
         ).with_parent(request.identity["user"])
 
         if only_planned:
-            query = query.filter(or_(Transaction.date == None, Transaction.date > datetime.datetime.utcnow()))
+            query = query.filter(or_(Transaction.date == None, Transaction.date > datetime.utcnow()))
 
         if only_passed:
-            query = query.filter(Transaction.date <= datetime.datetime.utcnow())
+            query = query.filter(Transaction.date <= datetime.utcnow())
 
         return query
 
     @expose('json')
-    def balances(self, **kw):
-        return dict(hello='world')
+    def balances(self, only_passed=False, **kw):
+        user = request.identity["user"]
+
+        if only_passed:
+            kw['to_date'] = datetime.utcnow()
+
+        return {
+            'balances': Transaction.get_balances_per_tag(user, Tag.TYPE_INCOME, **kw).all(),
+            'totalBalance': Transaction.get_balance(user, **kw).scalar(),
+            'totalIncomes': Transaction.get_total_incomes(user, **kw).scalar(),
+            'totalExpenses': Transaction.get_total_expenses(user, **kw).scalar(),
+        }
 
     @expose(inherit=True)
-    def post(self, as_transfer=False, **kw):
+    def post(self, as_transfer=False, as_balance=False, **kw):
         # TODO: validation
         transaction = request.json
 
@@ -260,6 +270,7 @@ class TransactionApiRestController(ApiCrudRestController):
                 Tag.new_from_name_list(transaction[field], request.identity["user"], tag_type))
 
         entity = self.model(**transaction)
+        """ :type: Transaction.Transaction """
         entity._user_id = request.identity["user"].id
 
         if as_transfer:
@@ -267,7 +278,12 @@ class TransactionApiRestController(ApiCrudRestController):
             source, target = Transaction.new_transfer(entity,
                                                       transaction['incomeTagGroup'],
                                                       transaction['expenseTagGroup'])
+            db.add_all([source, target])
+            db.flush()
             return {'value_list': self._dictify([source, target]), 'entries': 2}
+
+        if as_balance:
+            entity.calculate_amount()
 
         db.add(entity)
         db.flush()

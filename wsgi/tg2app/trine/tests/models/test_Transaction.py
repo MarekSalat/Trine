@@ -22,12 +22,14 @@ class TestTransaction(ModelTest):
 
     def test_new_transfer(self):
         template = Transaction(user=self.users[0], amount=42, foreignCurrencyAmount=1, description="Something ...")
-        # make_transient(template)
+        make_transient(template)
 
         source_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="account")])
         target_group = TagGroup(user=self.users[0], tags=[Tag(user=self.users[0], name="cache")])
 
         source_trans, target_trans = Transaction.new_transfer(template, source_group, target_group)
+        db.add_all([source_trans, target_trans])
+        db.flush()
 
         self.assertNotEqual(source_trans.id, target_trans.id)
         self.assertEquals(source_trans.transferKey, target_trans.transferKey)
@@ -40,3 +42,17 @@ class TestTransaction(ModelTest):
 
         trans = db.query(Transaction).all()
         self.assertEquals(len(trans), 2)
+
+    def test_calculate_amount(self):
+        account = Tag(user=self.users[0], name="account")
+        account_group = TagGroup(user=self.users[0], tags=[account])
+        db.add(Transaction(user=self.users[0], amount=500, incomeTagGroup=account_group))
+        db.add(Transaction(user=self.users[0], amount=-100, incomeTagGroup=account_group))
+        db.flush()
+
+        t = Transaction(user=self.users[0], amount=33, incomeTagGroup=account_group)
+        make_transient(t)
+        t.calculate_amount()
+        self.assertEquals(t.amount, 33-400)
+
+

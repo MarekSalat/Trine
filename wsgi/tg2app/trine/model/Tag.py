@@ -7,6 +7,7 @@ from trine.utils.uuidType import UuidColumn, id_column
 
 __author__ = 'Marek'
 
+
 class Tag(Base, AutoRepr):
     __tablename__ = "Tag"
 

@@ -9,7 +9,7 @@ from trine.utils.uuidType import id_column, UuidColumn, JsonableUUID
 __author__ = 'Marek'
 
 from sqlalchemy.orm import relationship, backref, make_transient
-from sqlalchemy import String, Float, Text, ForeignKey, Column, TIMESTAMP, func
+from sqlalchemy import String, Float, Text, ForeignKey, Column, TIMESTAMP, func, or_
 
 from trine.model import DeclarativeBase as Base, User, DBSession, Tag, TagGroup
 
@@ -43,6 +43,34 @@ class Transaction(Base, AutoRepr):
     _user_id = Column(UuidColumn, ForeignKey(User.id), nullable=False)
     user = relationship(User, foreign_keys=_user_id, backref=backref('transactions', order_by=date))
 
+    def calculate_amount(self):
+        """
+        There should be one (and only one) balancing income tag in incomeTagGroup field
+
+        Story:
+            -   I have in cash 42$, I do not remember how much I spend. I want to add my balance a application should
+                calculate how much I spent.
+                amount: 42$; incomeTagGroup: cash; expenseTagGroup: pub, beers; -> App should create transaction
+                    with 42$ minus actual cash balance
+            -   I have not used app for a while. I know my balances and I do not want to calculate how much I need to
+                add or subtract.
+            -   I had 453$ on my "account" now I have 896$ on my account and the difference is my "salary"
+                amount: 896$; incomeTagGroup: account, salary;    -> App should create transaction with 443$
+
+        """
+        balance = self.get_balances_per_tag(self.user)\
+            .filter(
+                Tag.id.in_([tag.id for tag in self.incomeTagGroup.tags])
+            ).all()
+
+        if len(balance) != 1:
+            raise Exception("There should be one (and only one) balancing income tag in incomeTagGroup field")
+        else:
+            balance = balance[0]
+
+        self.amount -= balance[1]
+        return self
+
     @classmethod
     def new_transfer(cls, template_transaction, from_group: TagGroup, to_group: TagGroup):
         """
@@ -53,6 +81,8 @@ class Transaction(Base, AutoRepr):
         :param from_group: incomeTagGroup of source
         :param to_group: incomeTagGroup of target
         :return: source:Transaction, target:Transaction
+        Story:
+            -   I have withdraw some money and I do not want add two separate transactions
         """
         make_transient(template_transaction)
 
@@ -83,8 +113,6 @@ class Transaction(Base, AutoRepr):
         if target.foreignCurrencyAmount:
             target.foreignCurrencyAmount *= -1
 
-        DBSession.add_all([source, target])
-        DBSession.flush()
         return source, target
 
     @classmethod
@@ -96,21 +124,36 @@ class Transaction(Base, AutoRepr):
         return cls.get_balance(user, **kw).filter(cls.amount < 0)
 
     @classmethod
-    def get_balance(cls, user: User, to_date=None, **kw):
+    def get_balance(cls, user: User, from_date=None, to_date=None, only_planned=False, **kw):
         query = DBSession.query(func.sum(cls.amount)).with_parent(user).filter(cls.transferKey == None)
-        if not to_date:
-            query = query.filter(cls.date <= datetime.utcnow())
+
+        if to_date:
+            query = query.filter(cls.date <= to_date)
+        if from_date and not only_planned:
+            query = query.filter(cls.date >= from_date)
+        if only_planned:
+            _from_date = from_date if from_date else datetime.utcnow()
+            query = query.filter(or_(cls.date == None, cls.date > _from_date))
 
         return query
 
     @classmethod
-    def get_balances_per_tag(cls, user: User, tag_type=Tag.TYPE_INCOME):
+    def get_balances_per_tag(cls, user: User, tag_type=Tag.TYPE_INCOME, from_date=None, to_date=None, only_planned=False, **kw):
         if tag_type is not Tag.TYPE_INCOME and tag_type is not Tag.TYPE_EXPENSE:
             raise Exception('Unsupported tag type: ' + str(tag_type))
 
-        query = DBSession.query(Tag.name, func.sum(Transaction.amount)).with_parent(user) \
+        query = DBSession.query(Tag.name, func.sum(cls.amount)).with_parent(user) \
             .filter(Transaction.transferKey == None) \
-            .join(Tag.groups)
+            .join(Tag.groups)\
+            .filter(Tag.groups.any(TagGroup.incomes.any(cls.amount < 0)))
+
+        if to_date:
+            query = query.filter(cls.date < to_date)
+        if from_date and not only_planned:
+            query = query.filter(cls.date > from_date)
+        if only_planned:
+            _from_date = from_date if from_date else datetime.utcnow()
+            query = query.filter(or_(cls.date == None, cls.date >= _from_date))
 
         if tag_type == Tag.TYPE_INCOME:
             query = query.join(TagGroup.incomes)
